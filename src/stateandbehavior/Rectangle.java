@@ -78,17 +78,17 @@ public class Rectangle {
     }
 
     public boolean contains(int x, int y) {
-<<<<<<< HEAD
+
         /*if (isEmpty()) {
             return false;
         }
         else*/ if ((x>=minX) && (x<=maxX) && (y>=minY) && (y<=maxY)) {
-=======
+
         if (isEmpty()) {
             return false;
         }
         else if ((x>=minX) && (x<=maxX) && (y>=minY) && (y<=maxY)) {
->>>>>>> origin/Oving2
+
             return true;
         }
         else {
@@ -112,7 +112,7 @@ public class Rectangle {
     public boolean add(int x, int y) {
         boolean changed = false;
 
-<<<<<<< HEAD
+
         /*
         if (contains(x, y)) {
             return false;
@@ -129,7 +129,7 @@ public class Rectangle {
                 changed = true;
             }
 
-=======
+
         //if (first) { second = true; first = false; }
 
         if (contains(x, y)) {
@@ -144,7 +144,7 @@ public class Rectangle {
             return true;
         }*/
         else {
->>>>>>> origin/Oving2
+
             if (x < minX) {
                 minX = x;
                 changed = true;
@@ -164,16 +164,16 @@ public class Rectangle {
                 maxY = y;
                 changed = true;
             }
-<<<<<<< HEAD
+
 
             return changed;
         }
     //}
-=======
+
             return changed;
         }
     }
->>>>>>> origin/Oving2
+
 
     public boolean add(Rectangle rect) {
         if (rect.isEmpty()) {
@@ -237,16 +237,16 @@ public class Rectangle {
         System.out.println("Rectangle 2");
         Rectangle rect2 = new Rectangle();
         System.out.println(rect2.add(13,-27));
-<<<<<<< HEAD
+
         System.out.println(rect2.add(13,-27));
         //System.out.println(rect2.add(10,10));
         System.out.println(rect2.contains(13, -27));
         //System.out.println(rect2.contains(10,10));
-=======
+
         System.out.println(rect2.add(10,10));
         System.out.println(rect2.contains(13, -27));
         System.out.println(rect2.contains(10,10));
->>>>>>> origin/Oving2
+
         System.out.println("----X---");
         System.out.println("min: "+rect2.getMinX());
         System.out.println("max: "+rect2.getMaxX());
