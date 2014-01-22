@@ -4,15 +4,15 @@ Innleveringsfrist: Fredag 31. januar kl 0800.
 
 ==========
 
-Dette må du gjøre:
+### Dette må du gjøre:
 ==========
-Velg minst 2 av oppgavene under:
-Innkapsling av eksisterende klasser (https://www.ntnu.no/wiki/display/tdt4100/Innkapsling+-+Oppgave+om+innkapsling+av+klasser+fra+andre+oppgaver). Skriv svar (stikkord / få, korte setninger) på spørsmål 1-4 enten som kommentarer i koden din eller i en egen fil som du laster opp sammen med besvarelsen din. Oppgavene om Rectangle, RPN-kalkulator, Stack for tilfeldige String-objekter og UpOrDownCounter kan bare velges for poeng dersom de ikke allerede har blitt løst i en tidligere øving. De øvrige oppgavene (Calculator, Digit, LineEditor og Location) kan velges for poeng uavhengig om de har blitt løst tidligere eller ikke.
-Person-oppgave (https://www.ntnu.no/wiki/display/tdt4100/Innkapsling+-+Person-oppgave)
-Account-oppgave (https://www.ntnu.no/wiki/display/tdt4100/Innkapsling+-+Account-oppgave)
-Du må løse oppgaver slik at summen av deres dekningsgrad og omfang er minst 100 poeng (disse står oppgitt i en egen tabell under respektiv oppgavetekst). Du kan f.eks. velge å løse Person og AdvancedAccount-oppgavene og oppnå 50 + 50 = 100 dekningsgradspoeng samt 50 + 50 = 100 omfangspoeng. Du er selvfølgelig velkommen til å løse flere oppgaver enn minstekravet, hvilket lurt gjøres med tanke på eksamen og et langt liv som programmerende.
+Velg minst 2 av oppgavene under "Innkapsling av eksisterende klasser" (https://www.ntnu.no/wiki/display/tdt4100/Innkapsling+-+Oppgave+om+innkapsling+av+klasser+fra+andre+oppgaver).
+- Skriv svar (stikkord / få, korte setninger) på spørsmål 1-4 enten som kommentarer i koden din eller i en egen fil som du laster opp sammen med besvarelsen din.
+- *Oppgavene om Rectangle, RPN-kalkulator, Stack for tilfeldige String-objekter og UpOrDownCounter kan bare velges for poeng dersom de ikke allerede har blitt løst i en tidligere øving. De øvrige oppgavene (Calculator, Digit, LineEditor og Location) kan velges for poeng uavhengig om de har blitt løst tidligere eller ikke.*
+- **Person-oppgave** (https://www.ntnu.no/wiki/display/tdt4100/Innkapsling+-+Person-oppgave)
+- **Account-oppgave** (https://www.ntnu.no/wiki/display/tdt4100/Innkapsling+-+Account-oppgave)
+
 Før du setter i gang kan det vært lurt å lese nevnte wikiside om 'Innkapsling' nøye (https://www.ntnu.no/wiki/display/tdt4100/Innkapsling). Forelesningene og tilhørende øvingsforelesning er selvsagt også lure å få med seg.
-JExercise (https://www.ntnu.no/wiki/display/tdt4100/JExercise), som er et rammeverk utviklet for å teste kode, kan en velge å bruke (anbefalt) for å forsikre seg om at koden fungerer som den skal. Dette gjøres ved å kjøre testkoden vedlagt hver av de overnevnte oppgavene. Installasjon og bruk av JExercise er beskrevet i https://www.ntnu.no/wiki/display/tdt4100/ og https://www.ntnu.no/wiki/display/tdt4100/JExercise, henholdsvis.
 
 ==========
 Øvingsmål:
