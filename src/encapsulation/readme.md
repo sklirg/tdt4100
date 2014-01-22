@@ -5,7 +5,6 @@
 ==========
 
 ### Dette må du gjøre:
-==========
 - Velg minst 2 av oppgavene under "Innkapsling av eksisterende klasser" (https://www.ntnu.no/wiki/display/tdt4100/Innkapsling+-+Oppgave+om+innkapsling+av+klasser+fra+andre+oppgaver).
 -- *Oppgavene om Rectangle, RPN-kalkulator, Stack for tilfeldige String-objekter og UpOrDownCounter kan bare velges for poeng dersom de ikke allerede har blitt løst i en tidligere øving. De øvrige oppgavene (Calculator, Digit, LineEditor og Location) kan velges for poeng uavhengig om de har blitt løst tidligere eller ikke.*
 - Skriv svar (stikkord / få, korte setninger) på spørsmål 1-4 enten som kommentarer i koden din eller i en egen fil som du laster opp sammen med besvarelsen din.
