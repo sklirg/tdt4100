@@ -9,7 +9,6 @@
 
 
 
-
 # Øving 3
 ### Innkapsling og validering  
 **Innleveringsfrist: Fredag 31. januar kl 0800.**
