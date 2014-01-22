@@ -1,4 +1,10 @@
-Øving 3: Innkapsling og validering
+Øving 4[o4]
+Øving 3[o3]
+
+
+
+==========
+# Øving 3: Innkapsling og validering
 ==========
 **Innleveringsfrist: Fredag 31. januar kl 0800.**
 
@@ -23,3 +29,13 @@ Før du setter i gang kan det vært lurt å lese nevnte wikiside om 'Innkapsling
 å kunne forstå og implementere hvordan en klasse best bør innkapsles
 å kunne skrive kode for å validere argumenter for å sikre gyldig tilstand
 å kunne kaste exceptions ved ugyldige argumenter i en metode
+
+
+
+
+
+
+
+
+[o3]: #3
+[o4]: #4
