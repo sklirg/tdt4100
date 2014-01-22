@@ -2,8 +2,8 @@
 
 ##### Meny
 - [Wiki][wiki]
-- [] [Øving 4][o4]
-- [] [Øving 3][o3]
+- [ ] [Øving 4][o4]
+- [ ] [Øving 3][o3]
 - [x] [Øving 2][o2]
 - [x] [Øving 1][o1]
 
