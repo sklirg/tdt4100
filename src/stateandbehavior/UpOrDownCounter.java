@@ -1,5 +1,7 @@
 package stateandbehavior;
 
+import javax.crypto.IllegalBlockSizeException;
+
 /**
  * Created by Sklirg on 20.01.14.
  */
