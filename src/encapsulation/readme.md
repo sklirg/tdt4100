@@ -1,0 +1,29 @@
+Øving 3: Innkapsling og validering
+ 
+Øvingsmål:
+å lære å innkapsle klasser og metoder etter god programmeringskikk
+å lære å validere argumenter for å sikre gyldig tilstand
+ 
+Øvingskrav:
+å kunne forstå og implementere hvordan en klasse best bør innkapsles
+å kunne skrive kode for å validere argumenter for å sikre gyldig tilstand
+å kunne kaste exceptions ved ugyldige argumenter i en metode
+ 
+Dette må du gjøre:
+Velg minst 2 av oppgavene under:
+Innkapsling av eksisterende klasser (https://www.ntnu.no/wiki/display/tdt4100/Innkapsling+-+Oppgave+om+innkapsling+av+klasser+fra+andre+oppgaver). Skriv svar (stikkord / få, korte setninger) på spørsmål 1-4 enten som kommentarer i koden din eller i en egen fil som du laster opp sammen med besvarelsen din. Oppgavene om Rectangle, RPN-kalkulator, Stack for tilfeldige String-objekter og UpOrDownCounter kan bare velges for poeng dersom de ikke allerede har blitt løst i en tidligere øving. De øvrige oppgavene (Calculator, Digit, LineEditor og Location) kan velges for poeng uavhengig om de har blitt løst tidligere eller ikke.
+Person-oppgave (https://www.ntnu.no/wiki/display/tdt4100/Innkapsling+-+Person-oppgave)
+Account-oppgave (https://www.ntnu.no/wiki/display/tdt4100/Innkapsling+-+Account-oppgave)
+Du må løse oppgaver slik at summen av deres dekningsgrad og omfang er minst 100 poeng (disse står oppgitt i en egen tabell under respektiv oppgavetekst). Du kan f.eks. velge å løse Person og AdvancedAccount-oppgavene og oppnå 50 + 50 = 100 dekningsgradspoeng samt 50 + 50 = 100 omfangspoeng. Du er selvfølgelig velkommen til å løse flere oppgaver enn minstekravet, hvilket lurt gjøres med tanke på eksamen og et langt liv som programmerende.
+Før du setter i gang kan det vært lurt å lese nevnte wikiside om 'Innkapsling' nøye (https://www.ntnu.no/wiki/display/tdt4100/Innkapsling). Forelesningene og tilhørende øvingsforelesning er selvsagt også lure å få med seg.
+JExercise (https://www.ntnu.no/wiki/display/tdt4100/JExercise), som er et rammeverk utviklet for å teste kode, kan en velge å bruke (anbefalt) for å forsikre seg om at koden fungerer som den skal. Dette gjøres ved å kjøre testkoden vedlagt hver av de overnevnte oppgavene. Installasjon og bruk av JExercise er beskrevet i https://www.ntnu.no/wiki/display/tdt4100/ og https://www.ntnu.no/wiki/display/tdt4100/JExercise, henholdsvis.
+ 
+Hjelp / mistanke om bugs:
+Ved spørsmål eller behov for hjelp konsulter studassen din i saltiden hans / hennes. Du kan også oppsøke andre studasser på sal eller legge ut et innlegg på piazza (https://piazza.com/). 
+ 
+Innleveringsfrist:
+Fredag 31. januar kl 0800.
+ 
+Godkjenning:
+Last opp kildekode på It’s Learning innen overnevnte frist. Demonstrer deretter koden for studassen din som så vil gi deg en poengsum på arbeidet. Koden må ikke nødvendigvis være demonstrert innen fristen; hvis f.eks. studassen din har saltid på fredager kan du demonstrere koden din da (du må likevel ha lastet opp koden innen fristen).
+Poengsummen tildeles skjønnsmessig av studassen basert på 1) oppgavekorrekthet, 2) omfang og 3) innsats og vil være i {0, [50,100]} (altså, enten 0 eller mellom 50 og 100). Dette er fordi man behøver minst 50 poeng for at øvingen skal være godkjent ('ikke godkjent' gir 0 poeng). For å bestå øvingsopplegget trenger man minst 75 poeng i snitt. 100 poeng er selvfølgelig ønskelig.
