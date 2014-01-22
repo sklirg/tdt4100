@@ -1,10 +1,12 @@
-Øving 4[o4]
-Øving 3[o3]
+[Øving 4][o4]
+
+[Øving 3][o3]
 
 
 
 ==========
-# Øving 3: Innkapsling og validering
+# Øving 3
+### Innkapsling og validering
 ==========
 **Innleveringsfrist: Fredag 31. januar kl 0800.**
 
@@ -37,5 +39,5 @@ Før du setter i gang kan det vært lurt å lese nevnte wikiside om 'Innkapsling
 
 
 
-[o3]: #3
-[o4]: #4
+[o3]: #%C3%98ving-3
+[o4]: #%C3%98ving-4
