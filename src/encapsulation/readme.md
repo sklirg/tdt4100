@@ -17,7 +17,7 @@
 ==========
 
 ### Dette må du gjøre:
-- Velg minst 2 av oppgavene under "Innkapsling av eksisterende klasser" (https://www.ntnu.no/wiki/display/tdt4100/Innkapsling+-+Oppgave+om+innkapsling+av+klasser+fra+andre+oppgaver).
+- Velg minst 2 av oppgavene under [Innkapsling av eksisterende klasser](https://www.ntnu.no/wiki/display/tdt4100/Innkapsling+-+Oppgave+om+innkapsling+av+klasser+fra+andre+oppgaver).
   - *Oppgavene om Rectangle, RPN-kalkulator, Stack for tilfeldige String-objekter og UpOrDownCounter kan bare velges for poeng dersom de ikke allerede har blitt løst i en tidligere øving.*
   - *De øvrige oppgavene (Calculator, Digit, LineEditor og Location) kan velges for poeng uavhengig om de har blitt løst tidligere eller ikke.*
 - Skriv svar (stikkord / få, korte setninger) på spørsmål 1-4 enten som kommentarer i koden din eller i en egen fil som du laster opp sammen med besvarelsen din.
@@ -46,7 +46,7 @@ Før du setter i gang kan det vært lurt å lese nevnte wikiside om 'Innkapsling
 =========
 
 ### Dette må du gjøre:
-- Velg minst én av oppgavene du ikke løste i øving 1 (med mindre du gjorde alle) under wikisiden 'Tilstand og oppførsel' (https://www.ntnu.no/wiki/pages/viewpage.action?pageId=65937373):
+- Velg minst én av oppgavene du ikke løste i øving 1 (med mindre du gjorde alle) under wikisiden [Tilstand og oppførsel](https://www.ntnu.no/wiki/pages/viewpage.action?pageId=65937373):
 - Velg deretter minst én av oppgavene under:
   - Enkel kalkulator (https://www.ntnu.no/wiki/pages/viewpage.action?pageId=69241174)
   - Stack for tilfeldige tall (https://www.ntnu.no/wiki/pages/viewpage.action?pageId=69241177)
@@ -77,7 +77,7 @@ Før du setter i gang kan det vært lurt å lese nevnte wikiside om [Tilstand og
 ==========
 
 ### Dette må du gjøre:
-Velg blant følgende oppgaver under wikisiden 'Tilstand og oppførsel' (https://www.ntnu.no/wiki/pages/viewpage.action?pageId=65937373):
+Velg blant følgende oppgaver under wikisiden [Tilstand og oppførsel](https://www.ntnu.no/wiki/pages/viewpage.action?pageId=65937373):
 - Account (https://www.ntnu.no/wiki/pages/viewpage.action?pageId=68359650)
 - Digit (https://www.ntnu.no/wiki/pages/viewpage.action?pageId=69239051)
 - LineEditor (https://www.ntnu.no/wiki/pages/viewpage.action?pageId=68359689) (frivillig del behøves ikke løses for - dekningsgrad- og omfangspoeng)
