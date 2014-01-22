@@ -1,6 +1,6 @@
 Hei
 ===
 
-- [] en
+- [ ] en
 - [x] to
-- [] tre
+- [ ] tre
