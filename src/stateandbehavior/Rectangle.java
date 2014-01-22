@@ -1,261 +1,156 @@
 package stateandbehavior;
 
 public class Rectangle {
-    private int minX;
-    private int minY;
-    private int maxX;
-    private int maxY;
-    //private boolean first = true;
-    //private boolean second = false;
+    int maxX;
+    int maxY;
+    int minX;
+    int minY;
 
-/*    public Rectangle() {
 
-        minX = 1000;
-        minY = 1000;
-        maxX = -1000;
-        maxY = -1000;
-
-    }
-*/
-    public int getMinX() {
-        return minX;
+    int getMinX(){
+        return this.minX;
     }
 
-    public void setMinX(int minX) {
-        this.minX = minX;
+    int getMinY(){
+        return this.minY;
     }
 
-    public int getMinY() {
-        return minY;
+    int getMaxX(){
+        return this.maxX;
     }
 
-    public void setMinY(int minY) {
-        this.minY = minY;
+    int getMaxY(){
+        return this.maxY;
     }
 
-    public int getMaxX() {
-        return maxX;
-    }
-
-    public void setMaxX(int maxX) {
-        this.maxX = maxX;
-    }
-
-    public int getMaxY() {
-        return maxY;
-    }
-
-    public void setMaxY(int maxY) {
-        this.maxY = maxY;
-    }
-
-    public int getWidth() {
-        if ((maxX-minX == 0 || maxY-minY == 0) && !(maxX-minX == 0 && maxY-minY == 0)) {
+    int getWidth(){
+        if (maxX == minX){
+            if (maxX == 0){
+                return 0;
+            }
             return 1;
-        }
-        else if (isEmpty()) {
-            return 0;
         }
         else {
-            return (maxX - minX);
+            return ((maxX - minX) + 1); // + 1 ?
         }
     }
 
-    public int getHeight() {
-        if ((maxX-minX == 0 || maxY-minY == 0) && !(maxX-minX == 0 && maxY-minY == 0)) {
+    int getHeight(){
+        if (maxY == minY){
+            if (maxY == 0) {
+                return 0;
+            }
             return 1;
         }
-        else if (isEmpty()) {
-            return 0;
+        else {
+            return ((maxY - minY)+1);// +1?
         }
-        else  {
-            return (maxY-minY);
-        }
+
     }
 
-    public boolean isEmpty() {
-        return ((maxY-minY == 0) || (maxX - minX == 0));
-    }
-
-    public boolean contains(int x, int y) {
-
-        /*if (isEmpty()) {
-            return false;
-        }
-        else*/ if ((x>=minX) && (x<=maxX) && (y>=minY) && (y<=maxY)) {
-
-        if (isEmpty()) {
-            return false;
-        }
-        else if ((x>=minX) && (x<=maxX) && (y>=minY) && (y<=maxY)) {
-
+    boolean isEmpty(){
+        if (minX == 0 && maxX == 0 || minY == 0 && maxY == 0){
             return true;
         }
+        return false;
+    }
+
+    boolean contains(int x, int y){
+        if (minX == 0 && maxX == 0 && minY == 0 && maxY == 0){
+            return false;
+        }
+
+        else if ((x >= minX && x <= maxX) && (y >= minY && y <= maxY) ){
+            return true;
+        }
+
         else {
             return false;
         }
     }
 
-    public boolean contains(Rectangle rect) {
-        if (isEmpty() || rect.isEmpty()) {
-            return false;
+    boolean contains(Rectangle rect){
+        if ((rect.minX >= this.minX && rect.maxX <= this.maxX) && (rect.minY >= this.minY && rect.maxY <= this.maxY) ){
+            return true;
         }
-        else {
-            minX = rect.getMinX();
-            minY = rect.getMinY();
-            maxX = rect.getMaxX();
-            maxY = rect.getMaxY();
-            return ((contains(minX, minY)) && (contains(maxX,maxY)));
-        }
+        return false;
     }
 
-    public boolean add(int x, int y) {
+    boolean add(int x, int y){
         boolean changed = false;
 
-
-        /*
-        if (contains(x, y)) {
-            return false;
+        if (minX == 0 && maxX == 0 && minY == 0 && maxY == 0){
+            this.minX = this.maxX = x;
+            this.minY = this.maxY = y;
+            changed = true;
         }
-        else {*/
-            if (minX == 0 && maxX == 0) {
-                minX = x;
-                maxX = x;
-                changed = true;
-            }
-            if (minY == 0 && maxY == 0) {
-                minY = y;
-                maxY = y;
-                changed = true;
-            }
 
-
-        //if (first) { second = true; first = false; }
-
-        if (contains(x, y)) {
-            return false;
+        if (x < this.minX){
+            this.minX = x;
+            changed = true;
         }
-        /*else if (isEmpty()) {
-            minX = x;
-            maxX = x;
-            minY = y;
-            maxY = y;
-            //first = false;
-            return true;
-        }*/
-        else {
-
-            if (x < minX) {
-                minX = x;
-                changed = true;
-            }
-
-            if (x > maxX) {
-                maxX = x;
-                changed = true;
-            }
-
-            if (y < minY) {
-                minY = y;
-                changed = true;
-            }
-
-            if (y > maxY) {
-                maxY = y;
-                changed = true;
-            }
-
-
-            return changed;
+        else if (x > this.maxX){
+            this.maxX = x;
+            changed = true;
         }
-    //}
 
-            return changed;
+        if (y < this.minY){
+            this.minY = y;
+            changed = true;
         }
+        else if( y > this.maxY){
+            this.maxY = y;
+            changed = true;
+        }
+
+        return changed;
     }
 
+    boolean add(Rectangle rect2){
+        boolean changed = false;
 
-    public boolean add(Rectangle rect) {
-        if (rect.isEmpty()) {
-            return false;
+        if (rect2.minX < this.minX){
+            this.minX = rect2.minX;
+            changed = true;
         }
-        else {
-            boolean changed = false;
 
-            if (add(rect.getMinX(), getMinY())) {
-                changed = true;
-            }
-            if (add(rect.getMaxX(), getMaxY())) {
-                changed = true;
-            }
-            /*
-            if (x < minX) {
-                minX = x;
-                changed = true;
-            }
 
-            if (x > maxX) {
-                maxX = x;
-                changed = true;
-            }
+        if (rect2.maxX > this.maxX){
+            this.maxX = rect2.maxX;
 
-            if (y < minY) {
-                minY = y;
-                changed = true;
-            }
-
-            if (y > maxY) {
-                maxY = y;
-                changed = true;
-            }
-            */
-            return changed;
+            changed = true;
         }
+
+        if (rect2.minY < this.minY){
+            this.minY = rect2.minY;
+
+            changed = true;
+        }
+
+        if( rect2.maxY > this.maxY){
+            this.maxY = rect2.maxY;
+
+            changed = true;
+        }
+
+        //System.out.println(toString());
+        return changed;
+
     }
 
-    public Rectangle union(Rectangle rect) {
-        return rect;
+    Rectangle union(Rectangle rect){
+        Rectangle rect1 = new Rectangle();
+        rect1.minX = this.minX;
+        rect1.minY = this.minY;
+        rect1.maxX = this.maxX;
+        rect1.maxY = this.maxY;
+
+        rect1.add(rect.maxX, rect.maxY);
+        rect1.add(rect.minX, rect.minY);
+        return rect1;
     }
 
-    public static void main (String[] Args) {
-        /*Rectangle rect = new Rectangle();
-        System.out.println(rect.isEmpty());
-        rect.setMinX(1);
-        rect.setMaxX(10);
-        System.out.println(rect.getMinX());
-        System.out.println(rect.getMaxX());
-        System.out.println(rect.getWidth());
-        System.out.println(rect.isEmpty());
-
-        rect.setMinY(1);
-        rect.setMaxY(10);
-        System.out.println(rect.getMinY());
-        System.out.println(rect.getMaxY());
-        System.out.println(rect.getHeight());
-        System.out.println(rect.isEmpty());*/
-
-        System.out.println("Rectangle 2");
-        Rectangle rect2 = new Rectangle();
-        System.out.println(rect2.add(13,-27));
-
-        System.out.println(rect2.add(13,-27));
-        //System.out.println(rect2.add(10,10));
-        System.out.println(rect2.contains(13, -27));
-        //System.out.println(rect2.contains(10,10));
-
-        System.out.println(rect2.add(10,10));
-        System.out.println(rect2.contains(13, -27));
-        System.out.println(rect2.contains(10,10));
-
-        System.out.println("----X---");
-        System.out.println("min: "+rect2.getMinX());
-        System.out.println("max: "+rect2.getMaxX());
-        System.out.println("----Y---");
-        System.out.println("min: "+rect2.getMinY());
-        System.out.println("max: "+rect2.getMaxY());
-        System.out.println("--------");
-        System.out.println(rect2.getWidth());
-        System.out.println(rect2.getHeight());
-        System.out.println(rect2.isEmpty());
+    public String toString(){
+        return "MaxX:" + maxX + "  MaxY:" + maxY + "  MinX:" + minX + "  MinY:" + minY + " widht:" + getWidth()  + " height"  + getHeight();
     }
 }
