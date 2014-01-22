@@ -1,0 +1,60 @@
+# OS X
+.DS_Store
+
+# Files that might appear on external disk #
+.Spotlight-V100
+.Trashes
+
+# Linux
+#.*
+*~
+*.sw[a-p]
+!*.swf
+
+# Log
+*.log
+
+#Latex
+*.aux
+*.lof
+*.log
+*.lot
+*.toc
+*.tex~
+
+# Vim
+*.swp
+*.swo
+.*.sw[a-z]
+*.un~
+
+# TextMate
+*.tmproj
+*.tmproject
+tmtags
+
+# Node
+node_modules
+*.node
+*.a
+*.o
+*.dylib
+
+# Cloud9
+.settings.xml
+
+#JAVA
+*.class
+<<<<<<< HEAD
+# IntelliJ
+.idea
+=======
+>>>>>>> 4d5c68099b319d36b22db9efec292d3c12216b7c
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Eclipse
+*.metadata
