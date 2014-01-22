@@ -1,5 +1,4 @@
 [Øving 4][o4]
-
 [Øving 3][o3]
 
 
@@ -39,5 +38,5 @@ Før du setter i gang kan det vært lurt å lese nevnte wikiside om 'Innkapsling
 
 
 
-[o3]: #%C3%98ving-3
+[o3]: #Øving-3
 [o4]: #%C3%98ving-4
