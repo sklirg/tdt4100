@@ -45,8 +45,11 @@ node_modules
 
 #JAVA
 *.class
+<<<<<<< HEAD
 # IntelliJ
 .idea
+=======
+>>>>>>> 4d5c68099b319d36b22db9efec292d3c12216b7c
 
 # Package Files #
 *.jar
