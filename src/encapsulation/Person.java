@@ -29,7 +29,6 @@ public class Person {
 
     public void setName(String name) {
         String[] names = name.split("\\s+");
-        //Pattern p = Pattern.compile("^[\pL]");
         if (names.length != 2) {
             throw new IllegalArgumentException("Please input both your first and your last name, and remove middle names.");
         }
@@ -110,13 +109,14 @@ public class Person {
         }
     }
 
+    @SuppressWarnings("deprecation")
     public static void main(String[] args) {
         Person p = new Person();
-        Date d = new Date(100,1,1); // year + 1900, month, date
+        Date d = new Date(100,0,1); // year + 1900, month, date
 
-        p.setName("Herp Dærp");
-        p.setGender('m');
-        p.setEmail("ola.nordmann(at)ntnu.no");
+        p.setName("Ola Nordmann");
+        p.setGender('M');
+        p.setEmail("ola.nordmann@ntnu.no");
         p.setBirthday(d);
 
         System.out.println(p.getName());
