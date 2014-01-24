@@ -109,15 +109,27 @@ public class Person {
         }
     }
 
+    /*
+     * STAHP ! HAMRTIM
+     */
+
+
+
+
+
+
+
+
     @SuppressWarnings("deprecation")
     public static void main(String[] args) {
         Person p = new Person();
-        Date d = new Date(100,0,1); // year + 1900, month, date
+        Date d = new Date(94,0,1); // year + 1900, month, date
 
         p.setName("Ola Nordmann");
         p.setGender('M');
         p.setEmail("ola.nordmann@ntnu.no");
         p.setBirthday(d);
+        //p.setSSN("01019412345");
 
         System.out.println(p.getName());
         System.out.println(p.getGender());
