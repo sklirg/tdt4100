@@ -49,10 +49,7 @@ public class Rectangle {
     }
 
     boolean isEmpty(){
-        if (minX == 0 && maxX == 0 || minY == 0 && maxY == 0){
-            return true;
-        }
-        return false;
+        return (minX == 0 && maxX == 0 || minY == 0 && maxY == 0);
     }
 
     boolean contains(int x, int y){
@@ -70,10 +67,7 @@ public class Rectangle {
     }
 
     boolean contains(Rectangle rect){
-        if ((rect.minX >= this.minX && rect.maxX <= this.maxX) && (rect.minY >= this.minY && rect.maxY <= this.maxY) ){
-            return true;
-        }
-        return false;
+        return ((rect.minX >= this.minX && rect.maxX <= this.maxX) && (rect.minY >= this.minY && rect.maxY <= this.maxY));
     }
 
     boolean add(int x, int y){
@@ -133,7 +127,6 @@ public class Rectangle {
             changed = true;
         }
 
-        //System.out.println(toString());
         return changed;
 
     }
@@ -151,6 +144,6 @@ public class Rectangle {
     }
 
     public String toString(){
-        return "MaxX:" + maxX + "  MaxY:" + maxY + "  MinX:" + minX + "  MinY:" + minY + " widht:" + getWidth()  + " height"  + getHeight();
+        return "MaxX:" + maxX + "  MaxY:" + maxY + "  MinX:" + minX + "  MinY:" + minY + " width:" + getWidth()  + " height"  + getHeight();
     }
 }
