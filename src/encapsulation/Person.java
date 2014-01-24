@@ -1,8 +1,5 @@
 package encapsulation;
-import com.sun.deploy.util.StringUtils;
-
 import java.util.Date;
-import java.util.regex.Pattern;
 
 /**
  * Created by Håkon on 23.01.14.
@@ -33,11 +30,11 @@ public class Person {
     public void setName(String name) {
         String[] names = name.split("\\s+");
         //Pattern p = Pattern.compile("^[\pL]");
-        if (names.length < 2) {
-            throw new IllegalArgumentException("Please input both your first and your last name.");
+        if (names.length != 2) {
+            throw new IllegalArgumentException("Please input both your first and your last name, and remove middle names.");
         }
         else if (!((isAlpha(names[0])) && (isAlpha(names[1])))) {
-            throw new IllegalArgumentException("Your name may only contains letters.");
+            throw new IllegalArgumentException("Your name may only contain letters.");
         }
         else if (names[0].length() < 2 || names[1].length() < 2) {
             throw new IllegalArgumentException("Your names have to be longer than 2 chars.");
@@ -52,14 +49,34 @@ public class Person {
     }
 
     public void setEmail(String email) {
-        String[] emailSplit = email.split("\\@");
-        String[] domain = emailSplit[1].split("\\.");
-        int numOfSubDomains = domain.length;
-        if (emailSplit.length != 2) {
+        String[] emailSplit = email.split("@");
+        String[] domain;
+        int numOfSubDomains;
+
+        String[] emailNames;
+
+        try {
+            domain = emailSplit[1].split("\\.");
+            numOfSubDomains = domain.length;
+
+            emailNames = emailSplit[0].split("\\.");
+        }
+        catch (Exception e) {
+            throw new IllegalArgumentException("Names or email invalid. Wat.");
+        }
+
+        String name = getName();
+        String firstName = name.split("\\s+")[0].toLowerCase();
+        String lastName = name.split("\\s+")[0].toLowerCase();
+
+        if (emailSplit.length != 2 && !(emailSplit.length == 0)) {
             throw new IllegalArgumentException("Please make sure you typed in your email address correctly. [Error: Multiple @'s]");
         }
         else if (!(isCountry(domain[numOfSubDomains-1])) || !(isAlpha(domain[numOfSubDomains-1]))) {
-            throw new IllegalArgumentException("Please use a valid country code");
+            throw new IllegalArgumentException("Please use a valid country code.");
+        }
+        else if (!(emailNames[0].toLowerCase().equals(firstName)) && !(emailNames[1].toLowerCase().equals(lastName))) {
+            throw new IllegalStateException("HAHA NAVNET ditt er feil XD");
         }
         else {
             this.email = email;
@@ -71,7 +88,13 @@ public class Person {
     }
 
     public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+        Date now = new Date();
+        if (birthday.before(now)) {
+            this.birthday = birthday;
+        }
+        else {
+            throw new IllegalArgumentException("Invalid date: Into the future!");
+        }
     }
 
     public char getGender() {
@@ -79,7 +102,7 @@ public class Person {
     }
 
     public void setGender(char gender) {
-        if (gender == 'm' || gender == 'f' || gender == '\0') {
+        if (gender == 'M' || gender == 'F' || gender == '\0') {
             this.gender = gender;
         }
         else {
@@ -89,10 +112,18 @@ public class Person {
 
     public static void main(String[] args) {
         Person p = new Person();
-        p.setGender('f');
+        Date d = new Date(100,1,1); // year + 1900, month, date
+
         p.setName("Herp Dærp");
-        p.setEmail("hei.u@lol.com");
+        p.setGender('m');
+        p.setEmail("ola.nordmann(at)ntnu.no");
+        p.setBirthday(d);
+
+        System.out.println(p.getName());
+        System.out.println(p.getGender());
         System.out.println(p.getEmail());
+        System.out.println(p.getBirthday());
+
     }
 
 
