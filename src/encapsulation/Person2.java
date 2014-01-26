@@ -13,22 +13,23 @@ public class Person2 extends Person {
         int vs1 = 0, vs2 = 0;
         int[] f = {3,7,6,1,8,9,4,5,2};
         int[] g = {5,4,3,2,7,6,5,4,3,2};
-        for (int i = 0; i < SSN.length()-3; i++) {
+        for (int i = 0; i < f.length; i++) {
             vs1 += (Integer.parseInt(SSN.charAt(i)+"")) * f[i];
             vs2 += (Integer.parseInt(SSN.charAt(i)+"")) * g[i];
         }
-        /*vs1 = 11 - (vs1 % 11);
+        vs1 = 11 - (vs1 % 11);
         if (vs1 == 11) {
             vs1 = 0;
-        }*/
+        }
+
         vs2 += vs1 * g[9];
-        /*vs2 = 11 - (vs2 % 11);
+
+        vs2 = 11 - (vs2 % 11);
         if (vs2 == 11) {
             vs2 = 0;
-        }*/
-        System.out.println(SSN + ": " + (11 - (vs1 % 11)) + "<10 || " + (vs1 % 11) + "=0 | && | " + (11 - (vs2 % 11))  + "<10 || " +  (vs2 % 11)  + "=0 ");
-        System.out.println(((((11 - (vs1 % 11)) < 10) +" "+ ((vs1 % 11) == 0)) +" "+ ((((11 - (vs2 % 11))) < 10) +" "+ ((vs2 % 11) == 0))));
-        return ((((11 - (vs1 % 11)) < 10) || ((vs1 % 11) == 0)) && ((((11 - (vs2 % 11))) < 10) || ((vs2 % 11) == 0)));
+        }
+
+        return ((Integer.parseInt(SSN.charAt(9)+"") == vs1)&&(Integer.parseInt(SSN.charAt(10)+"") == vs2));
     }
 
     public String getSocialsec() {
@@ -51,7 +52,7 @@ public class Person2 extends Person {
             throw new IllegalArgumentException("Your gender does not match your SSN: " + getGender());
         }
         else if (!(CheckControlNums(SSN))) {
-            System.out.println("Your control numbers are invalid.");
+            throw new IllegalArgumentException("Your control numbers are invalid.");
         }
         else {
             this.SSN = SSN;
