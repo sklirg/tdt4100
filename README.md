@@ -9,6 +9,32 @@
 
 
 
+# Øving 4
+### Objektstrukturer
+**Innleveringsfrist Fredag 14. februar kl 0800.**  
+
+===
+
+### Dette må du gjøre:
+I denne øvingen skal du starte å programmere et spill som du skal fortsette å jobbe med i senere øvinger. Det blir mulig å skifte til et annet spill senere så lenge alle øvingskrav blir oppfylt, så ikke vær redd for å velge "feil" spill nå. :-) Merk at du får to uker på øvingen!  
+Velg og gjennomfør minst én av oppgavene under (du trenger m.a.o. ikke å henge deg opp i hvor mange dekningsgrads- og omfangspoeng hver av oppgavene har):  
+- TicTacToe (https://www.ntnu.no/wiki/display/tdt4100/Innkapsling+-+TicTacToe-oppgave) (enklest).
+- Sudoku (https://www.ntnu.no/wiki/display/tdt4100/Objektstrukturer+-+Sudoku-oppgave).
+- Sokoban (https://www.ntnu.no/wiki/display/tdt4100/Objektstrukturer+-+Sokoban-oppgave) (vanskeligst). 
+I denne øvingen legger oppgaveteksten(e) mindre føringer for hvordan koden din skal struktureres enn tidligere. Det er meningen du skal få øvelse i å tenke ut objektstrukturer som passer til å løse oppgaver selv. Derfor kan det være lurt å starte med øvingen tidlig, slik at du rekker å få hjelp hos studass dersom du sitter fast.
+ 
+==========
+
+#### Øvingsmål:
+å lære å tenke ut en oppdeling av et program i flere interagerende klasser
+å lære å tenke rundt og programmere et program som skaper flere objektinstanser under kjøring
+ 
+#### Øvingskrav:
+å kunne programmere meningsfulle og fungerende objektstrukturer
+å kunne teste et større program og sikre seg at det fungerer i alle tilfeller
+
+=========
+
 # Øving 3
 ### Innkapsling og validering  
 **Innleveringsfrist: Fredag 31. januar kl 0800.**
