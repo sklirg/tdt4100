@@ -21,6 +21,7 @@ Velg og gjennomfør minst én av oppgavene under (du trenger m.a.o. ikke å heng
 - TicTacToe (https://www.ntnu.no/wiki/display/tdt4100/Innkapsling+-+TicTacToe-oppgave) (enklest).
 - Sudoku (https://www.ntnu.no/wiki/display/tdt4100/Objektstrukturer+-+Sudoku-oppgave).
 - Sokoban (https://www.ntnu.no/wiki/display/tdt4100/Objektstrukturer+-+Sokoban-oppgave) (vanskeligst).  
+  
 I denne øvingen legger oppgaveteksten(e) mindre føringer for hvordan koden din skal struktureres enn tidligere. Det er meningen du skal få øvelse i å tenke ut objektstrukturer som passer til å løse oppgaver selv. Derfor kan det være lurt å starte med øvingen tidlig, slik at du rekker å få hjelp hos studass dersom du sitter fast.
  
 ==========
