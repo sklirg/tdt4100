@@ -1,11 +1,14 @@
 package game.sudoku;
 
+import java.util.Scanner;
+
 /**
  * Created by Håkon on 31.01.14.
  */
 public class SudokuProgram {
-    private String board;
+    private String boardString;
     private boolean gameInProgress;
+    Board gameBoard;
 
     private boolean validBoardString(String s) {
         char[] validChars = {'1','2','3','4','5','6','7','8','9','.'};
@@ -34,23 +37,23 @@ public class SudokuProgram {
     // vars
 
 
-    public String getBoard() {
-        return board;
+    public String getBoardString() {
+        return boardString;
     }
 
-    public void setBoard(String boardInitString) {
+    public void setBoardString(String boardInitString) {
         if (boardInitString.length() != 81) {
             throw new IllegalArgumentException(String.format("The length of the initialization string should be exactly 81 chars. [%s]" , boardInitString.length()));
         }
         else if (gameInProgress) {
-            throw new IllegalArgumentException("This game already has an active board.");
+            throw new IllegalArgumentException("This game already has an active boardString.");
         }
         else if (!(validBoardString(boardInitString))) {
             throw new IllegalArgumentException("This boardString contains invalid characters.");
         }
         else {
-            this.board = boardInitString;
-            this.setGameInProgress(true);
+            this.boardString = boardInitString;
+            //this.setGameInProgress(true);
         }
     }
 
@@ -86,8 +89,8 @@ public class SudokuProgram {
             throw new IllegalArgumentException("Invalid second value.");
         if (((x < 0) || (x > 8)) || (((v < 0) || (v > 8)) && !(emptyThisField)))
             throw new IllegalArgumentException("Invalid values, must be >= 1 and <= 9 ");
-        if (coordinates.length > 3)
-            throw new IllegalArgumentException("You supplied too many arguments");
+        if (coordinates.length != 3)
+            throw new IllegalArgumentException("You supplied an illegal amount of arguments");
 
 
         int[] r = {x,y,v};
@@ -96,18 +99,35 @@ public class SudokuProgram {
 
     public void init() {
         if (gameInProgress) {
-            throw new IllegalStateException("Game is already in game.");
+            throw new IllegalStateException("There is already an active game.");
+        }
+        else if (boardString.length() != 81) {
+            throw new IllegalArgumentException("The boardString string must be 81 chars long.");
         }
         else {
-            Board gameBoard = new Board(board);
+            gameBoard = new Board(boardString);
         }
+    }
+
+    public void run() {
+        Scanner scan = new Scanner(System.in);
+        while (isGameInProgress()) {
+            System.out.println(gameBoard.getBoard());
+            System.out.println("Please select your next move.");
+            String input = scan.nextLine();
+            if (input.length() == 3)
+                translateInput(input);
+            else
+                System.out.println("Please use this format: 1a1 [x,y,value].");
+        }
+
     }
 
     public static void main(String[] args) {
         SudokuProgram game = new SudokuProgram();
-        game.setBoard(".....2..38.273.45....6..87.9.8..5367..6...1..4513..9.8.84..3....79.512.62..8.....");
+        game.setBoardString(".....2..38.273.45....6..87.9.8..5367..6...1..4513..9.8.84..3....79.512.62..8.....");
         game.init();
 
-        game.translateInput("1a1");
+        //game.translateInput("1a1");
     }
 }

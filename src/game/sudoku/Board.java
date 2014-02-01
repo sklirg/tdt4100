@@ -79,9 +79,9 @@ public class Board {
     public static void main(String[] args) {
         /*
         Board board1 = new Board(".....2..38.273.45....6..87.9.8..5367..6...1..4513..9.8.84..3....79.512.62..8.....");
-        System.out.println(board1.getBoard());
+        System.out.println(board1.getBoardString());
         board1.setValue(0,0,1);
-        System.out.println(board1.getBoard());
+        System.out.println(board1.getBoardString());
         */
     }
 }
