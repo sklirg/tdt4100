@@ -79,20 +79,6 @@ public class Field {
     }
 
     public boolean isConflict() {
-        /*
-         * ToDo: Create isConflict method
-         *
-         * for each x, for each y
-         * find what square x/y is in and all of the other x/y's [ 9 / 3 ... ]
-         */
-        /*int x = this.x;
-        int y = this.y;
-        int v = this.v;
-
-        for (int i = 0; i < 9; i ++) {
-
-        }
-        */
         return conflict;
     }
 
