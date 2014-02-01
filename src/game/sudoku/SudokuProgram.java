@@ -73,7 +73,7 @@ public class SudokuProgram {
         try {
             x = Integer.parseInt(coordinates[0]+"")-1;
             if (!(emptyThisField))
-                v = Integer.parseInt(coordinates[2]+"")-1;
+                v = Integer.parseInt(coordinates[2]+"");
             for (int i = 0; i < chars.length; i++) {
                if (chars[i] == coordinates[1]) {
                     y = i;
@@ -93,7 +93,7 @@ public class SudokuProgram {
             throw new IllegalArgumentException("You supplied an illegal amount of arguments");
 
 
-        int[] r = {x,y,v};
+        int[] r = {y,x,v};
         return r;
     }
 
@@ -106,17 +106,18 @@ public class SudokuProgram {
         }
         else {
             gameBoard = new Board(boardString);
+            setGameInProgress(true);
         }
     }
 
     public void run() {
         Scanner scan = new Scanner(System.in);
-        while (isGameInProgress()) {
+        while (gameInProgress) {
             System.out.println(gameBoard.getBoard());
             System.out.println("Please select your next move.");
             String input = scan.nextLine();
             if (input.length() == 3)
-                translateInput(input);
+                gameBoard.setValue(translateInput(input));
             else
                 System.out.println("Please use this format: 1a1 [x,y,value].");
         }
@@ -127,6 +128,7 @@ public class SudokuProgram {
         SudokuProgram game = new SudokuProgram();
         game.setBoardString(".....2..38.273.45....6..87.9.8..5367..6...1..4513..9.8.84..3....79.512.62..8.....");
         game.init();
+        game.run();
 
         //game.translateInput("1a1");
     }

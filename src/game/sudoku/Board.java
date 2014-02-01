@@ -41,11 +41,11 @@ public class Board {
     }
 
     public String getBoard() {
-        String spacer = "+---------+---------+---------+";
+        String spacer = "  +---------+---------+---------+";
         String r = spacer+"\n";
         int rowCounter = 0;
         for (int i = 0; i < board.length; i++) {
-            r += "|";
+            r += (i+1) + " |";
             int colCounter = 0;
             for (int j = 0; j < board.length; j++) {
                 int v = board[i][j].getValue();
@@ -59,16 +59,16 @@ public class Board {
                 }
             }
             rowCounter++;
-            if (rowCounter % 3 == 0) {
+            if (rowCounter % 3 == 0)
                 r += "\n" + spacer;
-            }
             r += "\n";
         }
+        r += "  + a  b  c + d  e  f + g  h  i +";
         return r;
     }
 
-    public void setValue(int x, int y, int value) {
-        board[y][x].setValue(value);
+    public void setValue(int[] i) {
+        board[i[1]][i[0]].setValue(i[2]);
     }
 
     @Override

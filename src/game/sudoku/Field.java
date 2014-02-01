@@ -80,7 +80,7 @@ public class Field {
 
     public boolean isConflict(int x, int y) {
         /*
-         * ToDo: Creat isConflict method
+         * ToDo: Create isConflict method
          *
          * for each x, for each y
          * find what square x/y is in and all of the other x/y's [ 9 / 3 ... ]
