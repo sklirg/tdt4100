@@ -96,8 +96,8 @@ public class Field {
         return conflict;
     }
 
-    public void setConflict() {
-
+    public void setConflict(boolean conflict) {
+        this.conflict = conflict;
     }
 
     public int getValue() {
