@@ -113,6 +113,7 @@ public class SudokuProgram {
     public void run() {
         Scanner scan = new Scanner(System.in);
         while (gameInProgress) {
+            gameBoard.findConflicts();
             System.out.println(gameBoard.getBoard());
             System.out.println("Please select your next move.");
             String input = scan.nextLine();
