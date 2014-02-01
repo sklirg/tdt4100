@@ -6,6 +6,11 @@ import com.sun.javaws.exceptions.InvalidArgumentException;
  * Created by Håkon on 30.01.14.
  */
 public class Board {
+    private boolean gameCompleted = false;
+
+    public boolean isGameCompleted() {
+        return gameCompleted;
+    }
 
     /*
     * Tall i parenteser: tall som ikke kan endres
@@ -79,7 +84,7 @@ public class Board {
         }
         System.out.println(String.format("Conflicts: %s, numLeft: %s",numConflicts,numLeft));
         if (numConflicts == 0 && numLeft == 0) {
-            // game finished
+            this.gameCompleted = true;
         }
     }
 
