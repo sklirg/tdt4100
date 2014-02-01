@@ -43,22 +43,51 @@ public class Board {
     public void findConflicts() {
         int[] rowNums = new int[9];
         int[] colNums = new int[9];
-        int[] numOccurences = {0,0,0,0,0,0,0,0,0};
+
 
         for (int i = 0; i < board.length; i++) {
+            int[] numRowOccurences = {0,0,0,0,0,0,0,0,0};
+            int[] numColOccurences = {0,0,0,0,0,0,0,0,0};
             for (int j = 0; j < board.length; j++) {
+                //System.out.println(String.format("i & j: [%s%s] -> v: %s", i, j, board[i][j].getValue()));
                 if (board[i][j].getValue() != -1)
-                    numOccurences[board[i][j].getValue()]++;
+                    numRowOccurences[board[i][j].getValue()-1]++;
+                if (board[j][i].getValue() != -1)
+                    numColOccurences[board[j][i].getValue()-1]++;
             }
             for (int j = 0; j < board.length; j++) {
-                if (numOccurences[j] > 1) {
+                System.out.println(String.format("N.o.O [%s]: %s",j+1,numColOccurences[j]));
+                if (numRowOccurences[j] > 1) {
                     for (int k = 0; k < board.length; k++) {
-                        if (board[i][j].getValue() == j) {
-                            board[i][j].setConflict(true);
+                        if (board[i][k].getValue()-1 == j) {
+                            board[i][k].setConflict(true);
                         }
                     }
                 }
+/*                else {
+                    for (int k = 0; k < board.length; k++) {
+                        if (board[k][i].getValue()-1 == j) {
+                            board[k][i].setConflict(false);
+                        }
+                    }
+                }*/
+
+                if (numColOccurences[j] > 1) {
+                    for (int k = 0; k < board.length; k++) {
+                        if (board[k][i].getValue()-1 == j) {
+                            board[k][i].setConflict(true);
+                        }
+                    }
+                }
+/*                else {
+                    for (int k = 0; k < board.length; k++) {
+                        if ((board[k][i].getValue()-1 == j) && !(board[k][i].isConflict())) {
+                            board[k][i].setConflict(false);
+                        }
+                    }
+                }*/
             }
+            System.out.println("RESET");
         }
 
     }
@@ -93,6 +122,7 @@ public class Board {
 
     public void setValue(int[] i) {
         board[i[1]][i[0]].setValue(i[2]);
+        board[i[1]][i[0]].setConflict(false);
     }
 
     @Override
