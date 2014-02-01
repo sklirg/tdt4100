@@ -121,6 +121,7 @@ public class SudokuProgram {
             if (gameCompleted()) {
                 gameInProgress = false;
                 System.out.println("Congratulations! You solved the puzzle!");
+                break;
             }
             gameBoard.findConflicts();
             System.out.println(gameBoard.getBoard());
