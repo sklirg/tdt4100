@@ -40,10 +40,34 @@ public class Board {
         }
     }
 
+    public void findConflicts() {
+        int[] rowNums = new int[9];
+        int[] colNums = new int[9];
+        int[] numOccurences = {0,0,0,0,0,0,0,0,0};
+
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                if (board[i][j].getValue() != -1)
+                    numOccurences[board[i][j].getValue()]++;
+            }
+            for (int j = 0; j < board.length; j++) {
+                if (numOccurences[j] > 1) {
+                    for (int k = 0; k < board.length; k++) {
+                        if (board[i][j].getValue() == j) {
+                            board[i][j].setConflict(true);
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
     public String getBoard() {
         String spacer = "  +---------+---------+---------+";
         String r = spacer+"\n";
         int rowCounter = 0;
+
         for (int i = 0; i < board.length; i++) {
             r += (i+1) + " |";
             int colCounter = 0;
@@ -74,14 +98,5 @@ public class Board {
     @Override
     public String toString() {
         return getBoard();
-    }
-
-    public static void main(String[] args) {
-        /*
-        Board board1 = new Board(".....2..38.273.45....6..87.9.8..5367..6...1..4513..9.8.84..3....79.512.62..8.....");
-        System.out.println(board1.getBoardString());
-        board1.setValue(0,0,1);
-        System.out.println(board1.getBoardString());
-        */
     }
 }
