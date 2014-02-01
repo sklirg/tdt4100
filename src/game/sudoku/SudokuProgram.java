@@ -129,7 +129,5 @@ public class SudokuProgram {
         game.setBoardString(".....2..38.273.45....6..87.9.8..5367..6...1..4513..9.8.84..3....79.512.62..8.....");
         game.init();
         game.run();
-
-        //game.translateInput("1a1");
     }
 }
