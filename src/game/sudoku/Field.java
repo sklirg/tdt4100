@@ -5,8 +5,7 @@ package game.sudoku;
  */
 public class Field {
     private boolean changeable, conflict;
-    private int x, y;
-    private char value;
+    private int x, y, v;
 
     private boolean isValidField(int i) {
         return ((i>=0) && (i<=8));
@@ -25,7 +24,7 @@ public class Field {
     else*/
 
 
-    public Field(int x, int y, char value) {
+    public Field(int x, int y, int v) {
         if (!(isValidField(x) && isValidField(y))) {
             throw new IllegalArgumentException("These coordinates are invalid.");
         }
@@ -34,11 +33,18 @@ public class Field {
         }
         else {
 
-            boolean changeable = false;
+            boolean changeable;
+
+            if (v == -1)
+                changeable = true;
+            else
+                changeable = false;
+            /*
+            int wat = v;
 
             try {
                 //System.out.print(value + " - ");
-                int wat = Integer.parseInt(value+"");
+                wat = Integer.parseInt(v+"");
                 //System.out.println(wat);
             }
             catch (Exception e) {
@@ -46,7 +52,7 @@ public class Field {
                 changeable = true;
             }
 
-
+*/
             /*
             for (int i = 1; i < 10; i++) {
                 System.out.println(String.format("v: %s, i: %s", value, i));
@@ -58,7 +64,7 @@ public class Field {
 
             this.x = x;
             this.y = y;
-            this.value = value;
+            this.v = v;
             this.changeable = changeable;
         }
     }
@@ -72,16 +78,30 @@ public class Field {
         this.changeable = changeable;
     }
 
-    public char getValue() {
-        return value;
+    public boolean isConflict(int x, int y) {
+        /*
+         * ToDo: Creat isConflict method
+         *
+         * for each x, for each y
+         * find what square x/y is in and all of the other x/y's [ 9 / 3 ... ]
+         */
+        return conflict;
     }
 
-    public void setValue(char value) {
+    public void setConflict() {
+
+    }
+
+    public int getValue() {
+        return v;
+    }
+
+    public void setValue(int v) {
         if (!(changeable)) {
             throw new IllegalArgumentException("This field is not changeable");
         }
         else {
-            this.value = value;
+            this.v = v;
         }
     }
 
@@ -109,6 +129,9 @@ public class Field {
         if (!(changeable)) {
             s1 = "(";
             s2 = ")";
+        }
+        if (changeable && conflict) {
+            s2 = "*";
         }
         return String.format("%s%s%s", s1, getValue(), s2);
     }

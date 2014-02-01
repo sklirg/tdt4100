@@ -1,5 +1,7 @@
 package game.sudoku;
 
+import com.sun.javaws.exceptions.InvalidArgumentException;
+
 /**
  * Created by Håkon on 30.01.14.
  */
@@ -23,7 +25,14 @@ public class Board {
             int counter = 0;
             for (int i = 0; i < board.length; i++) {
                 for (int j = 0; j < board.length; j++) {
-                    board[i][j] = new Field(j,i,boardInitString.charAt(counter));
+                    int v = 0;
+                    char s = boardInitString.charAt(counter);
+                    if (s == '.')
+                        v = -1;
+                    else
+                        v = Integer.parseInt(s+"");
+
+                    board[i][j] = new Field(j,i,v);
 
                     counter++;
                 }
@@ -32,7 +41,6 @@ public class Board {
     }
 
     public String getBoard() {
-        //DEBUG
         String spacer = "+---------+---------+---------+";
         String r = spacer+"\n";
         int rowCounter = 0;
@@ -40,7 +48,11 @@ public class Board {
             r += "|";
             int colCounter = 0;
             for (int j = 0; j < board.length; j++) {
-                r += String.format("%s",board[i][j]);
+                int v = board[i][j].getValue();
+                if (v == -1)
+                    r += " . ";
+                else
+                    r += board[i][j];
                 colCounter++;
                 if (colCounter%3 == 0) {
                     r += "|";
@@ -55,15 +67,21 @@ public class Board {
         return r;
     }
 
-    public void setValue(int x, int y, char value) {
+    public void setValue(int x, int y, int value) {
         board[y][x].setValue(value);
     }
 
+    @Override
+    public String toString() {
+        return getBoard();
+    }
+
     public static void main(String[] args) {
+        /*
         Board board1 = new Board(".....2..38.273.45....6..87.9.8..5367..6...1..4513..9.8.84..3....79.512.62..8.....");
-        board1.setValue(0,2,'1');
         System.out.println(board1.getBoard());
-
-
+        board1.setValue(0,0,1);
+        System.out.println(board1.getBoard());
+        */
     }
 }
