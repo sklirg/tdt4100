@@ -80,6 +80,9 @@ public class Board {
                     }
                 }
             }
+
+            // Loop to check squares for conflicts
+
             //System.out.println("RESET");
         }
         System.out.println(String.format("Conflicts: %s, numLeft: %s",numConflicts,numLeft));
