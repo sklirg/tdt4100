@@ -52,8 +52,10 @@ public class Board {
         for (int i = 0; i < board.length; i++) {
             int[] numRowOccurences = {0,0,0,0,0,0,0,0,0};
             int[] numColOccurences = {0,0,0,0,0,0,0,0,0};
+            //int[] numSqOccurences = {0,0,0,0,0,0,0,0,0};
+
+            // Finding conflicting fields
             for (int j = 0; j < board.length; j++) {
-                //System.out.println(String.format("i & j: [%s%s] -> v: %s", i, j, board[i][j].getValue()));
                 if (board[i][j].getValue() != -1) {
                     numRowOccurences[board[i][j].getValue()-1]++;
                     numLeft--;
@@ -61,8 +63,30 @@ public class Board {
                 if (board[j][i].getValue() != -1)
                     numColOccurences[board[j][i].getValue()-1]++;
             }
+
+            // Find conflicting fields in each "square"
+            if (i == 0 || i == 3 || i == 6) {
+                System.out.println("Correct row");
+                for (int l = 0; l < 3; l++) {
+                    int[] numSqOccurences = {0,0,0,0,0,0,0,0,0};
+                    for (int j = i; j < (i+3); j++) {
+                        for (int k = 0; k < 3; k++) {
+                            System.out.println(String.format("[%s, %s] j %s, k %s, i %s, l %s, val %s, ",j,i+k+(l*3),j,k,i,l, board[j][k+i+l].getValue()));
+                            if (board[j][k+i+l].getValue() != -1) {
+                                //System.out.print(board[j][k+i].getValue()+ " ");
+                                numSqOccurences[board[j][k+i+(l*3)].getValue()-1]++;
+                            }
+                        }
+                        System.out.println("");
+                    }
+                    System.out.println("END --> Checking for conflict if conflicts");
+
+                }
+
+            }
+
+            // Punishing conflicting fields
             for (int j = 0; j < board.length; j++) {
-                //System.out.println(String.format("N.o.O [%s]: %s",j+1,numColOccurences[j]));
                 if (numRowOccurences[j] > 1) {
                     for (int k = 0; k < board.length; k++) {
                         if (board[i][k].getValue()-1 == j) {
@@ -78,12 +102,22 @@ public class Board {
                             numConflicts++;
                         }
                     }
-                }
+                }/*
+                if (numSqOccurences[j] > 1) {
+                    //System.out.println("More than one occurence of " + (j+1) + " in this square!");
+                    for (int l = i; l < (i+3); l++) {
+                        for (int k = 0; k < 3; k++) {
+                            if (board[l][k+i].getValue()-1 == j) {
+                                System.out.println("Found the invalid value: " + j);
+                                board[l][k+i].setConflict(true);
+                                numConflicts++;
+                            }
+                        }
+                        System.out.println("");
+                    }
+                    System.out.println("END");
+                }*/
             }
-
-            // Loop to check squares for conflicts
-
-            //System.out.println("RESET");
         }
         System.out.println(String.format("Conflicts: %s, numLeft: %s",numConflicts,numLeft));
         if (numConflicts == 0 && numLeft == 0) {
