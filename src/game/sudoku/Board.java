@@ -1,4 +1,5 @@
 package game.sudoku;
+import java.util.ArrayList;
 
 import com.sun.javaws.exceptions.InvalidArgumentException;
 
@@ -45,81 +46,138 @@ public class Board {
         }
     }
 
-    public void findConflicts() {
-        int numConflicts = 0;
-        int numLeft = 9*9;
-
-        for (int i = 0; i < board.length; i++) {
-            int[] numRowOccurences = {0,0,0,0,0,0,0,0,0};
-            int[] numColOccurences = {0,0,0,0,0,0,0,0,0};
-            //int[] numSqOccurences = {0,0,0,0,0,0,0,0,0};
-
-            // Finding conflicting fields
-            for (int j = 0; j < board.length; j++) {
-                if (board[i][j].getValue() != -1) {
-                    numRowOccurences[board[i][j].getValue()-1]++;
-                    numLeft--;
-                }
-                if (board[j][i].getValue() != -1)
-                    numColOccurences[board[j][i].getValue()-1]++;
-            }
-
-            // Find conflicting fields in each "square"
-            if (i == 0 || i == 3 || i == 6) {
-                System.out.println("Correct row");
-                for (int l = 0; l < 3; l++) {
-                    int[] numSqOccurences = {0,0,0,0,0,0,0,0,0};
-                    for (int j = i; j < (i+3); j++) {
-                        for (int k = 0; k < 3; k++) {
-                            System.out.println(String.format("[%s, %s] j %s, k %s, i %s, l %s, val %s, ",j,i+k+(l*3),j,k,i,l, board[j][k+i+l].getValue()));
-                            if (board[j][k+i+l].getValue() != -1) {
-                                //System.out.print(board[j][k+i].getValue()+ " ");
-                                numSqOccurences[board[j][k+i+(l*3)].getValue()-1]++;
-                            }
-                        }
-                        System.out.println("");
-                    }
-                    System.out.println("END --> Checking for conflict if conflicts");
-
-                }
-
-            }
-
-            // Punishing conflicting fields
-            for (int j = 0; j < board.length; j++) {
-                if (numRowOccurences[j] > 1) {
-                    for (int k = 0; k < board.length; k++) {
-                        if (board[i][k].getValue()-1 == j) {
-                            board[i][k].setConflict(true);
-                            numConflicts++;
-                        }
-                    }
-                }
-                if (numColOccurences[j] > 1) {
-                    for (int k = 0; k < board.length; k++) {
-                        if (board[k][i].getValue()-1 == j) {
-                            board[k][i].setConflict(true);
-                            numConflicts++;
-                        }
-                    }
-                }/*
-                if (numSqOccurences[j] > 1) {
-                    //System.out.println("More than one occurence of " + (j+1) + " in this square!");
-                    for (int l = i; l < (i+3); l++) {
-                        for (int k = 0; k < 3; k++) {
-                            if (board[l][k+i].getValue()-1 == j) {
-                                System.out.println("Found the invalid value: " + j);
-                                board[l][k+i].setConflict(true);
-                                numConflicts++;
-                            }
-                        }
-                        System.out.println("");
-                    }
-                    System.out.println("END");
-                }*/
+    private Field[] findConflicts(Field[] fields) {
+        int[] occ = new int[9];
+        for (int i = 0; i < fields.length; i++) {
+            if (fields[i].getValue() != -1) {
+                occ[fields[i].getValue()-1]++;
             }
         }
-        System.out.println(String.format("Conflicts: %s, numLeft: %s",numConflicts,numLeft));
+        for (int i = 0; i < fields.length; i++) {
+            if (occ[i] > 1) {
+                for (int j = 0; j < fields.length; j++) {
+                    if (fields[i].getValue()-1 == i) {
+                        fields[i].setConflict(true);
+                    }
+                }
+            }
+        }
+
+        return fields;
+    }
+
+    private int findSqConflicts(Field[][] board) {
+        int numConflicts = 0;
+        int sqLen = 3;
+        int[][] occurencesOfNumber = new int[9][9];
+        ArrayList<Field> conflicts = new ArrayList<Field>();
+
+        int[][] sqStart = {{0,0},{0,3},{0,6},
+                           {3,0},{3,3},{3,6},
+                           {6,0},{6,3},{6,6}};
+        for (int i = 0; i < board.length; i++) {
+            //board[sqStart[i][0]][sqStart[i][1]].getValue();
+            for (int j = 0; j < sqLen; j++) {
+                for (int k = 0; k < sqLen; k++) {
+                    //System.out.print(board[sqStart[i][0] + j][sqStart[i][1] + k]);
+                    // Instance of object
+                    Field f = board[sqStart[i][0] + j][sqStart[i][1] + k];
+                    if (f.getValue() != -1) {
+                        occurencesOfNumber[i][f.getValue()-1]++;
+                        //System.out.println(occurencesOfNumber[i][f.getValue()-1] +" ");
+                        conflicts.add(f);
+                    }
+                }
+            }
+        }
+
+
+        for (int i = 0; i < conflicts.size(); i++) {
+            System.out.println(conflicts.get(i).getValue()+"");
+        }
+
+        return numConflicts;
+    }
+
+    private void setAllFalse(Field[][] board) {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                board[i][j].setConflict(false);
+            }
+        }
+    }
+
+    public void findConflicts() {
+        int numConflicts = 0;
+        //int numLeft = 9*9;
+        int numLeft = 0;
+
+        setAllFalse(board);
+
+        /*
+         * @ToDo: Skriv om til findConflicts(int[] array)
+         *  Loop gjennom^
+         * @ToDo: Create func to convert sudoku 3x3 square to int[] array
+         */
+
+        // Count empty fields and remove them from numLeft
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                if (board[i][j].getValue() == -1) {
+                    numLeft++;
+                }
+            }
+        }
+
+        // Send rows to conflictFinder func
+        for (int i = 0; i < board.length; i++) {
+            board[i] = findConflicts(board[i]);
+            for (int j = 0; j < board.length; j++) {
+                if (board[i][j].isConflict()) {
+                    numConflicts++;
+                }
+            }
+        }
+
+        // Convert columns to "rows" and send their arrays to columnFinder func
+        Field[][] rows = new Field[9][9];
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                rows[i][j] = board[j][i];
+            }
+        }
+        // The sending part
+        for (int i = 0; i < rows.length; i++) {
+            rows[i] = findConflicts(rows[i]);
+            for (int j = 0; j < rows.length; j++) {
+                if (rows[i][j].isConflict()) {
+                    board[j][i].setConflict(true);
+                    numConflicts++;
+                }
+            }
+        }
+
+        // Converting squares to "rows" and send them to conflictFinder func
+        int sqLen = 3;
+        Field[][] squares = new Field[9][9];
+        int[][] sqStart = {{0,0},{0,3},{0,6},
+                {3,0},{3,3},{3,6},
+                {6,0},{6,3},{6,6}};
+        for (int i = 0; i < board.length; i++) {
+            int c = 0;
+            for (int j = 0; j < sqLen; j++) {
+                for (int k = 0; k < sqLen; k++) {
+                    System.out.print("[" + (sqStart[i][0] + j) + "," + (sqStart[i][1] + k) + "] ");
+                    Field f = board[sqStart[i][0] + j][sqStart[i][1] + k];
+                    squares[i][c] = f;
+                    c++;
+                }
+                System.out.print(" ");
+            }
+            System.out.println("");
+        }
+
+        System.out.println(String.format("DEBUG: Conflicts: %s, numLeft: %s",numConflicts,numLeft));
         if (numConflicts == 0 && numLeft == 0) {
             this.gameCompleted = true;
         }
