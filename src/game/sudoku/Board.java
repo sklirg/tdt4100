@@ -78,12 +78,6 @@ public class Board {
 
         setAllFalse(board);
 
-        /*
-         * @ToDo: Skriv om til findConflicts(int[] array)
-         *  Loop gjennom^
-         * @ToDo: Create func to convert sudoku 3x3 square to int[] array
-         */
-
         // Count empty fields and remove them from numLeft
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board.length; j++) {
@@ -147,7 +141,10 @@ public class Board {
                 //System.out.print(" ");
             }
             //System.out.println("");
+            squares[i] = findConflicts(squares[i]);
         }
+
+        // @ToDo Convert back to original format
 
         System.out.println(String.format("DEBUG: Conflicts: %s, numLeft: %s",numConflicts,numLeft));
         if (numConflicts == 0 && numLeft == 0) {
