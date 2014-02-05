@@ -1,8 +1,4 @@
 package game.sudoku;
-import java.util.ArrayList;
-
-import com.sun.javaws.exceptions.InvalidArgumentException;
-
 /**
  * Created by Håkon on 30.01.14.
  */
@@ -56,8 +52,8 @@ public class Board {
         for (int i = 0; i < fields.length; i++) {
             if (occ[i] > 1) {
                 for (int j = 0; j < fields.length; j++) {
-                    if (fields[i].getValue()-1 == i) {
-                        fields[i].setConflict(true);
+                    if (fields[j].getValue()-1 == i) {
+                        fields[j].setConflict(true);
                     }
                 }
             }
@@ -66,38 +62,6 @@ public class Board {
         return fields;
     }
 
-    private int findSqConflicts(Field[][] board) {
-        int numConflicts = 0;
-        int sqLen = 3;
-        int[][] occurencesOfNumber = new int[9][9];
-        ArrayList<Field> conflicts = new ArrayList<Field>();
-
-        int[][] sqStart = {{0,0},{0,3},{0,6},
-                           {3,0},{3,3},{3,6},
-                           {6,0},{6,3},{6,6}};
-        for (int i = 0; i < board.length; i++) {
-            //board[sqStart[i][0]][sqStart[i][1]].getValue();
-            for (int j = 0; j < sqLen; j++) {
-                for (int k = 0; k < sqLen; k++) {
-                    //System.out.print(board[sqStart[i][0] + j][sqStart[i][1] + k]);
-                    // Instance of object
-                    Field f = board[sqStart[i][0] + j][sqStart[i][1] + k];
-                    if (f.getValue() != -1) {
-                        occurencesOfNumber[i][f.getValue()-1]++;
-                        //System.out.println(occurencesOfNumber[i][f.getValue()-1] +" ");
-                        conflicts.add(f);
-                    }
-                }
-            }
-        }
-
-
-        for (int i = 0; i < conflicts.size(); i++) {
-            System.out.println(conflicts.get(i).getValue()+"");
-        }
-
-        return numConflicts;
-    }
 
     private void setAllFalse(Field[][] board) {
         for (int i = 0; i < board.length; i++) {
@@ -129,15 +93,23 @@ public class Board {
             }
         }
 
+
         // Send rows to conflictFinder func
+        Field[][] fields = new Field[9][9];
         for (int i = 0; i < board.length; i++) {
-            board[i] = findConflicts(board[i]);
+            //board[i] = findConflicts(board[i]);
+             fields[i] = findConflicts(board[i]);
+            System.out.print("\ni: "+i+": ");
             for (int j = 0; j < board.length; j++) {
-                if (board[i][j].isConflict()) {
+                System.out.print(fields[i][j] + ", ");
+                if (fields[i][j].isConflict()) {
+                    board[i][j].setConflict(true);
                     numConflicts++;
                 }
+                //System.out.print("\n");
             }
         }
+        System.out.println("");
 
         // Convert columns to "rows" and send their arrays to columnFinder func
         Field[][] rows = new Field[9][9];
@@ -167,14 +139,14 @@ public class Board {
             int c = 0;
             for (int j = 0; j < sqLen; j++) {
                 for (int k = 0; k < sqLen; k++) {
-                    System.out.print("[" + (sqStart[i][0] + j) + "," + (sqStart[i][1] + k) + "] ");
+                    //System.out.print("[" + (sqStart[i][0] + j) + "," + (sqStart[i][1] + k) + "] ");
                     Field f = board[sqStart[i][0] + j][sqStart[i][1] + k];
                     squares[i][c] = f;
                     c++;
                 }
-                System.out.print(" ");
+                //System.out.print(" ");
             }
-            System.out.println("");
+            //System.out.println("");
         }
 
         System.out.println(String.format("DEBUG: Conflicts: %s, numLeft: %s",numConflicts,numLeft));
