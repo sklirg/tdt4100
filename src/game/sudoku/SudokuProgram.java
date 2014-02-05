@@ -87,7 +87,7 @@ public class SudokuProgram {
 
         if (y == -1)
             throw new IllegalArgumentException("Invalid second value.");
-        if (((x < 0) || (x > 8)) || (((v < 0) || (v > 8)) && !(emptyThisField)))
+        if (((x < 0) || (x > 8)) || (((v < 0) || (v > 9)) && !(emptyThisField)))
             throw new IllegalArgumentException("Invalid values, must be >= 1 and <= 9 ");
         if (coordinates.length != 3)
             throw new IllegalArgumentException("You supplied an illegal amount of arguments");
