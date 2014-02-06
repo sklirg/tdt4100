@@ -134,7 +134,6 @@ public class Board {
             squares[i] = findConflicts(squares[i]);
         }
 
-        // @ToDo Convert back to original format
 /*
         for (int i = 0; i < board.length; i++) {
             int c = 0;
