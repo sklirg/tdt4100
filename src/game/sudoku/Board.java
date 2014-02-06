@@ -134,18 +134,6 @@ public class Board {
             squares[i] = findConflicts(squares[i]);
         }
 
-/*
-        for (int i = 0; i < board.length; i++) {
-            int c = 0;
-            for (int j = 0; j < sqLen; j++) {
-                for (int k = 0; k < sqLen; k++) {
-                 //   board[sqStart[i][0] + j][sqStart[i][1] + k] = squares[i][c];
-                }
-            }
-        }
-*/
-
-
         System.out.println(String.format("Number of Conflicts: %s. Numbers left: %s",numConflicts,numLeft));
         if (numConflicts == 0 && numLeft == 0) {
             this.gameCompleted = true;
