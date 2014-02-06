@@ -73,7 +73,6 @@ public class Board {
 
     public void findConflicts() {
         int numConflicts = 0;
-        //int numLeft = 9*9;
         int numLeft = 0;
 
         setAllFalse(board);
@@ -91,19 +90,14 @@ public class Board {
         // Send rows to conflictFinder func
         Field[][] fields = new Field[9][9];
         for (int i = 0; i < board.length; i++) {
-            //board[i] = findConflicts(board[i]);
              fields[i] = findConflicts(board[i]);
-            System.out.print("\ni: "+i+": ");
             for (int j = 0; j < board.length; j++) {
-                System.out.print(fields[i][j] + ", ");
                 if (fields[i][j].isConflict()) {
                     board[i][j].setConflict(true);
                     numConflicts++;
                 }
-                //System.out.print("\n");
             }
         }
-        System.out.println("");
 
         // Convert columns to "rows" and send their arrays to columnFinder func
         Field[][] rows = new Field[9][9];
@@ -123,7 +117,6 @@ public class Board {
             }
         }
 
-        // Converting squares to "rows" and send them to conflictFinder func
         int sqLen = 3;
         Field[][] squares = new Field[9][9];
         int[][] sqStart = {{0,0},{0,3},{0,6},
@@ -133,20 +126,28 @@ public class Board {
             int c = 0;
             for (int j = 0; j < sqLen; j++) {
                 for (int k = 0; k < sqLen; k++) {
-                    //System.out.print("[" + (sqStart[i][0] + j) + "," + (sqStart[i][1] + k) + "] ");
                     Field f = board[sqStart[i][0] + j][sqStart[i][1] + k];
                     squares[i][c] = f;
                     c++;
                 }
-                //System.out.print(" ");
             }
-            //System.out.println("");
             squares[i] = findConflicts(squares[i]);
         }
 
         // @ToDo Convert back to original format
+/*
+        for (int i = 0; i < board.length; i++) {
+            int c = 0;
+            for (int j = 0; j < sqLen; j++) {
+                for (int k = 0; k < sqLen; k++) {
+                 //   board[sqStart[i][0] + j][sqStart[i][1] + k] = squares[i][c];
+                }
+            }
+        }
+*/
 
-        System.out.println(String.format("DEBUG: Conflicts: %s, numLeft: %s",numConflicts,numLeft));
+
+        System.out.println(String.format("Number of Conflicts: %s. Numbers left: %s",numConflicts,numLeft));
         if (numConflicts == 0 && numLeft == 0) {
             this.gameCompleted = true;
         }
