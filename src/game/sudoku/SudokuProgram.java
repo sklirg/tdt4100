@@ -133,13 +133,19 @@ public class SudokuProgram {
             }
             else
                 System.out.println("Please use this format: 1a1 [x,y,value].");
+            if (gameCompleted()) {
+                gameInProgress = false;
+                System.out.println("Congratulations! You solved the puzzle!");
+                break;
+            }
         }
 
     }
 
     public static void main(String[] args) {
         SudokuProgram game = new SudokuProgram();
-        game.setBoardString(".....2..38.273.45....6..87.9.8..5367..6...1..4513..9.8.84..3....79.512.62..8.....");
+        //game.setBoardString(".....2..38.273.45....6..87.9.8..5367..6...1..4513..9.8.84..3....79.512.62..8.....");
+        game.setBoardString("14758269386273945159361487292814536773692814545136792868427351937945128621589673.");
         game.init();
         game.run();
     }
