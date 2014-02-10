@@ -133,11 +133,12 @@ public class Board {
             }
             squares[i] = findConflicts(squares[i]);
         }
-
-        System.out.println(String.format("Number of Conflicts: %s. Numbers left: %s",numConflicts,numLeft));
         if (numConflicts == 0 && numLeft == 0) {
             this.gameCompleted = true;
         }
+        else
+            System.out.println(String.format("Number of Conflicts: %s. Numbers left: %s",numConflicts,numLeft));
+
     }
 
     public String getBoard() {
