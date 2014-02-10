@@ -116,13 +116,8 @@ public class SudokuProgram {
 
     public void run() {
         Scanner scan = new Scanner(System.in);
-        int moves = 0;
+        int moves = 0; // Not implemented.
         while (gameInProgress) {
-            if (gameCompleted()) {
-                gameInProgress = false;
-                System.out.println("Congratulations! You solved the puzzle!");
-                break;
-            }
             gameBoard.findConflicts();
             System.out.println(gameBoard.getBoard());
             System.out.println("Please select your next move.");
