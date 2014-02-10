@@ -133,6 +133,7 @@ public class SudokuProgram {
             }
             else
                 System.out.println("Please use this format: 1a1 [x,y,value].");
+            gameBoard.findConflicts();
             if (gameCompleted()) {
                 gameInProgress = false;
                 System.out.println("Congratulations! You solved the puzzle!");
