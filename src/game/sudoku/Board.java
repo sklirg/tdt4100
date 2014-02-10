@@ -77,7 +77,7 @@ public class Board {
 
         setAllFalse(board);
 
-        // Count empty fields and remove them from numLeft
+        // Count empty fields
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board.length; j++) {
                 if (board[i][j].getValue() == -1) {
