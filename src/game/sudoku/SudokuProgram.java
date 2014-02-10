@@ -146,7 +146,7 @@ public class SudokuProgram {
     public static void main(String[] args) {
         SudokuProgram game = new SudokuProgram();
         //game.setBoardString(".....2..38.273.45....6..87.9.8..5367..6...1..4513..9.8.84..3....79.512.62..8.....");
-        game.setBoardString("14758269386273945159361487292814536773692814545136792868427351937945128621589673.");
+        game.setBoardString("..7582693862739451593614872928145367736928145451367928684273519379451286215896734");
         game.init();
         game.run();
     }
