@@ -11,19 +11,6 @@ public class Field {
         return ((i>=0) && (i<=8));
     }
 
-   /* public Field() {
-        changeable = true;
-        x = -1;
-        y = -1;
-        value = "N";
-    }*/
-
-    /*if (!(changeable)) {
-        throw new IllegalArgumentException("This field is not changeable");
-    }
-    else*/
-
-
     public Field(int x, int y, int v) {
         if (!(isValidField(x) && isValidField(y))) {
             throw new IllegalArgumentException("These coordinates are invalid.");
@@ -39,28 +26,6 @@ public class Field {
                 changeable = true;
             else
                 changeable = false;
-            /*
-            int wat = v;
-
-            try {
-                //System.out.print(value + " - ");
-                wat = Integer.parseInt(v+"");
-                //System.out.println(wat);
-            }
-            catch (Exception e) {
-                //System.out.println(e);
-                changeable = true;
-            }
-
-*/
-            /*
-            for (int i = 1; i < 10; i++) {
-                System.out.println(String.format("v: %s, i: %s", value, i));
-                if (value == i) {
-                    changeable = false;
-                    break;
-                }
-            }*/
 
             this.x = x;
             this.y = y;
