@@ -45,11 +45,13 @@ public class Person {
     }
 
     public Person getChild(int n) {
+        //System.out.println("Trying to get kid at " + n);
         if (n > children.size()) {
             throw new IllegalArgumentException("This family does not have this many kids.");
         }
-        else
-            return children.get(n-1);
+        else {
+            return children.get(n);
+        }
     }
 
     public void setMother(Person mother) {
@@ -141,29 +143,35 @@ public class Person {
         Person sis = new Person("IA", 'F');
         Person p = new Person("Roald", 'M');
         Person m = new Person("Marit", 'F');
+        Person ff = new Person("Tønnes", 'M');
+        Person fm = new Person("Elna", 'F');
+        Person mf = new Person("Alf", 'M');
+        Person mm = new Person("Maria", 'F');
+
         ArrayList<Person> persons = new ArrayList<Person>();
         persons.add(me);
         persons.add(sis);
         persons.add(p);
         persons.add(m);
+        persons.add(ff);
+        persons.add(fm);
+        persons.add(mf);
+        persons.add(mm);
 
-        /*
-        me.setFather(p);
-        me.printDebug();
-        p.printDebug();
-
-        System.out.println("");
-        sis.setMother(m);
-        sis.printDebug();
-        m.printDebug();
-        */
-
-        m.addChild(me);
-        m.printDebug();
-        me.printDebug();
-
+        mm.addChild(m);
+        mf.addChild(m);
+        fm.addChild(p);
+        ff.addChild(p);
+        p.addChild(sis);
+        m.addChild(sis);
         p.addChild(me);
-        p.printDebug();
-        me.printDebug();
+        m.addChild(me);
+
+        System.out.println("Antall barn for p: " + p.getChildCount());
+        System.out.println("barn 1: " + p.getChild(0));
+        System.out.println("barn 2: " + p.getChild(1));
+        for (Person x : persons) {
+            x.printDebug();
+        }
     }
 }
