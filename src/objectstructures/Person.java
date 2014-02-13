@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 /**
  * Created by sklirg on 2/13/14.
- * @ToDo
  *
  * name, gender, mother, father, childCount, child
  */
@@ -54,29 +53,39 @@ public class Person {
     }
 
     public void setMother(Person mother) {
-        if (mother.gender == 'F') {
+        if (mother.gender != 'F') {
+            throw new IllegalArgumentException("This is not a female.");
+        }
+        else if (this == mother)
+            throw new IllegalArgumentException("Cannot add as own mother.");
+        else {
             this.mother = mother;
             mother.addChild(this);
         }
-        else
-            throw new IllegalArgumentException("This is not a female.");
     }
 
     public void setFather(Person father) {
-        if (father.gender == 'M') {
+        if (father.gender != 'M')
+            throw new IllegalArgumentException("This is not a male.");
+        else if (this == father)
+            throw new IllegalArgumentException("Cannot add as own father.");
+        else {
             this.father = father;
             father.addChild(this);
         }
-        else
-            throw new IllegalArgumentException("This is not a male.");
     }
 
     public void addChild(Person child) {
-        this.children.add(child);
-        if (this.gender == 'M')
-            child.setFather(this);
-        else
-            child.setMother(this);
+        if (this != child) {
+            this.children.add(child);
+            if (this.gender == 'M')
+                child.setFather(this);
+            else
+                child.setMother(this);
+        }
+        else {
+            throw new IllegalArgumentException("Cannot add as own child");
+        }
     }
 
     public void removeChild(Person child) {
@@ -99,5 +108,27 @@ public class Person {
     @Override
     public String toString() {
         return name;
+    }
+
+    public void printDebug() {
+        String r = String.format("n: %s, m: %s, f: %s", this.name, this.mother, this.father);
+        if (children.size()>0) {
+            String childrenString = "";
+            for (Person c : children) {
+                childrenString += c.getName() + " ";
+            }
+            r += "\nChildren: " + childrenString;
+        }
+        System.out.println(r);
+    }
+
+    public static void main(String[] args) {
+        Person me = new Person("Håkon", 'M');
+        Person sis = new Person("IA", 'F');
+        Person p = new Person("Roald", 'M');
+        Person m = new Person("Marit", 'F');
+
+        System.out.println(String.format("%s, %s, %s, %s", me, sis, p, m));
+        p.addChild(me);
     }
 }
