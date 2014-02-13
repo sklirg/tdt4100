@@ -19,7 +19,8 @@ Velg og gjennomfør minst én av oppgavene under (du trenger m.a.o. heller ikke 
 - Card-oppgaven (https://www.ntnu.no/wiki/display/tdt4100/Objektstrukturer+-+Card-oppgave)
 - Partner-oppgaven (https://www.ntnu.no/wiki/display/tdt4100/Objektstrukturer+-+Partner-oppgave)
 - Person-oppgaven (https://www.ntnu.no/wiki/display/tdt4100/Objektstrukturer+-+Person-oppgave)
-Disse oppgavene har noe ulik vanskelighetsgrad og omfang. Alle er (høyst) eksamensrelevante og de anbefales følgelig å ta en titt på alle sammen.  
+Disse oppgavene har noe ulik vanskelighetsgrad og omfang. Alle er (høyst) eksamensrelevante og de anbefales følgelig å ta en titt på alle sammen.
+  
 **NB:** du må laste ned og legge til siste versjon av jexercise-standalone.jar og legge denne til javaprosjektet ditt for at JExercise-testene skal fungere (denne finner du på https://www.ntnu.no/wiki/display/tdt4100/JExercise eller i mappen 'Øving 5').
    
 ===
