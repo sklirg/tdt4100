@@ -8,7 +8,32 @@
 - [Øving 1][o1]  
 
 
+# Øving 5  
+### Objektstrukturer  
+**Innleveringsfrist Fredag 21. februar kl 0800.**  
+  
+==
+  
+### Dette må du gjøre:
+Velg og gjennomfør minst én av oppgavene under (du trenger m.a.o. heller ikke for denne øvingen å henge deg opp i hvor mange dekningsgrads- og omfangspoeng hver av oppgavene har):
+Card-oppgaven (https://www.ntnu.no/wiki/display/tdt4100/Objektstrukturer+-+Card-oppgave)
+Partner-oppgaven (https://www.ntnu.no/wiki/display/tdt4100/Objektstrukturer+-+Partner-oppgave)
+Person-oppgaven (https://www.ntnu.no/wiki/display/tdt4100/Objektstrukturer+-+Person-oppgave)
+Disse oppgavene har noe ulik vanskelighetsgrad og omfang. Alle er (høyst) eksamensrelevante og de anbefales følgelig å ta en titt på alle sammen. NB: du må laste ned og legge til siste versjon av jexercise-standalone.jar og legge denne til javaprosjektet ditt for at JExercise-testene skal fungere (denne finner du på https://www.ntnu.no/wiki/display/tdt4100/JExercise eller i mappen 'Øving 5').
+   
+===
+  
+#### Øvingsmål:
+å lære hva assosiasjoner er og hvordan dette brukes i OO 
+å lære hvordan å sikre konsistent oppførsel mellom assosierte objekter
+ 
+#### Øvingskrav:
+å kunne implementere klasser som har assosiasjoner til en eller flere andre klasser
+å kunne implementere metoder som oppretter, oppdaterer og fjerner slike assosiasjoner
+å kunne sikre at disse assosiasjon er konsistente i enkle objektstrukturer
+  
 
+  
 # Øving 4
 ### Objektstrukturer
 **Innleveringsfrist Fredag 14. februar kl 0800.**  
@@ -34,7 +59,6 @@ I denne øvingen legger oppgaveteksten(e) mindre føringer for hvordan koden din
 å kunne programmere meningsfulle og fungerende objektstrukturer
 å kunne teste et større program og sikre seg at det fungerer i alle tilfeller
 
-=========
 
 # Øving 3
 ### Innkapsling og validering  
