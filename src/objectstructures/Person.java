@@ -11,7 +11,7 @@ public class Person {
     private String name;
     private char gender;
     private Person mother, father;
-    private ArrayList<Person> children;
+    private ArrayList<Person> children = new ArrayList<Person>();
 
     public Person(String name, char gender) {
         this.name = name;
@@ -58,6 +58,9 @@ public class Person {
         }
         else if (this == mother)
             throw new IllegalArgumentException("Cannot add as own mother.");
+        else if (this.mother != null) {
+            //throw new IllegalArgumentException("This child already has a mother.");
+        }
         else {
             this.mother = mother;
             mother.addChild(this);
@@ -69,6 +72,9 @@ public class Person {
             throw new IllegalArgumentException("This is not a male.");
         else if (this == father)
             throw new IllegalArgumentException("Cannot add as own father.");
+        else if (this.father != null) {
+            //throw new IllegalArgumentException("This child already has a father.");
+        }
         else {
             this.father = father;
             father.addChild(this);
@@ -76,8 +82,16 @@ public class Person {
     }
 
     public void addChild(Person child) {
-        if (this != child) {
-            this.children.add(child);
+        boolean childAsChild = false;
+        for (Person p : this.children) {
+            if (p == child)
+                childAsChild = true;
+        }
+        if (childAsChild) {
+         //   throw new IllegalArgumentException("This child is already a child of this parent.");
+        }
+        else if (this != child) {
+            children.add(child);
             if (this.gender == 'M')
                 child.setFather(this);
             else
@@ -111,13 +125,13 @@ public class Person {
     }
 
     public void printDebug() {
-        String r = String.format("n: %s, m: %s, f: %s", this.name, this.mother, this.father);
+        String r = String.format("n: %s, g: %s m: %s, f: %s", this.name, this.gender, this.mother, this.father);
         if (children.size()>0) {
             String childrenString = "";
             for (Person c : children) {
                 childrenString += c.getName() + " ";
             }
-            r += "\nChildren: " + childrenString;
+            r += "\n-- Children: " + childrenString;
         }
         System.out.println(r);
     }
@@ -127,8 +141,29 @@ public class Person {
         Person sis = new Person("IA", 'F');
         Person p = new Person("Roald", 'M');
         Person m = new Person("Marit", 'F');
+        ArrayList<Person> persons = new ArrayList<Person>();
+        persons.add(me);
+        persons.add(sis);
+        persons.add(p);
+        persons.add(m);
 
-        System.out.println(String.format("%s, %s, %s, %s", me, sis, p, m));
+        /*
+        me.setFather(p);
+        me.printDebug();
+        p.printDebug();
+
+        System.out.println("");
+        sis.setMother(m);
+        sis.printDebug();
+        m.printDebug();
+        */
+
+        m.addChild(me);
+        m.printDebug();
+        me.printDebug();
+
         p.addChild(me);
+        p.printDebug();
+        me.printDebug();
     }
 }
