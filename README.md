@@ -2,10 +2,11 @@
 
 ##### Meny
 - [Wiki][wiki]
-- [Øving 4][o4]  
-- [Øving 3][o3]  
-- [Øving 2][o2]  
-- [Øving 1][o1]  
+- [Øving 5][o5]  
+- ~~[Øving 4][o4]~~  
+- ~~[Øving 3][o3]~~  
+- ~~[Øving 2][o2]~~  
+- ~~[Øving 1][o1]~~  
 
 
 # Øving 5  
@@ -162,3 +163,9 @@ Før du setter i gang kan det vært lurt å lese nevnte wikiside om [Tilstand og
 [o2]: #Øving-2
 [o3]: #Øving-3
 [o4]: #Øving-4
+[o5]: #Øving-5
+[o6]: #Øving-6
+[o7]: #Øving-7
+[o8]: #Øving-8
+[o9]: #Øving-9
+[o10]: #Øving-10
