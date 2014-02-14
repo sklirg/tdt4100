@@ -43,7 +43,7 @@ public class Partner {
             if (this.partner != null) {
                 //throw new IllegalArgumentException("This person already has a partner. ["+this+"]");
                 // If currently has partner
-                if (this.partner.getPartner() != null && false)
+                if (this.partner.getPartner() != null)
                 {
                     /* @ToDo
                      * Swingers;
@@ -52,7 +52,9 @@ public class Partner {
                     Partner oldPartner = this.partner.getPartner();
                     if (oldPartner.getPartner() != null) {
                         System.out.println("Old partner has partner");
+                        Partner oldPartnerPartner = oldPartner.getPartner();
                         oldPartner.setPartner(null);
+                        oldPartnerPartner.setPartner(null);
                     }
                     this.partner = null;
 
@@ -61,7 +63,9 @@ public class Partner {
 
                     if (newPartner.getPartner() != null) {
                         System.out.println("New partner has partner");
+                        Partner newPartnerPartner = newPartner.getPartner();
                         newPartner.setPartner(null);
+                        newPartnerPartner.setPartner(null);
                     }
                     System.out.println("Setting new partners");
                     /*newPartner.setPartner(this);
