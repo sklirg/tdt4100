@@ -30,15 +30,20 @@ public class CardDeck {
     }
 
     public void deal(CardHand hand, int n) {
-        while (n>0) {
+        int counter = 0;
+        for (int i = cards.size(); i >= 0; i--) {
+            if (n<=0 || counter>=n)
+                break;
+            boolean cardExists = true;
             try {
                 hand.addCard(cards.get(n));
-                n--;
                 cards.remove(n);
             }
             catch (Exception e) {
-
+                cardExists = false;
             }
+            if (cardExists)
+                counter++;
         }
     }
 
