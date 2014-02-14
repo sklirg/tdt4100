@@ -20,10 +20,12 @@ public class CardHand {
     }
 
     public void addCard(Card card) {
-
+        cards.add(card);
     }
 
     public Card play(int n) {
-        return cards.get(n);
+        Card r = cards.get(n);
+        cards.remove(r);
+        return r;
     }
 }
