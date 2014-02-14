@@ -9,7 +9,7 @@ public class CardDeck {
     public CardDeck(int n) {
         char[] s = {'S','H','D','C'};
         for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 13; j++) {
+            for (int j = 0; j < n; j++) {
                 Card c = new Card((s[i]), (j+1));
                 cards.add(c);
             }
