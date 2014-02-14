@@ -17,7 +17,7 @@ public class Card {
     }
 
     private boolean validateInput(int face) {
-        return (face >= 0 && face <= 12);
+        return (face >= 1 && face <= 13);
     }
 
     public Card(char suit, int face) {
