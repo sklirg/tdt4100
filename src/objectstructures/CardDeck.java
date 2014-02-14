@@ -34,6 +34,7 @@ public class CardDeck {
             try {
                 hand.addCard(cards.get(n));
                 n--;
+                cards.remove(n);
             }
             catch (Exception e) {
 
