@@ -7,8 +7,13 @@ public class CardDeck {
     ArrayList<Card> cards = new ArrayList<Card>();
 
     public CardDeck(int n) {
-        int total = n*4;
-
+        char[] s = {'S','H','D','C'};
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 13; j++) {
+                Card c = new Card((s[i]), (j+1));
+                cards.add(c);
+            }
+        }
     }
 
     public int getCardCount() {
@@ -25,7 +30,15 @@ public class CardDeck {
     }
 
     public void deal(CardHand hand, int n) {
+        while (n>0) {
+            try {
+                hand.addCard(cards.get(n));
+                n--;
+            }
+            catch (Exception e) {
 
+            }
+        }
     }
 
     public void shufflePerfectly() {
