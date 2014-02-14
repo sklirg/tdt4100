@@ -23,13 +23,10 @@ public class Partner {
         if (partner == null) {
             // Do resetting stuff here
             boolean hasPartner;
-            if (this.getPartner() == null) {
+            if (this.getPartner() == null)
                 hasPartner = false;
-            }
-            else {
+            else
                 hasPartner = true;
-            }
-
             if (hasPartner) {
                 Partner other = this.getPartner();
                 this.partner = null;
@@ -48,54 +45,15 @@ public class Partner {
                     this.partner = null;
                     currentPartner.setPartner(null);
 
-
                     Partner swinger = partner;
                     partner.setPartner(this);
                     this.setPartner(swinger);
                 }
-                /*if (this.partner.getPartner() != null && false)
-                {
-
-                    Partner oldPartner = this.partner.getPartner();
-                    if (oldPartner.getPartner() != null) {
-                        System.out.println("Old partner has partner");
-                        Partner oldPartnerPartner = oldPartner.getPartner();
-                        oldPartner.setPartner(null);
-                        oldPartnerPartner.setPartner(null);
-                    }
-                    this.partner = null;
-
-                    Partner newPartner = partner;
-                    boolean newPartnerHasPartner;
-
-                    if (newPartner.getPartner() != null) {
-                        System.out.println("New partner has partner");
-                        Partner newPartnerPartner = newPartner.getPartner();
-                        newPartner.setPartner(null);
-                        newPartnerPartner.setPartner(null);
-                    }
-                    System.out.println("Setting new partners");
-                    /*newPartner.setPartner(this);
-                    this.partner = newPartner;*/
-                /*}*/
             }
             else {
                 // If no current partner
-                /*if (false) {
-                    Partner oldPartner = this.getPartner();
-                    Partner newPartner = partner;
-                    this.partner = null;
-                    oldPartner.setPartner(null);
-                    if (newPartner.getPartner() != null) {
-                        newPartner.setPartner(null);
-                    }
-
-                    this.setPartner(partner);
-                }
-                else {*/
-                    this.partner = partner;
-                    partner.setPartner(this);
-                //}
+                this.partner = partner;
+                partner.setPartner(this);
             }
         }
     }
