@@ -39,16 +39,23 @@ public class Partner {
                 this.partner = null;
         }
         else {
-            // Set new partners
+            // New partner as arg; Set new partners
             if (this.partner != null) {
-                //throw new IllegalArgumentException("This person already has a partner. ["+this+"]");
-                // If currently has partner
-                if (this.partner.getPartner() != null)
+                // this currently has partner
+                if ((this == this.partner.getPartner()) && (this.getPartner() != partner)) {
+                    // Partners partner is this
+                    Partner currentPartner = this.partner;
+                    this.partner = null;
+                    currentPartner.setPartner(null);
+
+
+                    Partner swinger = partner;
+                    partner.setPartner(this);
+                    this.setPartner(swinger);
+                }
+                /*if (this.partner.getPartner() != null && false)
                 {
-                    /* @ToDo
-                     * Swingers;
-                      * If setting new partner while having partner, reset all and set up new relationship.
-                     */
+
                     Partner oldPartner = this.partner.getPartner();
                     if (oldPartner.getPartner() != null) {
                         System.out.println("Old partner has partner");
@@ -70,11 +77,11 @@ public class Partner {
                     System.out.println("Setting new partners");
                     /*newPartner.setPartner(this);
                     this.partner = newPartner;*/
-                }
+                /*}*/
             }
             else {
                 // If no current partner
-                if (false) {
+                /*if (false) {
                     Partner oldPartner = this.getPartner();
                     Partner newPartner = partner;
                     this.partner = null;
@@ -85,10 +92,10 @@ public class Partner {
 
                     this.setPartner(partner);
                 }
-                else {
+                else {*/
                     this.partner = partner;
                     partner.setPartner(this);
-                }
+                //}
             }
         }
     }
@@ -101,6 +108,9 @@ public class Partner {
     public static void main(String[] args) {
         Partner far = new Partner("Far");
         Partner mor = new Partner("Mor");
+        Partner sw1 = new Partner("Swinger1");
+        Partner sw2 = new Partner("Swinger2");
+
         System.out.println("======initial");
         System.out.println("Fars partner: " + far.getPartner());
         System.out.println("Mors partner: " + mor.getPartner());
@@ -112,5 +122,12 @@ public class Partner {
         far.setPartner(null);
         System.out.println("Fars partner: " + far.getPartner());
         System.out.println("Mors partner: " + mor.getPartner());
+        System.out.println("======Setting swingers");
+        far.setPartner(mor);
+        far.setPartner(sw1);
+        System.out.println("Fars partner: " + far.getPartner());
+        System.out.println("Mors partner: " + mor.getPartner());
+        System.out.println("Sw1 partner: " + sw1.getPartner());
+        System.out.println("Sw2 partner: " + sw2.getPartner());
     }
 }
