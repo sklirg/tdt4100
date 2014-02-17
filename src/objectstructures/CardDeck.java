@@ -58,8 +58,9 @@ public class CardDeck {
           * Top card on top, bot card on bot
           */
 
+        System.out.println(cards);
         ArrayList<Card> topDeck = new ArrayList<Card>(), botDeck = new ArrayList<Card>();
-        for (int i = cards.size(); i > 0; i--) {
+        for (int i = cards.size()-1; i >= 0; i--) {
             Card shuffleCard = null;
             try {
                 shuffleCard = cards.get(i);
@@ -68,7 +69,7 @@ public class CardDeck {
                 // If card does not exist
             }
             if (shuffleCard != null) {
-                if (i > cards.size() / 2) {
+                if (i >= cards.size() / 2) {
                     topDeck.add(shuffleCard);
                 }
                 else {
@@ -98,22 +99,27 @@ public class CardDeck {
             }
         }
 
+        int x = topDeck.size();
+        int y = botDeck.size();
+        System.out.println(String.format("top: %s, bot: %s", x, y));
+
         ArrayList<Card> shuffledDeck = new ArrayList<Card>();
 
-        for (int i = len-1; i > 1; i-=2) {
+        for (int i = len-1; i >= 0; i--) {
             // Shuffle the cards
             shuffledDeck.add(topDeck.get(i));
             shuffledDeck.add(botDeck.get(i));
         }
-
+        System.out.println(topDeck + " & " + botDeck);
         if (!equalStacks) {
             // Add the extra card
             shuffledDeck.add(extraCard);
         }
+        System.out.println(shuffledDeck);
 
         ArrayList<Card> newDeck = new ArrayList<Card>();
 
-        for (int i = shuffledDeck.size()-1; i > 0; i--) {
+        for (int i = shuffledDeck.size()-1; i >= 0; i--) {
             newDeck.add(shuffledDeck.get(i));
         }
         cards = newDeck;
