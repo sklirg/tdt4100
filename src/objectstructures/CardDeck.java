@@ -107,8 +107,9 @@ public class CardDeck {
 
         for (int i = len-1; i >= 0; i--) {
             // Shuffle the cards
-            shuffledDeck.add(topDeck.get(i));
             shuffledDeck.add(botDeck.get(i));
+            shuffledDeck.add(topDeck.get(i));
+
         }
         System.out.println(topDeck + " & " + botDeck);
         if (!equalStacks) {
@@ -119,7 +120,7 @@ public class CardDeck {
 
         ArrayList<Card> newDeck = new ArrayList<Card>();
 
-        for (int i = shuffledDeck.size()-1; i >= 0; i--) {
+        for (int i = 0; i < shuffledDeck.size(); i++) {
             newDeck.add(shuffledDeck.get(i));
         }
         cards = newDeck;
