@@ -7,7 +7,7 @@ public class CardHand {
     ArrayList<Card> cards = new ArrayList<Card>();
 
     public int getCardCount() {
-        return 0;
+        return cards.size();
     }
 
     public Card getCard(int n) {
@@ -20,12 +20,12 @@ public class CardHand {
     }
 
     public void addCard(Card card) {
-        cards.add(card);
+        this.cards.add(card);
     }
 
     public Card play(int n) {
-        Card r = cards.get(n);
-        cards.remove(r);
+        Card r = this.cards.get(n);
+        this.cards.remove(n);
         return r;
     }
 }
