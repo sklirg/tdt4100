@@ -100,15 +100,22 @@ public class CardDeck {
 
         Card[] shuffledDeck = new Card[cards.size()];
 
-        for (int i = 0; i < len-1; i++) {
+        for (int i = len-1; i > 1; i-=2) {
             // Shuffle the cards
             shuffledDeck[i] = topDeck.get(i);
-            shuffledDeck[i+1] = botDeck.get(i);
+            shuffledDeck[i-1] = botDeck.get(i);
         }
 
         if (!equalStacks) {
             // Add the extra card
             shuffledDeck[shuffledDeck.length-1] = extraCard;
         }
+
+        ArrayList<Card> newDeck = new ArrayList<Card>();
+
+        for (int i = shuffledDeck.length; i > 0; i--) {
+            newDeck.add(shuffledDeck[i]);
+        }
+        cards = newDeck;
     }
 }
