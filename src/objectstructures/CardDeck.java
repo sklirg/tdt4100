@@ -30,25 +30,85 @@ public class CardDeck {
     }
 
     public void deal(CardHand hand, int n) {
-        int counter = 0;
-        for (int i = cards.size(); i >= 0; i--) {
-            if (n<=0 || counter>=n)
-                break;
-            boolean cardExists = true;
+        Card cardToRemove = null;
+        int cardCount = cards.size();
+
+
+        while (n>0) {
             try {
-                hand.addCard(cards.get(n));
-                cards.remove(n);
+                cardToRemove = cards.get(cardCount);
             }
             catch (Exception e) {
-                cardExists = false;
+                // no card
             }
-            if (cardExists)
-                counter++;
+            if (cardToRemove != null) {
+                hand.addCard(cardToRemove);
+                cards.remove(cardToRemove);
+                n--;
+            }
+            cardCount--;
         }
+
     }
 
     public void shufflePerfectly() {
+         /*
+          * Split into 2
+          * Shuffle perfectly
+          * Top card on top, bot card on bot
+          */
 
+        ArrayList<Card> topDeck = new ArrayList<Card>(), botDeck = new ArrayList<Card>();
+        for (int i = cards.size(); i > 0; i--) {
+            Card shuffleCard = null;
+            try {
+                shuffleCard = cards.get(i);
+            }
+            catch (Exception e) {
+                // If card does not exist
+            }
+            if (shuffleCard != null) {
+                if (i > cards.size() / 2) {
+                    topDeck.add(shuffleCard);
+                }
+                else {
+                    botDeck.add(shuffleCard);
+                }
+            }
+        }
+        int len;
+        boolean equalStacks = false;
+        Card extraCard = null;
+        char extraCardStack;
+
+        if (topDeck.size() == botDeck.size()) {
+            equalStacks = true;
+            len = topDeck.size();
+        }
+        else {
+            if (topDeck.size()>botDeck.size()) {
+                len = botDeck.size();
+                extraCard = topDeck.get(topDeck.size()-1);
+                extraCardStack = 't';
+            }
+            else {
+                len = topDeck.size();
+                extraCard = botDeck.get(botDeck.size()-1);
+                extraCardStack = 'b';
+            }
+        }
+
+        Card[] shuffledDeck = new Card[cards.size()];
+
+        for (int i = 0; i < len-1; i++) {
+            // Shuffle the cards
+            shuffledDeck[i] = topDeck.get(i);
+            shuffledDeck[i+1] = botDeck.get(i);
+        }
+
+        if (!equalStacks) {
+            // Add the extra card
+            shuffledDeck[shuffledDeck.length-1] = extraCard;
+        }
     }
-
 }
