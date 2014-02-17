@@ -2,7 +2,7 @@
 
 ##### Meny
 - [Wiki][wiki]
-- [Øving 5][o5]  
+- ~~[Øving 5][o5]~~  
 - ~~[Øving 4][o4]~~  
 - ~~[Øving 3][o3]~~  
 - ~~[Øving 2][o2]~~  
