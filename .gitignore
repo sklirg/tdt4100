@@ -49,9 +49,12 @@ node_modules
 .idea
 
 # Package Files #
-*.jar
+# *.jar I want JExercise
 *.war
 *.ear
 
 # Eclipse
 *.metadata
+
+# IntelliJ
+*.iml
