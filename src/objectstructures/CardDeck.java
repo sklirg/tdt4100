@@ -98,24 +98,25 @@ public class CardDeck {
             }
         }
 
-        Card[] shuffledDeck = new Card[cards.size()];
+        ArrayList<Card> shuffledDeck = new ArrayList<Card>();
 
         for (int i = len-1; i > 1; i-=2) {
             // Shuffle the cards
-            shuffledDeck[i] = topDeck.get(i);
-            shuffledDeck[i-1] = botDeck.get(i);
+            shuffledDeck.add(topDeck.get(i));
+            shuffledDeck.add(botDeck.get(i));
         }
 
         if (!equalStacks) {
             // Add the extra card
-            shuffledDeck[shuffledDeck.length-1] = extraCard;
+            shuffledDeck.add(extraCard);
         }
 
         ArrayList<Card> newDeck = new ArrayList<Card>();
 
-        for (int i = shuffledDeck.length; i > 0; i--) {
-            newDeck.add(shuffledDeck[i]);
+        for (int i = shuffledDeck.size()-1; i > 0; i--) {
+            newDeck.add(shuffledDeck.get(i));
         }
         cards = newDeck;
+        System.out.println(newDeck);
     }
 }
