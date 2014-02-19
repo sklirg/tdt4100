@@ -2,18 +2,46 @@
 
 ##### Meny
 - [Wiki][wiki]
+- [Øving 6][o6]  
 - ~~[Øving 5][o5]~~  
 - ~~[Øving 4][o4]~~  
 - ~~[Øving 3][o3]~~  
 - ~~[Øving 2][o2]~~  
 - ~~[Øving 1][o1]~~  
 
+# Øving 6  
+### Grensesnitt  
+**Innleveringsfrist Fredag 28. februar kl 0800.**  
+
+===  
+ 
+Velg og gjennomfør minst to av oppgavene under (du trenger m.a.o. heller ikke for denne øvingen å henge deg opp i hvor mange dekningsgrads- og omfangspoeng hver av oppgavene har):  
+- CardContainer-oppgaven (https://www.ntnu.no/wiki/display/tdt4100/interface+-+CardContainer-oppgave)
+- CardComparison-oppgaven (https://www.ntnu.no/wiki/display/tdt4100/interface+-+CardComparison-oppgave)
+- Named-oppgaven (https://www.ntnu.no/wiki/display/tdt4100/interface+-+Named-oppgave)
+- StringGrid-oppgaven (https://www.ntnu.no/wiki/display/tdt4100/interface+-+StringGrid-oppgave)
+  
+Disse oppgavene har noe ulik vanskelighetsgrad og omfang, og trolig stigende (i.e. CardContainer den enkleste og StringGrid den vanskeligste). Alle er (høyst) eksamensrelevante og de anbefales følgelig å ta en titt på alle sammen. 
+ 
+===
+
+#### Øvingsmål
+- å lære hva gresesnitt er og hvordan disse defineres  
+- å lære hvordan man implementerer et grensesnitt  
+ 
+#### Øvingskrav
+- å kunne lage grensesnitt og implementere disse med andre klasser  
+- å kunne bruke grensesnittene Iterable<T> og Iterator<T>  
+- å kunne bruke grensesnittene Comparable<T> og Comparator<T>  
+ 
+
+===
 
 # Øving 5  
 ### Objektstrukturer  
 **Innleveringsfrist Fredag 21. februar kl 0800.**  
   
-==
+===
   
 ### Dette må du gjøre:
 Velg og gjennomfør minst én av oppgavene under (du trenger m.a.o. heller ikke for denne øvingen å henge deg opp i hvor mange dekningsgrads- og omfangspoeng hver av oppgavene har):  
@@ -26,14 +54,14 @@ Disse oppgavene har noe ulik vanskelighetsgrad og omfang. Alle er (høyst) eksam
    
 ===
   
-#### Øvingsmål:
-å lære hva assosiasjoner er og hvordan dette brukes i OO 
-å lære hvordan å sikre konsistent oppførsel mellom assosierte objekter
+#### Øvingsmål
+- å lære hva assosiasjoner er og hvordan dette brukes i OO 
+- å lære hvordan å sikre konsistent oppførsel mellom assosierte objekter  
  
 #### Øvingskrav:
-å kunne implementere klasser som har assosiasjoner til en eller flere andre klasser
-å kunne implementere metoder som oppretter, oppdaterer og fjerner slike assosiasjoner
-å kunne sikre at disse assosiasjon er konsistente i enkle objektstrukturer
+- å kunne implementere klasser som har assosiasjoner til en eller flere andre klasser  
+- å kunne implementere metoder som oppretter, oppdaterer og fjerner slike assosiasjoner  
+- å kunne sikre at disse assosiasjon er konsistente i enkle objektstrukturer  
   
 
   
@@ -55,12 +83,12 @@ I denne øvingen legger oppgaveteksten(e) mindre føringer for hvordan koden din
 ==========
 
 #### Øvingsmål:
-å lære å tenke ut en oppdeling av et program i flere interagerende klasser
-å lære å tenke rundt og programmere et program som skaper flere objektinstanser under kjøring
+- å lære å tenke ut en oppdeling av et program i flere interagerende klasser  
+- å lære å tenke rundt og programmere et program som skaper flere objektinstanser under kjøring  
  
 #### Øvingskrav:
-å kunne programmere meningsfulle og fungerende objektstrukturer
-å kunne teste et større program og sikre seg at det fungerer i alle tilfeller
+- å kunne programmere meningsfulle og fungerende objektstrukturer  
+- å kunne teste et større program og sikre seg at det fungerer i alle tilfeller  
 
 
 # Øving 3
