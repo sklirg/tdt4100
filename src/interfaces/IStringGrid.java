@@ -11,5 +11,5 @@ public interface IStringGrid {
 
     public String getElement(int row, int column);
 
-    public void setElement(int row, int column);
+    public void setElement(int row, int column, String str);
 }
