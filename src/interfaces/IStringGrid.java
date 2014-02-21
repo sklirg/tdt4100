@@ -3,7 +3,7 @@ package interfaces;
 /**
  * Created by sklirg on 2/21/14.
  */
-public interface StringGrid {
+public interface IStringGrid {
 
     public int getRowCount();
 
