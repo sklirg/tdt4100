@@ -1,6 +1,4 @@
-package interfaces;
-
-import java.util.ArrayList;
+package interfaces.stringgrid;
 
 /**
  * Created by sklirg on 2/21/14.

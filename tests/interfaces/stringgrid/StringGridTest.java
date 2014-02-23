@@ -1,7 +1,8 @@
-package interfaces;
+package interfaces.stringgrid;
 
-import interfaces.StringGridImpl;
-import interfaces.StringGridIterator;
+import interfaces.stringgrid.StringGridImpl;
+import interfaces.stringgrid.StringGridIterator;
+
 import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
 

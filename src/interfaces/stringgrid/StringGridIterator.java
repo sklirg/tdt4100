@@ -1,4 +1,4 @@
-package interfaces;
+package interfaces.stringgrid;
 
 import java.util.Iterator;
 
