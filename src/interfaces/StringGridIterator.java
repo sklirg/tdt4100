@@ -6,7 +6,7 @@ import java.util.Iterator;
  * Created by sklirg on 2/21/14.
  */
 public class StringGridIterator implements Iterator<String> {
-    boolean hasNext;
+    boolean hasNext, iterateRows;
     int row, col;
     StringGridImpl StringGrid;
 
@@ -15,23 +15,43 @@ public class StringGridIterator implements Iterator<String> {
         this.row = 0;
         this.col = 0;
         this.hasNext = true;
+        this.iterateRows = rows;
     }
 
     private int[] getNext() {
-        if (this.row < this.StringGrid.getRowCount()) {
-            if (this.col < this.StringGrid.getColumnCount())
-                this.col++;
-            else {
-                this.col = 0;
-                this.row++;
+        System.out.println("IM TRYING OKAY?");
+        int[] r = new int[2];
+        if (this.iterateRows) {
+            if (this.row <= this.StringGrid.getRowCount()) {
+                if (this.col <= this.StringGrid.getColumnCount())
+                    this.col++;
+                else {
+                    this.col = 0;
+                    this.row++;
+                }
             }
+            else {
+                r[0] = -1; r[1] = -1;
+                this.hasNext = false;
+            }
+            r[0] = this.row;r[1] = this.col;
         }
-        else {
-            int[] r = {-1,-1};
-            this.hasNext = false;
-            return r;
-        }
-        int[] r = {this.row, this.col};
+        /*else {
+            if (this.col <= this.StringGrid.getColumnCount()) {
+                if (this.row <= this.StringGrid.getRowCount())
+                    this.row++;
+                else {
+                    this.row = 0;
+                    this.col++;
+                }
+            }
+            else {
+                r[0] = -1; r[1] = -1;
+                this.hasNext = false;
+            }
+            r[0] = this.row;r[1] = this.col;
+
+        }*/
         return r;
     }
 
