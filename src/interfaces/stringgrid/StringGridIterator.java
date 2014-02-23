@@ -18,58 +18,46 @@ public class StringGridIterator implements Iterator<String> {
         this.iterateRows = rows;
     }
 
-    private int[] getNext() {
-        System.out.println("IM TRYING OKAY?");
-        int[] r = new int[2];
-        if (this.iterateRows) {
-            if (this.row <= this.StringGrid.getRowCount()) {
-                if (this.col <= this.StringGrid.getColumnCount())
-                    this.col++;
-                else {
-                    this.col = 0;
-                    this.row++;
-                }
-            }
-            else {
-                r[0] = -1; r[1] = -1;
-                this.hasNext = false;
-            }
-            r[0] = this.row;r[1] = this.col;
-        }
-        /*else {
-            if (this.col <= this.StringGrid.getColumnCount()) {
-                if (this.row <= this.StringGrid.getRowCount())
-                    this.row++;
-                else {
-                    this.row = 0;
-                    this.col++;
-                }
-            }
-            else {
-                r[0] = -1; r[1] = -1;
-                this.hasNext = false;
-            }
-            r[0] = this.row;r[1] = this.col;
+    /*private int[] getNext() {
 
-        }*/
-        return r;
-    }
+    }*/
 
     public boolean hasNext() {
-        return this.hasNext;
+        //System.out.println(String.format("row:%s & cols:%s", row,col));
+        //System.out.println("Checking hasnxt: " + (this.row > this.StringGrid.getRowCount() && this.col > this.StringGrid.getColumnCount()));
+        return !(this.row > this.StringGrid.getRowCount() && this.col > this.StringGrid.getColumnCount());
     }
 
     public String next() {
-        if (hasNext) {
-            int r = row, c = col;
-            int[] newValues = getNext();
-            this.row = newValues[0];
-            this.col = newValues[1];
+        String r = StringGrid.getElement(row, col);
 
-            return StringGrid.getElement(r,c);
+        if (this.iterateRows) {
+            System.out.println(String.format("iter row: [%s,%s]", row, col));
+            if (this.col < this.StringGrid.getColumnCount()-1) {
+                this.col++;
+            }
+            else if (this.row < this.StringGrid.getRowCount()-1) {
+                this.col = 0;
+                this.row++;
+            }
+            else {
+                // what to do if reached end
+            }
         }
-        else
-            return "no.";
+        else {
+            if (this.row < this.StringGrid.getRowCount()-1) {
+                this.row++;
+            }
+            else if (this.col < this.StringGrid.getColumnCount()-1) {
+                this.row = 0;
+                this.col++;
+            }
+            else {
+                // what to do if reached end
+            }
+        }
+
+        return r;//this.StringGrid.getElement(this.row, this.col);
     }
 
     public void remove() {
