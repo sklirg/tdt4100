@@ -9,6 +9,12 @@ package interfaces.named;
 public class Person2 implements INamed {
     String givenName, familyName, fullName;
 
+    public Person2(String fullName) {
+        this.fullName = fullName;
+        this.givenName = this.fullName.split("\\s")[0];
+        this.familyName = this.fullName.split("\\s")[1];
+    }
+
     public String getGivenName() {
         return givenName;
     }
