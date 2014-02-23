@@ -6,32 +6,26 @@ import java.util.ArrayList;
  * Created by sklirg on 2/21/14.
  */
 public class StringGridImpl implements IStringGrid {
-    ArrayList<ArrayList<String>> stringGrid = new ArrayList<ArrayList<String>>();
+    String[][] stringGrid;
+    int numRow, numCol;
 
-    /* @ToDo
-     * Constructor
-     */
-    /*public StringGridImpl() {
-
+    public StringGridImpl(int rows, int cols) {
+        this.stringGrid = new String[rows][cols];
+        this.numRow = rows;
+        this.numCol = cols;
     }
-    */
 
     public int getRowCount() {
-        return stringGrid.size();
+        return this.numRow;
     }
 
     public int getColumnCount() {
-        try {
-            return stringGrid.get(0).size();
-        }
-        catch (Exception e) {
-            return -1;
-        }
+        return this.numCol;
     }
 
     public void setElement(int row, int col, String str) {
         try {
-            stringGrid.get(row).add(col, str);
+            stringGrid[row][col] = str;
         }
         catch (Exception e) {
             throw new IllegalArgumentException("Something went wrong!\n" + e);
@@ -40,7 +34,7 @@ public class StringGridImpl implements IStringGrid {
 
     public String getElement(int row, int col) {
         try {
-            return stringGrid.get(row).get(col);
+            return stringGrid[row][col];
         }
         catch (Exception e) {
             throw new IllegalArgumentException("HTTP 404 . There is nothing here");
