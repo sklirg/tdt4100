@@ -36,12 +36,12 @@ public class NamedTest extends TestCase {
     
   }
   
-  private void ht(final Named it) {
+  private void ht(final INamed it) {
     _test__ht_test(it);
     
   }
   
-  private void _test__ht_test(final Named it) {
+  private void _test__ht_test(final INamed it) {
     
     String _givenName = it.getGivenName();
     assertEquals("givenName == h failed", this.h, _givenName);
@@ -59,12 +59,12 @@ public class NamedTest extends TestCase {
     
   }
   
-  private void jt(final Named it) {
+  private void jt(final INamed it) {
     _test__jt_test(it);
     
   }
   
-  private void _test__jt_test(final Named it) {
+  private void _test__jt_test(final INamed it) {
     
     String _givenName = it.getGivenName();
     assertEquals("givenName == j failed", this.j, _givenName);
