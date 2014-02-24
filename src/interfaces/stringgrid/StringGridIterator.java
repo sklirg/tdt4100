@@ -23,8 +23,6 @@ public class StringGridIterator implements Iterator<String> {
     }*/
 
     public boolean hasNext() {
-        //System.out.println(String.format("row:%s & cols:%s", row,col));
-        //System.out.println("Checking hasnxt: " + (this.row > this.StringGrid.getRowCount() && this.col > this.StringGrid.getColumnCount()));
         return !(this.row > this.StringGrid.getRowCount() && this.col > this.StringGrid.getColumnCount());
     }
 
@@ -57,7 +55,7 @@ public class StringGridIterator implements Iterator<String> {
             }
         }
 
-        return r;//this.StringGrid.getElement(this.row, this.col);
+        return r;
     }
 
     public void remove() {
