@@ -1,5 +1,7 @@
 package game.sudoku;
 
+import stateandbehavior.Stack;
+
 import java.util.Scanner;
 
 /**
@@ -116,16 +118,42 @@ public class SudokuProgram {
 
     public void run() {
         Scanner scan = new Scanner(System.in);
+
+        Stack gameMoves = new Stack();
+        String undo = "";
+
         int moves = 0; // Not implemented.
         while (gameInProgress) {
             gameBoard.findConflicts();
             System.out.println(gameBoard.getBoard());
             System.out.println("Please select your next move.");
             String input = scan.nextLine();
+            String lastMove = gameMoves.peek(0);
             if (input.length() == 3) {
-                gameBoard.setValue(translateInput(input));
-                moves++;
+                boolean legalMove = true;
+                try {
+                    gameBoard.setValue(translateInput(input));
+                }
+                catch (IllegalArgumentException e) {
+                    System.out.println("Something went wrong: " + e);
+                    legalMove = false;
+                }
+                if (legalMove) {
+                    gameMoves.push(input);
+                    //System.out.println("Added move to stack - top elem in stack: " + gameMoves.peek(0));
+                    moves++;
+                }
             }
+            else if (input.equals("u")) {
+                String previousMove = gameMoves.pop();
+                gameBoard.setValue(translateInput(previousMove));
+                undo = previousMove;
+            }
+            else if (input.equals("r") && lastMove.equals("u")) {
+                gameBoard.setValue(translateInput(undo));
+            }
+            else if (input.equals("q"))
+                System.exit(0);
             else
                 System.out.println("Please use this format: 1a1 [x,y,value].");
             gameBoard.findConflicts();
