@@ -120,7 +120,9 @@ public class SudokuProgram {
         Scanner scan = new Scanner(System.in);
 
         Stack gameMoves = new Stack();
-        String undo = "";
+        String undoneMove = "";
+
+        SudokuMoves gameStack = new SudokuMoves();
 
         int moves = 0; // Not implemented.
         while (gameInProgress) {
@@ -129,10 +131,15 @@ public class SudokuProgram {
             System.out.println("Please select your next move.");
             String input = scan.nextLine();
             String lastMove = gameMoves.peek(0);
+            System.out.println("Previous move: " + lastMove);
             if (input.length() == 3) {
+                undoneMove = "";
                 boolean legalMove = true;
                 try {
-                    gameBoard.setValue(translateInput(input));
+                    int[] values = translateInput(input);
+                    Field field = new Field(values[0],values[1],values[2]);
+                    gameBoard.setValue(values);
+                    gameStack.addMove(field, values);
                 }
                 catch (IllegalArgumentException e) {
                     System.out.println("Something went wrong: " + e);
@@ -145,14 +152,13 @@ public class SudokuProgram {
                 }
             }
             else if (input.equals("u")) {
-                String previousMove = gameMoves.pop();
-                gameBoard.setValue(translateInput(previousMove));
-                undo = previousMove;
+
             }
-            else if (input.equals("r") && lastMove.equals("u")) {
-                gameBoard.setValue(translateInput(undo));
+            else if(input.equals("r") && lastMove.equals("u")) {
+
             }
             else if (input.equals("q"))
+                // Save state ?
                 System.exit(0);
             else
                 System.out.println("Please use this format: 1a1 [x,y,value].");
