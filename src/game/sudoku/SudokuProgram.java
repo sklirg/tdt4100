@@ -130,8 +130,11 @@ public class SudokuProgram {
             System.out.println(gameBoard.getBoard());
             System.out.println("Please select your next move.");
             String input = scan.nextLine();
-            String lastMove = gameMoves.peek(0);
-            System.out.println("Previous move: " + lastMove);
+            String lastMove ="";
+            if (moves >0) {
+                lastMove = gameStack.peek();
+                System.out.println("Previous move: " + lastMove);
+            }
             if (input.length() == 3) {
                 undoneMove = "";
                 boolean legalMove = true;
@@ -152,10 +155,10 @@ public class SudokuProgram {
                 }
             }
             else if (input.equals("u")) {
-
+                gameBoard.setValue(gameStack.undo());
             }
             else if(input.equals("r") && lastMove.equals("u")) {
-
+                gameBoard.setValue(gameStack.undo());
             }
             else if (input.equals("q"))
                 // Save state ?
