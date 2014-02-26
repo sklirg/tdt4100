@@ -21,8 +21,14 @@ public class SudokuMoves {
     }
 
     public int[] undo() {
+        int[] no = fieldStates.pop();
         int[] previousMove = fieldStates.peek();
+        moves.push(no);
         moves.push(previousMove);
         return previousMove;
+    }
+
+    public String peek() {
+        return String.format("%s", moves.peek());
     }
 }
