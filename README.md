@@ -2,12 +2,35 @@
 
 ##### Meny
 - [Wiki][wiki]
-- [Øving 6][o6]  
+- [Øving 7][o7]
+- ~~[Øving 6][o6]~~  
 - ~~[Øving 5][o5]~~  
 - ~~[Øving 4][o4]~~  
 - ~~[Øving 3][o3]~~  
 - ~~[Øving 2][o2]~~  
 - ~~[Øving 1][o1]~~  
+
+# Øving 7
+### Spill og grensesnitt
+** Innleveringsfrist Fredag 14. mars kl 0800. **
+
+===
+  
+### Dette må du gjøre
+I denne øvingen skal du fortsette med det spillet du implementerte i øving 4 og legge til ny funksjonalitet (angre / gjenta) i tillegg til å innføre grensesnitt som en del av implementasjonen. Dette er beskrevet på følgende wikiside:
+[Spill med mulighet for angring og lagring](https://www.ntnu.no/wiki/display/tdt4100/interface+-+Spill+med+mulighet+for+angring+og+lagring)  
+Merk at dersom du velger å fortsette med TicTacToe, må du først generalisere spillet til å kunne spilles på brett av størrelse NxN og med seiersbetingelse M på rad. Se instruksjoner under Ekstraoppgave - Utvidelse til M-på-rad spill på NxN-brett på [TicTacToe-oppgavesiden](https://www.ntnu.no/wiki/display/tdt4100/Innkapsling+-+TicTacToe-oppgave).
+ 
+#### Øvingsmål
+- å lære hvordan grensesnitt kan brukes i spill og implementasjon av disse  
+- å lære hvordan logikk for å kunne angre og gjenta kan implementeres  
+  
+#### Øvingskrav
+- å kunne bruke en stack til å angre og gjenta (angrede) trekk  
+- å kunne definere et grensesnitt for lesing av spill fra fil og implementere dette  
+- å implementere det definerte grensesnittet ConsoleGame  
+  
+===
 
 # Øving 6  
 ### Grensesnitt  
