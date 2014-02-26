@@ -18,10 +18,6 @@ public class StringGridIterator implements Iterator<String> {
         this.iterateRows = rows;
     }
 
-    /*private int[] getNext() {
-
-    }*/
-
     public boolean hasNext() {
         return !(this.row > this.StringGrid.getRowCount() && this.col > this.StringGrid.getColumnCount());
     }
@@ -30,7 +26,6 @@ public class StringGridIterator implements Iterator<String> {
         String r = StringGrid.getElement(row, col);
 
         if (this.iterateRows) {
-            System.out.println(String.format("iter row: [%s,%s]", row, col));
             if (this.col < this.StringGrid.getColumnCount()-1) {
                 this.col++;
             }
@@ -40,6 +35,7 @@ public class StringGridIterator implements Iterator<String> {
             }
             else {
                 // what to do if reached end
+                //throw new IllegalArgumentException("NO!");
             }
         }
         else {
@@ -52,6 +48,7 @@ public class StringGridIterator implements Iterator<String> {
             }
             else {
                 // what to do if reached end
+                //throw new IllegalArgumentException("ROW NOW!");
             }
         }
 
