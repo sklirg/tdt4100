@@ -1,4 +1,4 @@
-package interfaces.stringgrid;
+package interfaces.stringGrid;
 
 /**
  * Created by sklirg on 2/21/14.
