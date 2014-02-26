@@ -19,7 +19,22 @@ public class StringGridIterator implements Iterator<String> {
     }
 
     public boolean hasNext() {
-        return !(this.row > this.StringGrid.getRowCount() && this.col > this.StringGrid.getColumnCount());
+
+        if (this.iterateRows) {
+            if (this.col < this.StringGrid.getColumnCount()-1)
+                return true;
+            else if (this.row < this.StringGrid.getRowCount()-1)
+                return true;
+        }
+        else {
+            if (this.row < this.StringGrid.getRowCount()-1)
+                return true;
+            else if (this.col < this.StringGrid.getColumnCount()-1)
+                return false;
+        }
+
+        return false;
+        //return !(this.row > this.StringGrid.getRowCount() && this.col > this.StringGrid.getColumnCount());
     }
 
     public String next() {
