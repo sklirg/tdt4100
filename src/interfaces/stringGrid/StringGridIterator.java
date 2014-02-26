@@ -19,7 +19,6 @@ public class StringGridIterator implements Iterator<String> {
     }
 
     public boolean hasNext() {
-
         if (this.iterateRows) {
             if (this.col < this.StringGrid.getColumnCount()-1)
                 return true;
@@ -30,40 +29,30 @@ public class StringGridIterator implements Iterator<String> {
             if (this.row < this.StringGrid.getRowCount()-1)
                 return true;
             else if (this.col < this.StringGrid.getColumnCount()-1)
-                return false;
+                return true;
         }
-
         return false;
-        //return !(this.row > this.StringGrid.getRowCount() && this.col > this.StringGrid.getColumnCount());
     }
 
     public String next() {
         String r = StringGrid.getElement(row, col);
 
         if (this.iterateRows) {
-            if (this.col < this.StringGrid.getColumnCount()-1) {
+            if (this.col < this.StringGrid.getColumnCount()) {
                 this.col++;
             }
-            else if (this.row < this.StringGrid.getRowCount()-1) {
+            else if (this.row < this.StringGrid.getRowCount()) {
                 this.col = 0;
                 this.row++;
             }
-            else {
-                // what to do if reached end
-                //throw new IllegalArgumentException("NO!");
-            }
         }
         else {
-            if (this.row < this.StringGrid.getRowCount()-1) {
+            if (this.row < this.StringGrid.getRowCount()) {
                 this.row++;
             }
-            else if (this.col < this.StringGrid.getColumnCount()-1) {
+            else if (this.col < this.StringGrid.getColumnCount()) {
                 this.row = 0;
                 this.col++;
-            }
-            else {
-                // what to do if reached end
-                //throw new IllegalArgumentException("ROW NOW!");
             }
         }
 
