@@ -19,16 +19,21 @@ public class StringGridIterator implements Iterator<String> {
     }
 
     public boolean hasNext() {
+        if (!this.hasNext) {
+            this.hasNext = true;
+            return false;
+        }
+
         if (this.iterateRows) {
-            if (this.col < this.StringGrid.getColumnCount()-1)
+            if (this.col < this.StringGrid.getColumnCount())
                 return true;
-            else if (this.row < this.StringGrid.getRowCount()-1)
+            else if (this.row < this.StringGrid.getRowCount())
                 return true;
         }
         else {
-            if (this.row < this.StringGrid.getRowCount()-1)
+            if (this.row < this.StringGrid.getRowCount())
                 return true;
-            else if (this.col < this.StringGrid.getColumnCount()-1)
+            else if (this.col < this.StringGrid.getColumnCount())
                 return true;
         }
         return false;
@@ -38,21 +43,27 @@ public class StringGridIterator implements Iterator<String> {
         String r = StringGrid.getElement(row, col);
 
         if (this.iterateRows) {
-            if (this.col < this.StringGrid.getColumnCount()) {
+            if (this.col < this.StringGrid.getColumnCount()-1) {
                 this.col++;
             }
-            else if (this.row < this.StringGrid.getRowCount()) {
+            else if (this.row < this.StringGrid.getRowCount()-1) {
                 this.col = 0;
                 this.row++;
             }
+            else {
+                this.hasNext = false;
+            }
         }
         else {
-            if (this.row < this.StringGrid.getRowCount()) {
+            if (this.row < this.StringGrid.getRowCount()-1) {
                 this.row++;
             }
-            else if (this.col < this.StringGrid.getColumnCount()) {
+            else if (this.col < this.StringGrid.getColumnCount()-1) {
                 this.row = 0;
                 this.col++;
+            }
+            else {
+                this.hasNext = false;
             }
         }
 
