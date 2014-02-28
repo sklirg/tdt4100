@@ -25,6 +25,7 @@ public class SudokuMoves {
         int[] previousMove = fieldStates.peek();
         moves.push(no);
         moves.push(previousMove);
+        System.out.println(String.format("State: [%s, %s] %s", previousMove[0], previousMove[1], previousMove[2]));
         return previousMove;
     }
 

@@ -149,7 +149,7 @@ public class SudokuProgram {
                     legalMove = false;
                 }
                 if (legalMove) {
-                    gameMoves.push(input);
+                    //gameMoves.addMove(input);
                     //System.out.println("Added move to stack - top elem in stack: " + gameMoves.peek(0));
                     moves++;
                 }
