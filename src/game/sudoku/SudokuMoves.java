@@ -18,6 +18,14 @@ public class SudokuMoves {
         oldField[2] = field.getValue();
         fieldStates.push(oldField);
         moves.push(move);
+
+
+        // Do this:
+        /*
+         * Field
+         * oldValue, newValue
+         * return field newValue
+         */
     }
 
     public int[] undo() {

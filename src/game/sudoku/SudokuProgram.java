@@ -140,9 +140,10 @@ public class SudokuProgram {
                 boolean legalMove = true;
                 try {
                     int[] values = translateInput(input);
-                    Field field = new Field(values[0],values[1],values[2]);
+                    Field field = new Field(values[1],values[0],values[2]);
                     gameBoard.setValue(values);
                     gameStack.addMove(field, values);
+                    System.out.println(String.format("Field: [%s,%s]: %s pushed", values[1], values[0], values[2]));
                 }
                 catch (IllegalArgumentException e) {
                     System.out.println("Something went wrong: " + e);
