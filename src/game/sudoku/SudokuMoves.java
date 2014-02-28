@@ -9,7 +9,7 @@ public class SudokuMoves {
     Stack<int[]> moves = new Stack<int[]>();
     Stack<int[]> fieldStates = new Stack<int[]>();
 
-    // add ctor for boardString
+    // add ctor for boardString to save game
 
     public void addMove(Field field, int[] move) {
         int[] oldField = new int[3];
@@ -29,6 +29,6 @@ public class SudokuMoves {
     }
 
     public String peek() {
-        return String.format("%s", moves.peek());
+        return /*String.format("%s", */moves.peek()+""/*)*/;
     }
 }
