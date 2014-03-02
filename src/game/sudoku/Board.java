@@ -177,7 +177,7 @@ public class Board {
 
     public void undoLastMove() {
         int[] lastMove = moves.undo();
-        board[lastMove[0]][lastMove[1]].setValue(lastMove[2], moves);
+        board[lastMove[1]][lastMove[0]].setValue(lastMove[2], moves);
     }
 
     @Override
