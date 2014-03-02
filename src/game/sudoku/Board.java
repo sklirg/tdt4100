@@ -171,8 +171,13 @@ public class Board {
     }
 
     public void setValue(int[] i) {
-        board[i[1]][i[0]].setValue(i[2], moves);
+        moves = board[i[1]][i[0]].setValue(i[2], moves);
         board[i[1]][i[0]].setConflict(false);
+    }
+
+    public void undoLastMove() {
+        int[] lastMove = moves.undo();
+        board[lastMove[0]][lastMove[1]].setValue(lastMove[2], moves);
     }
 
     @Override
