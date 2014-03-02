@@ -55,7 +55,7 @@ public class Field {
         return v;
     }
 
-    public void setValue(int v, SudokuMoves m) {
+    public SudokuMoves setValue(int v, SudokuMoves m) {
         if (!(changeable)) {
             throw new IllegalArgumentException("This field is not changeable");
         }
@@ -63,6 +63,7 @@ public class Field {
             m.addMove(this, v);
             this.v = v;
         }
+        return m;
     }
 
     public int getX() {
