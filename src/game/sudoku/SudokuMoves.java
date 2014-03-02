@@ -11,30 +11,25 @@ public class SudokuMoves {
 
     // add ctor for boardString to save game
 
-    public void addMove(Field field, int[] move) {
-        int[] oldField = new int[3];
-        oldField[0] = move[0];
-        oldField[1] = move[1];
-        oldField[2] = field.getValue();
-        fieldStates.push(oldField);
-        moves.push(move);
-
-
+    public void addMove(Field field, int newValue) {
         // Do this:
         /*
          * Field
          * oldValue, newValue
          * return field newValue
          */
+        int[] move = new int[3];
+        move[0] = field.getX();
+        move[1] = field.getY();
+        move[2] = field.getValue();
+        moves.push(move);
     }
 
     public int[] undo() {
-        int[] no = fieldStates.pop();
-        int[] previousMove = fieldStates.peek();
-        moves.push(no);
-        moves.push(previousMove);
-        System.out.println(String.format("State: [%s, %s] %s", previousMove[0], previousMove[1], previousMove[2]));
-        return previousMove;
+        int[] undoneMove = moves.peek();
+        //System.out.println(String.format("State: [%s, %s] %s", previousMove[0], previousMove[1], previousMove[2]));
+        //return previousMove;
+        return undoneMove;
     }
 
     public String peek() {

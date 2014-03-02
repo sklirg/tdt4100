@@ -130,11 +130,11 @@ public class SudokuProgram {
             System.out.println(gameBoard.getBoard());
             System.out.println("Please select your next move.");
             String input = scan.nextLine();
-            String lastMove ="";
-            if (moves >0) {
+            String lastMove ="no.";
+            /*if (moves >0) {
                 lastMove = gameStack.peek();
                 System.out.println("Previous move: " + lastMove);
-            }
+            }*/
             if (input.length() == 3) {
                 undoneMove = "";
                 boolean legalMove = true;
@@ -142,7 +142,7 @@ public class SudokuProgram {
                     int[] values = translateInput(input);
                     Field field = new Field(values[1],values[0],values[2]);
                     gameBoard.setValue(values);
-                    gameStack.addMove(field, values);
+                    //gameStack.addMove(field, values);
                     System.out.println(String.format("Field: [%s,%s]: %s pushed", values[1], values[0], values[2]));
                 }
                 catch (IllegalArgumentException e) {
@@ -156,10 +156,10 @@ public class SudokuProgram {
                 }
             }
             else if (input.equals("u")) {
-                gameBoard.setValue(gameStack.undo());
+                gameBoard.undoLastMove();
             }
             else if(input.equals("r") && lastMove.equals("u")) {
-                gameBoard.setValue(gameStack.undo());
+                gameBoard.undoLastMove();
             }
             else if (input.equals("q"))
                 // Save state ?
