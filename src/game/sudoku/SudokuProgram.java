@@ -130,7 +130,7 @@ public class SudokuProgram {
             System.out.println(gameBoard.getBoard());
             System.out.println("Please select your next move.");
             String input = scan.nextLine();
-            String lastMove ="";
+            String lastMove =""; // @ Look at this; is it needed?
             if (input.length() == 3) {
                 lastMove = "";
                 boolean legalMove = true;
