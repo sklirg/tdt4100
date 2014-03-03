@@ -18,6 +18,7 @@ public class Board {
     */
 
     private Field[][] board = new Field[9][9];
+    private SudokuMoves moves = new SudokuMoves();
 
     public Board(String boardInitString) {
         if (boardInitString.length() != 81) {
@@ -170,8 +171,13 @@ public class Board {
     }
 
     public void setValue(int[] i) {
-        board[i[1]][i[0]].setValue(i[2]);
+        moves = board[i[1]][i[0]].setValue(i[2], moves);
         board[i[1]][i[0]].setConflict(false);
+    }
+
+    public void undoLastMove() {
+        int[] lastMove = moves.undo();
+        board[lastMove[1]][lastMove[0]].setValue(lastMove[2], moves);
     }
 
     @Override
