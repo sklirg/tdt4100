@@ -104,11 +104,11 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
         return gameBoard.isGameCompleted();
     }
 
-    public String loadGame(int id) {
+    public String loadGame(String id) {
         BufferedReader reader;
         String boardString = null;
         try {
-            reader = new BufferedReader(new FileReader((id-1)+".txt"));
+            reader = new BufferedReader(new FileReader(id + ".txt"));
             boardString = reader.readLine();
         }
         catch (Exception e) {
@@ -118,11 +118,12 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
         return boardString;
     }
 
-    public void saveGame(int id, String boardString) {
+    public void saveGame(String id, String boardString) {
         FileWriter writer;
         try {
-            writer = new FileWriter((id-1)+".txt");
+            writer = new FileWriter(id + ".txt");
             writer.write(boardString);
+            writer.write("gameInProgress="+this.gameInProgress);
         }
         catch (Exception e) {
             System.out.println(e);
@@ -146,10 +147,10 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
         Integer state = null;
         char firstChar = input.charAt(0);
         if ('>' == firstChar) {
-            // Save stuff
+            String filename = input.split(">")[1];
         }
         else if ('<' == firstChar) {
-            // Load stuff
+            String filename = input.split("<")[1];
         }
         else if (input.length() == 3) {
             gameBoard.setValue(translateInput(input));
@@ -208,6 +209,7 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
         /*
          * Ønskelig å ikke bruke Exceptions til feilmeldinger da det stopper spillet.
          */
+
         SudokuProgram game = new SudokuProgram();
         game.setBoardString(".....2..38.273.45....6..87.9.8..5367..6...1..4513..9.8.84..3....79.512.62..8....."); // Initial boardstring
         //game.setBoardString("..7582693862739451593614872928145367736928145451367928684273519379451286215896734"); // To prove ending without solving puzzle
