@@ -133,6 +133,14 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
             writer = new FileWriter(id + ".txt");
             writer.write(boardString);
             writer.write("gameInProgress="+this.gameInProgress);
+            while (true) {
+                try {
+                    writer.write(gameBoard.pop());
+                }
+                catch (Exception e) {
+                    break;
+                }
+            }
         }
         catch (Exception e) {
             System.out.println(e);
