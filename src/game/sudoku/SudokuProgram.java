@@ -1,5 +1,7 @@
 package game.sudoku;
 
+import stateandbehavior.Stack;
+
 import java.util.Scanner;
 
 /**
@@ -116,16 +118,44 @@ public class SudokuProgram {
 
     public void run() {
         Scanner scan = new Scanner(System.in);
+
+        Stack gameMoves = new Stack();
+        String undoneMove = "";
+
+        SudokuMoves gameStack = new SudokuMoves();
+
         int moves = 0; // Not implemented.
         while (gameInProgress) {
             gameBoard.findConflicts();
             System.out.println(gameBoard.getBoard());
             System.out.println("Please select your next move.");
             String input = scan.nextLine();
+            String lastMove =""; // @ Look at this; is it needed?
             if (input.length() == 3) {
-                gameBoard.setValue(translateInput(input));
-                moves++;
+                lastMove = "";
+                boolean legalMove = true;
+                try {
+                    int[] values = translateInput(input);
+                    gameBoard.setValue(values);
+                }
+                catch (IllegalArgumentException e) {
+                    System.out.println("Something went wrong: " + e);
+                    legalMove = false;
+                }
+                if (legalMove) {
+                    moves++;
+                }
             }
+            else if (input.equals("u")) {
+                gameBoard.undoLastMove();
+                lastMove = "u";
+            }
+            else if(input.equals("r") && lastMove.equals("u")) {
+                gameBoard.undoLastMove();
+            }
+            else if (input.equals("q"))
+                // Save state ?
+                System.exit(0);
             else
                 System.out.println("Please use this format: 1a1 [x,y,value].");
             gameBoard.findConflicts();
@@ -143,8 +173,8 @@ public class SudokuProgram {
          * Ønskelig å ikke bruke Exceptions til feilmeldinger da det stopper spillet.
          */
         SudokuProgram game = new SudokuProgram();
-        game.setBoardString(".....2..38.273.45....6..87.9.8..5367..6...1..4513..9.8.84..3....79.512.62..8.....");
-        //game.setBoardString("..7582693862739451593614872928145367736928145451367928684273519379451286215896734");
+        game.setBoardString(".....2..38.273.45....6..87.9.8..5367..6...1..4513..9.8.84..3....79.512.62..8....."); // Initial boardstring
+        //game.setBoardString("..7582693862739451593614872928145367736928145451367928684273519379451286215896734"); // To prove ending without solving puzzle
         game.init();
         game.run();
     }
