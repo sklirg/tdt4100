@@ -2,7 +2,7 @@
 
 ##### Meny
 - [Wiki][wiki]
-- [Øving 7][o7]
+- ~~[Øving 7][o7]~~  
 - ~~[Øving 6][o6]~~  
 - ~~[Øving 5][o5]~~  
 - ~~[Øving 4][o4]~~  
@@ -12,7 +12,7 @@
 
 # Øving 7
 ### Spill og grensesnitt
-** Innleveringsfrist Fredag 14. mars kl 0800. **
+**Innleveringsfrist Fredag 14. mars kl 0800.**
 
 ===
   
