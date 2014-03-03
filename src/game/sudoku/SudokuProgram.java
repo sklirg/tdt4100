@@ -144,13 +144,25 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
 
     public Integer doLine(String input) {
         Integer state = null;
+        char firstChar = input.charAt(0);
+        if ('>' == firstChar) {
+            // Save stuff
+        }
+        else if ('<' == firstChar) {
+            // Load stuff
+        }
+        else if (input.length() == 3) {
+            gameBoard.setValue(translateInput(input));
+        }
+        else {
+            System.out.println("Please use this format: 1a1 [x,y,value].");
+            gameBoard.findConflicts();
+        }
 
-
-        gameBoard.setValue(translateInput(input));
         gameBoard.findConflicts();
         if (gameBoard.isGameCompleted())
                 state = 1;
-        System.out.println("State:" + state);
+        System.out.println("Current state:" + state);
         return state;
     }
 
@@ -162,14 +174,11 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
         while (status == null) {
             gameBoard.findConflicts();
             System.out.println(gameBoard.getBoard());
-            String input = scan.nextLine();
 
             System.out.println("Please select your next action.");
-            if (input.length() == 3) {
-                status = doLine(input);
-                lastMove = "";
-            }
-            else if (input.equals("u")) {
+            String input = scan.nextLine();
+
+            if (input.equals("u")) {
                 gameBoard.undoLastMove();
                 lastMove = "u";
             }
@@ -180,8 +189,8 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
                 // Save state ?
                 System.exit(0);
             else {
-                System.out.println("Please use this format: 1a1 [x,y,value].");
-                gameBoard.findConflicts();
+                status = doLine(input);
+                lastMove = "";
             }
 
             if (status == null)
