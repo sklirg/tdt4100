@@ -180,6 +180,10 @@ public class Board {
         board[lastMove[1]][lastMove[0]].setValue(lastMove[2], moves);
     }
 
+    public String pop() {
+        return moves.pop();
+    }
+
     @Override
     public String toString() {
         return getBoard();
