@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Created by Håkon on 31.01.14.
  */
-public class SudokuProgram {
+public class SudokuProgram implements IConsoleGame {
     private String boardString;
     private boolean gameInProgress;
     Board gameBoard;
@@ -114,28 +114,38 @@ public class SudokuProgram {
         }
     }
 
+    public Integer doLine(String input) {
+        int state = 0;
+
+        gameBoard.findConflicts();
+        System.out.println(gameBoard.getBoard());
+        System.out.println("Please select your next move.");
+
+        gameBoard.setValue(translateInput(input));
+        return null;
+    }
+
     public void run() {
         Scanner scan = new Scanner(System.in);
         int moves = 0; // Not implemented.
+        Integer status = null;
         while (gameInProgress) {
-            gameBoard.findConflicts();
-            System.out.println(gameBoard.getBoard());
-            System.out.println("Please select your next move.");
             String input = scan.nextLine();
-            if (input.length() == 3) {
-                gameBoard.setValue(translateInput(input));
-                moves++;
-            }
+            if (input.length() == 3)
+                status = doLine(input);
             else
                 System.out.println("Please use this format: 1a1 [x,y,value].");
-            gameBoard.findConflicts();
-            if (gameCompleted()) {
-                gameInProgress = false;
-                System.out.println("Congratulations! You solved the puzzle!");
-                break;
-            }
-        }
+                gameBoard.findConflicts();
 
+            if (status == null)
+                gameInProgress = true;
+            else
+                gameInProgress = false;
+        }
+        if (gameCompleted()) {
+            gameInProgress = false;
+            System.out.println("Congratulations! You solved the puzzle!");
+        }
     }
 
     public static void main(String[] args) {
