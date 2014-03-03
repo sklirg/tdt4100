@@ -1,13 +1,11 @@
 package game.sudoku;
 
-import stateandbehavior.Stack;
-
 import java.util.Scanner;
 
 /**
  * Created by Håkon on 31.01.14.
  */
-public class SudokuProgram {
+public class SudokuProgram implements IConsoleGame {
     private String boardString;
     private boolean gameInProgress;
     Board gameBoard;
@@ -116,35 +114,31 @@ public class SudokuProgram {
         }
     }
 
+    public Integer doLine(String input) {
+        Integer state = null;
+
+        System.out.println("Please select your next move.");
+        gameBoard.setValue(translateInput(input));
+        gameBoard.findConflicts();
+        if (gameBoard.isGameCompleted())
+                state = 1;
+        System.out.println("State:" + state);
+        return state;
+    }
+
     public void run() {
         Scanner scan = new Scanner(System.in);
-
-        Stack gameMoves = new Stack();
-        String undoneMove = "";
-
-        SudokuMoves gameStack = new SudokuMoves();
-
+        String lastMove = "";
         int moves = 0; // Not implemented.
-        while (gameInProgress) {
+        Integer status = null;
+        while (status == null) {
             gameBoard.findConflicts();
             System.out.println(gameBoard.getBoard());
-            System.out.println("Please select your next move.");
             String input = scan.nextLine();
-            String lastMove =""; // @ Look at this; is it needed?
+
             if (input.length() == 3) {
+                status = doLine(input);
                 lastMove = "";
-                boolean legalMove = true;
-                try {
-                    int[] values = translateInput(input);
-                    gameBoard.setValue(values);
-                }
-                catch (IllegalArgumentException e) {
-                    System.out.println("Something went wrong: " + e);
-                    legalMove = false;
-                }
-                if (legalMove) {
-                    moves++;
-                }
             }
             else if (input.equals("u")) {
                 gameBoard.undoLastMove();
@@ -156,16 +150,20 @@ public class SudokuProgram {
             else if (input.equals("q"))
                 // Save state ?
                 System.exit(0);
-            else
+            else {
                 System.out.println("Please use this format: 1a1 [x,y,value].");
-            gameBoard.findConflicts();
-            if (gameCompleted()) {
-                gameInProgress = false;
-                System.out.println("Congratulations! You solved the puzzle!");
-                break;
+                gameBoard.findConflicts();
             }
-        }
 
+            if (status == null)
+                gameInProgress = true;
+            else
+                gameInProgress = false;
+        }
+        if (gameCompleted()) {
+            gameInProgress = false;
+            System.out.println("Congratulations! You solved the puzzle!");
+        }
     }
 
     public static void main(String[] args) {
