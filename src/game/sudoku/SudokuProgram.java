@@ -3,6 +3,7 @@ package game.sudoku;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.PrintWriter;
+import java.util.EmptyStackException;
 import java.util.Scanner;
 
 /**
@@ -115,9 +116,19 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
                 this.gameInProgress = true;
             else
                 this.gameInProgress = false;
+            this.gameInProgress = false;
             this.setBoardString(boardString);
             while (reader.ready()) {
-                gameBoard.setValue(translateInput(reader.readLine()));
+                String input = reader.readLine();
+                char[] chars = input.toCharArray();
+                if (chars.length == 3)
+                {}
+                else if (chars[2] == '-')
+                    input = chars[0] + chars[1] + ".";
+                else {
+                    throw new IllegalArgumentException("File contains invalid moves, please try again.");
+                }
+                gameBoard.setValue(translateInput(input));
             }
         }
         catch (Exception e) {
@@ -136,12 +147,15 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
             System.out.println("Saved game, saving stack...");
             while (true) {
                 try {
-                    writer.println(gameBoard.pop());
+                    String s = gameBoard.pop();
+                    writer.println(s);
+                    System.out.println("Wrote " + s);
                 }
-                catch (Exception e) {
+                catch (EmptyStackException e) {
                     break;
                 }
             }
+            writer.close();
             System.out.println("Saved stack.");
         }
         catch (Exception e) {

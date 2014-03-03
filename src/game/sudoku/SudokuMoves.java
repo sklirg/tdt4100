@@ -13,10 +13,15 @@ public class SudokuMoves {
 
     public void addMove(Field field, int newValue) {
         int[] move = new int[3];
-        move[0] = field.getX();
-        move[1] = field.getY();
+        move[0] = field.getX()+1;
+        move[1] = field.getY()+1;
         move[2] = field.getValue();
         moves.push(move);
+        int[] thing = new int[3];
+        thing[0] = field.getX()+1;
+        thing[1] = field.getY()+1;
+        thing[2] = newValue;
+        fieldStates.push(thing);
     }
 
     public int[] undo() {
@@ -29,7 +34,7 @@ public class SudokuMoves {
     }
 
     public String pop() {
-        int[] p = moves.pop();
+        int[] p = fieldStates.pop();
         return String.format("%s%s%s", p[0], p[1], p[2]);
     }
 }
