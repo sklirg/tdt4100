@@ -145,7 +145,7 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
     public Integer doLine(String input) {
         Integer state = null;
 
-        System.out.println("Please select your next move.");
+
         gameBoard.setValue(translateInput(input));
         gameBoard.findConflicts();
         if (gameBoard.isGameCompleted())
@@ -164,6 +164,7 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
             System.out.println(gameBoard.getBoard());
             String input = scan.nextLine();
 
+            System.out.println("Please select your next action.");
             if (input.length() == 3) {
                 status = doLine(input);
                 lastMove = "";
