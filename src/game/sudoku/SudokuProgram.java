@@ -2,7 +2,7 @@ package game.sudoku;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -108,7 +108,7 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
         BufferedReader reader;
         String boardString = null;
         try {
-            reader = new BufferedReader(new FileReader(id + ".txt"));
+            reader = new BufferedReader(new FileReader(id));
             boardString = reader.readLine();
             String state = reader.readLine().split("=")[1];
             if (state.equals("true"))
@@ -128,19 +128,21 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
     }
 
     public void saveGame(String id, String boardString) {
-        FileWriter writer;
+        PrintWriter writer;
         try {
-            writer = new FileWriter(id + ".txt");
-            writer.write(boardString);
-            writer.write("gameInProgress="+this.gameInProgress);
+            writer = new PrintWriter(id);
+            writer.println(boardString);
+            writer.println("gameInProgress="+this.gameInProgress);
+            System.out.println("Saved game, saving stack...");
             while (true) {
                 try {
-                    writer.write(gameBoard.pop());
+                    writer.println(gameBoard.pop());
                 }
                 catch (Exception e) {
                     break;
                 }
             }
+            System.out.println("Saved stack.");
         }
         catch (Exception e) {
             System.out.println(e);
@@ -165,9 +167,11 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
         char firstChar = input.charAt(0);
         if ('>' == firstChar) {
             String filename = input.split(">")[1];
+            saveGame(filename, this.getBoardString());
         }
         else if ('<' == firstChar) {
             String filename = input.split("<")[1];
+            loadGame(filename);
         }
         else if (input.length() == 3) {
             gameBoard.setValue(translateInput(input));
@@ -177,7 +181,6 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
             gameBoard.findConflicts();
         }
 
-        gameBoard.findConflicts();
         if (gameBoard.isGameCompleted())
                 state = 1;
         System.out.println("Current state:" + state);
