@@ -1,11 +1,14 @@
 package game.sudoku;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.Scanner;
 
 /**
  * Created by Håkon on 31.01.14.
  */
-public class SudokuProgram implements IConsoleGame {
+public class SudokuProgram implements IConsoleGame, ISaveGames {
     private String boardString;
     private boolean gameInProgress;
     Board gameBoard;
@@ -99,6 +102,31 @@ public class SudokuProgram implements IConsoleGame {
 
     public boolean gameCompleted() {
         return gameBoard.isGameCompleted();
+    }
+
+    public String loadGame(int id) {
+        BufferedReader reader;
+        String boardString = null;
+        try {
+            reader = new BufferedReader(new FileReader((id-1)+".txt"));
+            boardString = reader.readLine();
+        }
+        catch (Exception e) {
+            System.out.println("Nananan, " + e);
+        }
+        System.out.println("Got board: " + boardString);
+        return boardString;
+    }
+
+    public void saveGame(int id, String boardString) {
+        FileWriter writer;
+        try {
+            writer = new FileWriter((id-1)+".txt");
+            writer.write(boardString);
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public void init() {
