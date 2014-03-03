@@ -27,4 +27,9 @@ public class SudokuMoves {
     public String peek() {
         return /*String.format("%s", */moves.peek()+""/*)*/;
     }
+
+    public String pop() {
+        int[] p = moves.pop();
+        return String.format("%s%s%s", p[0], p[1], p[2]);
+    }
 }
