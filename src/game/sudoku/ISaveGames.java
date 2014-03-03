@@ -18,7 +18,7 @@ public interface ISaveGames {
      * Possible solution: Take in the initial boardString as argument, and the gameMovesStack,
      * then loop through the stack until board is populated.
      */
-    public void saveGame(int id, String boardString);
+    public void saveGame(String id, String boardString);
 
 
     /* public String loadGame(int id)
@@ -29,5 +29,5 @@ public interface ISaveGames {
      *
      * Should ask user to save before loading
      */
-    public String loadGame(int id);
+    public String loadGame(String id);
 }
