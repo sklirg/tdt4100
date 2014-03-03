@@ -110,6 +110,15 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
         try {
             reader = new BufferedReader(new FileReader(id + ".txt"));
             boardString = reader.readLine();
+            String state = reader.readLine().split("=")[1];
+            if (state.equals("true"))
+                this.gameInProgress = true;
+            else
+                this.gameInProgress = false;
+            this.setBoardString(boardString);
+            while (reader.ready()) {
+                gameBoard.setValue(translateInput(reader.readLine()));
+            }
         }
         catch (Exception e) {
             System.out.println("Nananan, " + e);
