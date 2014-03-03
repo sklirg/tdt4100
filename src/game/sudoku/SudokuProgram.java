@@ -115,21 +115,24 @@ public class SudokuProgram implements IConsoleGame {
     }
 
     public Integer doLine(String input) {
-        int state = 0;
+        Integer state = null;
 
-        gameBoard.findConflicts();
-        System.out.println(gameBoard.getBoard());
         System.out.println("Please select your next move.");
-
         gameBoard.setValue(translateInput(input));
-        return null;
+        gameBoard.findConflicts();
+        if (gameBoard.isGameCompleted())
+                state = 1;
+        System.out.println("State:" + state);
+        return state;
     }
 
     public void run() {
         Scanner scan = new Scanner(System.in);
         int moves = 0; // Not implemented.
         Integer status = null;
-        while (gameInProgress) {
+        while (status == null) {
+            gameBoard.findConflicts();
+            System.out.println(gameBoard.getBoard());
             String input = scan.nextLine();
             if (input.length() == 3)
                 status = doLine(input);
@@ -153,8 +156,8 @@ public class SudokuProgram implements IConsoleGame {
          * Ønskelig å ikke bruke Exceptions til feilmeldinger da det stopper spillet.
          */
         SudokuProgram game = new SudokuProgram();
-        game.setBoardString(".....2..38.273.45....6..87.9.8..5367..6...1..4513..9.8.84..3....79.512.62..8.....");
-        //game.setBoardString("..7582693862739451593614872928145367736928145451367928684273519379451286215896734");
+        //game.setBoardString(".....2..38.273.45....6..87.9.8..5367..6...1..4513..9.8.84..3....79.512.62..8.....");
+        game.setBoardString("..7582693862739451593614872928145367736928145451367928684273519379451286215896734");
         game.init();
         game.run();
     }
