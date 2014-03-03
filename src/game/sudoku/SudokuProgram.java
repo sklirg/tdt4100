@@ -74,10 +74,20 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
             emptyThisField = true;
         }
 
+        // try to parse second value if read from file
+        try {
+            System.out.println(coordinates[1]+"");
+            y = Integer.parseInt(coordinates[1]+"");
+        }
+        catch (Exception e) {
+            System.out.println("SOmething went wrong: " + e);
+        }
+
         try {
             x = Integer.parseInt(coordinates[0]+"")-1;
             if (!(emptyThisField))
                 v = Integer.parseInt(coordinates[2]+"");
+
             for (int i = 0; i < chars.length; i++) {
                if (chars[i] == coordinates[1]) {
                     y = i;
@@ -117,7 +127,7 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
             else
                 this.gameInProgress = false;
             this.gameInProgress = false;
-            this.setBoardString(boardString);
+            this.setBoardString(boardString); // @todo Should rewrite to a more "secure" way
             while (reader.ready()) {
                 String input = reader.readLine();
                 char[] chars = input.toCharArray();
