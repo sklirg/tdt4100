@@ -1,4 +1,4 @@
-package interfaces.stringgrid;
+package interfaces.stringGrid;
 
 import java.util.Iterator;
 
@@ -19,22 +19,24 @@ public class StringGridIterator implements Iterator<String> {
     }
 
     public boolean hasNext() {
+        if (!this.hasNext) {
+            this.hasNext = true;
+            return false;
+        }
 
         if (this.iterateRows) {
-            if (this.col < this.StringGrid.getColumnCount()-1)
+            if (this.col < this.StringGrid.getColumnCount())
                 return true;
-            else if (this.row < this.StringGrid.getRowCount()-1)
+            else if (this.row < this.StringGrid.getRowCount())
                 return true;
         }
         else {
-            if (this.row < this.StringGrid.getRowCount()-1)
+            if (this.row < this.StringGrid.getRowCount())
                 return true;
-            else if (this.col < this.StringGrid.getColumnCount()-1)
-                return false;
+            else if (this.col < this.StringGrid.getColumnCount())
+                return true;
         }
-
         return false;
-        //return !(this.row > this.StringGrid.getRowCount() && this.col > this.StringGrid.getColumnCount());
     }
 
     public String next() {
@@ -49,8 +51,7 @@ public class StringGridIterator implements Iterator<String> {
                 this.row++;
             }
             else {
-                // what to do if reached end
-                //throw new IllegalArgumentException("NO!");
+                this.hasNext = false;
             }
         }
         else {
@@ -62,8 +63,7 @@ public class StringGridIterator implements Iterator<String> {
                 this.col++;
             }
             else {
-                // what to do if reached end
-                //throw new IllegalArgumentException("ROW NOW!");
+                this.hasNext = false;
             }
         }
 
