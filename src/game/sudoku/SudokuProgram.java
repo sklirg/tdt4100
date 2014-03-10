@@ -6,9 +6,6 @@ import java.io.PrintWriter;
 import java.util.EmptyStackException;
 import java.util.Scanner;
 
-/**
- * Created by Håkon on 31.01.14.
- */
 public class SudokuProgram implements IConsoleGame, ISaveGames, IConsoleOutput {
     private String boardString;
     private boolean gameInProgress;
@@ -182,7 +179,7 @@ public class SudokuProgram implements IConsoleGame, ISaveGames, IConsoleOutput {
         }
     }
 
-    public void init() {
+    public void init(String level) {
         if (gameInProgress) {
             throw new IllegalStateException("There is already an active game.");
         }
@@ -216,20 +213,22 @@ public class SudokuProgram implements IConsoleGame, ISaveGames, IConsoleOutput {
 
         if (gameBoard.isGameCompleted())
                 state = 1;
-        System.out.println("Current state:" + state);
+        //System.out.println("Current state:" + state);
         return state;
     }
 
-    public void run() {
+    public void run(IConsoleOutput o) {
         Scanner scan = new Scanner(System.in);
         String lastMove = "";
         int moves = 0; // Not implemented.
         Integer status = null;
         while (status == null) {
             gameBoard.findConflicts();
-            System.out.println(gameBoard.getBoard());
-
-            System.out.println("Please select your next action.");
+            //System.out.println(gameBoard.getBoard());
+            //System.out.println("Please select your next action.");
+            o.message(gameBoard.getBoard());
+            o.message("Current state: " + status);
+            o.message("Please select your next action.");
             String input = scan.nextLine();
 
             if (input.equals("u")) {
@@ -254,7 +253,8 @@ public class SudokuProgram implements IConsoleGame, ISaveGames, IConsoleOutput {
         }
         if (gameCompleted()) {
             gameInProgress = false;
-            System.out.println("Congratulations! You solved the puzzle!");
+            //System.out.println("Congratulations! You solved the puzzle!");
+            o.message("Congratulations! You solved the puzzle!");
         }
     }
 
@@ -262,11 +262,11 @@ public class SudokuProgram implements IConsoleGame, ISaveGames, IConsoleOutput {
         /*
          * Ønskelig å ikke bruke Exceptions til feilmeldinger da det stopper spillet.
          */
-
+        String sudokuBoard = ".....2..38.273.45....6..87.9.8..5367..6...1..4513..9.8.84..3....79.512.62..8.....";
         SudokuProgram game = new SudokuProgram();
-        game.setBoardString(".....2..38.273.45....6..87.9.8..5367..6...1..4513..9.8.84..3....79.512.62..8....."); // Initial boardstring
+        game.setBoardString(sudokuBoard);
         //game.setBoardString("..7582693862739451593614872928145367736928145451367928684273519379451286215896734"); // To prove ending without solving puzzle
-        game.init();
-        game.run();
+        game.init(sudokuBoard);
+        //game.run();
     }
 }

@@ -54,7 +54,7 @@ public class ConsoleGameDriver implements IConsoleOutput {
 
 	public static void main(String[] args) throws Exception {
 		ConsoleGameDriver driver = new ConsoleGameDriver();
-		ConsoleGame program = (ConsoleGame) Class.forName(args[0]).newInstance();
+		IConsoleGame program = (IConsoleGame) Class.forName(args[0]).newInstance();
 		driver.init(program, args.length > 1 ? args[1] : null);
 		driver.run();
 	}

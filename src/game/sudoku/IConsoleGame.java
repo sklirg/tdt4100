@@ -7,9 +7,9 @@ import encapsulation.LineEditor;
  */
 public interface IConsoleGame {
 
-    public void init();
+    public void init(String level);
 
-    public void run();
+    public void run(IConsoleOutput output);
 
     public Integer doLine(String input);
 }
