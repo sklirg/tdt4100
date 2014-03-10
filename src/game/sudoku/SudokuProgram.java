@@ -9,10 +9,18 @@ import java.util.Scanner;
 /**
  * Created by Håkon on 31.01.14.
  */
-public class SudokuProgram implements IConsoleGame, ISaveGames {
+public class SudokuProgram implements IConsoleGame, ISaveGames, IConsoleOutput {
     private String boardString;
     private boolean gameInProgress;
     Board gameBoard;
+
+    public void message(String message) {
+        // wut
+    }
+
+    public void error (String error) {
+        // wut
+    }
 
     private boolean validBoardString(String s) {
         char[] validChars = {'1','2','3','4','5','6','7','8','9','.'};
@@ -80,7 +88,8 @@ public class SudokuProgram implements IConsoleGame, ISaveGames {
             y = Integer.parseInt(coordinates[1]+"");
         }
         catch (Exception e) {
-            System.out.println("SOmething went wrong: " + e);
+
+            //System.out.println("SOmething went wrong: " + e);
         }
 
         try {
