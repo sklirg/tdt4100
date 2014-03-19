@@ -15,4 +15,8 @@ public class CargoCar extends TrainCar {
     public void setCargoWeight(int cargoWeight) {
         this.cargoWeight = cargoWeight;
     }
+
+    public int getTotalWeight() {
+        return super.getDeadWeight() + this.cargoWeight;
+    }
 }
