@@ -18,6 +18,16 @@ public class BSU extends SavingsAccount{
         }
     }
 
+    public void withdraw(double amount) {
+        if (amount < this.depositsLastYear) {
+            this.depositsLastYear-= amount;
+            super.withdraw(amount);
+        }
+        else {
+            throw new IllegalStateException("Illegal amount");
+        }
+    }
+
     public double getTaxDeduction() {
         // @ todo reset depositsLastYear, get taxDeduction
     }
