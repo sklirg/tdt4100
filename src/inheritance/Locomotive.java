@@ -50,12 +50,29 @@ public class Locomotive {
         String s = "";
         for (TrainCar car : cars) {
             if (car instanceof CargoCar) {
-                s += String.format("Vogn: CargoCar | Vognens vekt: %s | Lastens vekt: %s", car.getTotalWeight(), ((CargoCar) car).getCargoWeight());
+                s += String.format("Vogn: Carg | Vognens vekt: %s | Lastens vekt: %s\n", car.getTotalWeight(), ((CargoCar) car).getCargoWeight());
             }
             else if (car instanceof PassengerCar) {
-                s += String.format("Vogn: CargoCar | Vognens vekt: %s | Antall passasjerer: %s", car.getTotalWeight(), ((PassengerCar) car).getPassengerCount());
+                s += String.format("Vogn: Pass | Vognens vekt: %s | Antall passasjerer: %s\n", car.getTotalWeight(), ((PassengerCar) car).getPassengerCount());
             }
         }
         return s;
+    }
+
+    public static void main(String[] args) {
+        Locomotive myTrain = new Locomotive();
+
+        TrainCar cargo1 = new CargoCar(1000, 100);
+        TrainCar cargo2 = new CargoCar(1000, 200);
+
+        TrainCar pass1 = new PassengerCar(100,50);
+        TrainCar pass2 = new PassengerCar(100,100);
+
+        myTrain.addTrainCar(cargo1);
+        myTrain.addTrainCar(cargo2);
+        myTrain.addTrainCar(pass1);
+        myTrain.addTrainCar(pass2);
+
+        System.out.println(myTrain);
     }
 }
