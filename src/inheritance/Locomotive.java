@@ -47,6 +47,15 @@ public class Locomotive {
 
     @Override
     public String toString() {
-        return "trololol";
+        String s = "";
+        for (TrainCar car : cars) {
+            if (car instanceof CargoCar) {
+                s += String.format("Vogn: CargoCar | Vognens vekt: %s | Lastens vekt: %s", car.getTotalWeight(), ((CargoCar) car).getCargoWeight());
+            }
+            else if (car instanceof PassengerCar) {
+                s += String.format("Vogn: CargoCar | Vognens vekt: %s | Antall passasjerer: %s", car.getTotalWeight(), ((PassengerCar) car).getPassengerCount());
+            }
+        }
+        return s;
     }
 }
