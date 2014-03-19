@@ -9,7 +9,7 @@ public class BSU extends SavingsAccount{
     }
 
     public void deposit(double amount) {
-        if (this.depositsLastYear + amount < this.limit) {
+        if (this.depositsLastYear + amount <= this.limit) {
             super.deposit(amount);
             depositsLastYear += amount;
         }
@@ -26,6 +26,11 @@ public class BSU extends SavingsAccount{
         else {
             throw new IllegalStateException("Illegal amount");
         }
+    }
+
+    public void endYearUpdate() {
+        super.endYearUpdate();
+        getTaxDeduction();
     }
 
     public double getTaxDeduction() {
