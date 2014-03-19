@@ -19,6 +19,11 @@ public class ForeldreSpar extends SavingsAccount{
         }
     }
 
+    public void endYearUpdate() {
+        super.endYearUpdate();
+        this.remainingWithdrawals = this.limit;
+    }
+
     public int getRemainingWithdrawals() {
         return this.remainingWithdrawals;
     }
