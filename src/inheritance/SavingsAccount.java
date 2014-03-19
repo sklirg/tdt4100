@@ -15,11 +15,12 @@ public class SavingsAccount implements IAccount{
     }
 
     public void withdraw(double amount) {
-        /*
-         * @Todo
-         * Illegal amount throws new IllArgExc
-         * Not enough funds throws new IllStateExc
-         */
+        if (amount < 0)
+            throw new IllegalArgumentException("Illegal amount");
+        else if (this.balance < amount)
+            throw new IllegalStateException("Not enough funds");
+        else
+            this.balance -= amount;
     }
 
     public double getBalance() {
