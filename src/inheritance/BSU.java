@@ -30,5 +30,6 @@ public class BSU extends SavingsAccount{
 
     public double getTaxDeduction() {
         // @ todo reset depositsLastYear, get taxDeduction
+        return -1;
     }
 }
