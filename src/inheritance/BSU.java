@@ -30,6 +30,8 @@ public class BSU extends SavingsAccount{
 
     public double getTaxDeduction() {
         // @ todo reset depositsLastYear, get taxDeduction
-        return -1;
+        double freeMoney = this.depositsLastYear * 0.20;
+        this.depositsLastYear = 0;
+        return freeMoney;
     }
 }
