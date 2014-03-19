@@ -2,6 +2,7 @@
 
 ##### Meny
 - [Wiki][wiki]
+- [Øving 8][o8]
 - ~~[Øving 7][o7]~~  
 - ~~[Øving 6][o6]~~  
 - ~~[Øving 5][o5]~~  
@@ -10,13 +11,41 @@
 - ~~[Øving 2][o2]~~  
 - ~~[Øving 1][o1]~~  
 
+# Øving 8
+### Arv
+**Innleveringsfrist Fredag 21. mars kl 0800.**
+
+===
+ 
+#### Dette må du gjøre:
+Velg og gjennomfør minst to av oppgavene under (du trenger m.a.o. heller ikke for denne øvingen å henge deg opp i hvor mange dekningsgrads- og omfangspoeng hver av oppgavene har):
+- CardContainedImpl-oppgaven (https://www.ntnu.no/wiki/display/tdt4100/Arv+-+CardContainerImpl-oppgave)
+- Train-oppgaven (https://www.ntnu.no/wiki/display/tdt4100/Arv+-+Train-oppgave)
+- Kalkulator-oppgaven (https://www.ntnu.no/wiki/display/tdt4100/Arv+-+Kalkulator-oppgave)
+- SavingsAccount-oppgaven (https://www.ntnu.no/wiki/display/tdt4100/Arv+-+SavingsAccount-oppgave)
+- Asteroids-oppgaven (https://www.ntnu.no/wiki/display/tdt4100/Arv+-+Asteroids-oppgave)  
+
+Disse oppgavene har noe ulik vanskelighetsgrad og omfang, og trolig stigende (i.e. CardContainerImpl den enkleste og Asteroids den vanskeligste - hvilket inkluderer GUI!). Alle er (høyst) eksamensrelevante og de anbefales følgelig å ta en titt på alle sammen.
+
+#### Øvingsmål:
+- å lære hvordan arv-mekansimen brukes i OO
+- å lære om instanser, typer, deklarasjoner og tilordninger
+- å lære om sub- og superklasser samt om synlighetsmodifikatorer som brukes ved arv
+ 
+#### Øvingskrav:
+- å kunne bruke arv til å modellerere enkle(re) objektstrukturer- og relasjoner i Java
+- å kunne la flere subklasser bruke funksjonalitet definert i samme superklasse
+- å la en subklasse redefinere metoder definert i en superklasse
+
+===
+
 # Øving 7
 ### Spill og grensesnitt
 **Innleveringsfrist Fredag 14. mars kl 0800.**
 
 ===
   
-### Dette må du gjøre
+#### Dette må du gjøre
 I denne øvingen skal du fortsette med det spillet du implementerte i øving 4 og legge til ny funksjonalitet (angre / gjenta) i tillegg til å innføre grensesnitt som en del av implementasjonen. Dette er beskrevet på følgende wikiside:
 [Spill med mulighet for angring og lagring](https://www.ntnu.no/wiki/display/tdt4100/interface+-+Spill+med+mulighet+for+angring+og+lagring)  
 Merk at dersom du velger å fortsette med TicTacToe, må du først generalisere spillet til å kunne spilles på brett av størrelse NxN og med seiersbetingelse M på rad. Se instruksjoner under Ekstraoppgave - Utvidelse til M-på-rad spill på NxN-brett på [TicTacToe-oppgavesiden](https://www.ntnu.no/wiki/display/tdt4100/Innkapsling+-+TicTacToe-oppgave).
@@ -66,7 +95,7 @@ Disse oppgavene har noe ulik vanskelighetsgrad og omfang, og trolig stigende (i.
   
 ===
   
-### Dette må du gjøre:
+#### Dette må du gjøre:
 Velg og gjennomfør minst én av oppgavene under (du trenger m.a.o. heller ikke for denne øvingen å henge deg opp i hvor mange dekningsgrads- og omfangspoeng hver av oppgavene har):  
 - Card-oppgaven (https://www.ntnu.no/wiki/display/tdt4100/Objektstrukturer+-+Card-oppgave)
 - Partner-oppgaven (https://www.ntnu.no/wiki/display/tdt4100/Objektstrukturer+-+Partner-oppgave)
@@ -94,7 +123,7 @@ Disse oppgavene har noe ulik vanskelighetsgrad og omfang. Alle er (høyst) eksam
 
 ===
 
-### Dette må du gjøre:
+#### Dette må du gjøre:
 I denne øvingen skal du starte å programmere et spill som du skal fortsette å jobbe med i senere øvinger. Det blir mulig å skifte til et annet spill senere så lenge alle øvingskrav blir oppfylt, så ikke vær redd for å velge "feil" spill nå. :-) Merk at du får to uker på øvingen!  
 Velg og gjennomfør minst én av oppgavene under (du trenger m.a.o. ikke å henge deg opp i hvor mange dekningsgrads- og omfangspoeng hver av oppgavene har):  
 - TicTacToe (https://www.ntnu.no/wiki/display/tdt4100/Innkapsling+-+TicTacToe-oppgave) (enklest).
@@ -120,7 +149,7 @@ I denne øvingen legger oppgaveteksten(e) mindre føringer for hvordan koden din
 
 ==========
 
-### Dette må du gjøre:
+#### Dette må du gjøre:
 - Velg minst 2 av oppgavene under [Innkapsling av eksisterende klasser](https://www.ntnu.no/wiki/display/tdt4100/Innkapsling+-+Oppgave+om+innkapsling+av+klasser+fra+andre+oppgaver).
   - *Oppgavene om Rectangle, RPN-kalkulator, Stack for tilfeldige String-objekter og UpOrDownCounter kan bare velges for poeng dersom de ikke allerede har blitt løst i en tidligere øving.*
   - *De øvrige oppgavene (Calculator, Digit, LineEditor og Location) kan velges for poeng uavhengig om de har blitt løst tidligere eller ikke.*
@@ -149,7 +178,7 @@ Før du setter i gang kan det vært lurt å lese nevnte wikiside om 'Innkapsling
 
 =========
 
-### Dette må du gjøre:
+#### Dette må du gjøre:
 - Velg minst én av oppgavene du ikke løste i øving 1 (med mindre du gjorde alle) under wikisiden [Tilstand og oppførsel](https://www.ntnu.no/wiki/pages/viewpage.action?pageId=65937373):
 - Velg deretter minst én av oppgavene under:
   - Enkel kalkulator (https://www.ntnu.no/wiki/pages/viewpage.action?pageId=69241174)
@@ -180,7 +209,7 @@ Før du setter i gang kan det vært lurt å lese nevnte wikiside om [Tilstand og
 
 ==========
 
-### Dette må du gjøre:
+#### Dette må du gjøre:
 Velg blant følgende oppgaver under wikisiden [Tilstand og oppførsel](https://www.ntnu.no/wiki/pages/viewpage.action?pageId=65937373):
 - Account (https://www.ntnu.no/wiki/pages/viewpage.action?pageId=68359650)
 - Digit (https://www.ntnu.no/wiki/pages/viewpage.action?pageId=69239051)
