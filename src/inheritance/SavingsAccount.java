@@ -29,6 +29,6 @@ public class SavingsAccount implements IAccount{
     }
 
     public void endYearUpdate() {
-        // @Todo apply rentefot
+        this.balance += this.balance * this.rentefot;
     }
 }
