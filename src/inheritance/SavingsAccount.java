@@ -3,8 +3,9 @@ package inheritance;
 public class SavingsAccount implements IAccount{
     private double balance, rentefot;
 
-    public SavingsAccount(double balance) {
-        this.balance = balance;
+    public SavingsAccount(double rentefot) {
+        this.rentefot = rentefot;
+        this.balance = 0;
     }
 
     public void deposit(double amount) {
