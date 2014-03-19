@@ -3,7 +3,7 @@ package inheritance;
 public class SavingsAccount implements IAccount{
     private double balance, rentefot;
 
-    public SavingsAccount(double rentefot) {
+    protected SavingsAccount(double rentefot) {
         this.rentefot = rentefot;
         this.balance = 0;
     }
@@ -28,7 +28,7 @@ public class SavingsAccount implements IAccount{
         return this.balance;
     }
 
-    public void endYearUpdate() {
+    protected void endYearUpdate() {
         this.balance += this.balance * this.rentefot;
     }
 }
