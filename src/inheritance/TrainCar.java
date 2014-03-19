@@ -1,14 +1,14 @@
 package inheritance;
 
 public class TrainCar {
-    private int emptyWeight, deadWeight;
+    private int deadWeight;
 
     TrainCar(int weight){
-        this.emptyWeight = weight;
+        this.deadWeight = weight;
     }
 
     public int getTotalWeight() {
-        return this.emptyWeight + this.deadWeight;
+        return this.deadWeight;
     }
 
     public int getDeadWeight() {
