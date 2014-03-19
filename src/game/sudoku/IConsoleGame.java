@@ -9,7 +9,7 @@ public interface IConsoleGame {
 
     public void init(String level);
 
-    public void run(IConsoleOutput output);
+    public void run();
 
     public Integer doLine(String input);
 }

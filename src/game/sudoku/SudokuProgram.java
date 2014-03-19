@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.util.EmptyStackException;
 import java.util.Scanner;
 
-public class SudokuProgram implements IConsoleGame, ISaveGames, IConsoleOutput {
+public class SudokuProgram implements IConsoleGame, ISaveGames  {
     private String boardString;
     private boolean gameInProgress;
     Board gameBoard;
@@ -217,7 +217,7 @@ public class SudokuProgram implements IConsoleGame, ISaveGames, IConsoleOutput {
         return state;
     }
 
-    public void run(IConsoleOutput o) {
+    public void run() {
         Scanner scan = new Scanner(System.in);
         String lastMove = "";
         int moves = 0; // Not implemented.
@@ -226,9 +226,9 @@ public class SudokuProgram implements IConsoleGame, ISaveGames, IConsoleOutput {
             gameBoard.findConflicts();
             //System.out.println(gameBoard.getBoard());
             //System.out.println("Please select your next action.");
-            o.message(gameBoard.getBoard());
-            o.message("Current state: " + status);
-            o.message("Please select your next action.");
+            System.out.println(gameBoard.getBoard());
+            System.out.println("Current state: " + status);
+            System.out.println("Please select your next action.");
             String input = scan.nextLine();
 
             if (input.equals("u")) {
@@ -254,7 +254,7 @@ public class SudokuProgram implements IConsoleGame, ISaveGames, IConsoleOutput {
         if (gameCompleted()) {
             gameInProgress = false;
             //System.out.println("Congratulations! You solved the puzzle!");
-            o.message("Congratulations! You solved the puzzle!");
+            System.out.println("Congratulations! You solved the puzzle!");
         }
     }
 
@@ -267,6 +267,6 @@ public class SudokuProgram implements IConsoleGame, ISaveGames, IConsoleOutput {
         game.setBoardString(sudokuBoard);
         //game.setBoardString("..7582693862739451593614872928145367736928145451367928684273519379451286215896734"); // To prove ending without solving puzzle
         game.init(sudokuBoard);
-        //game.run();
+        game.run();
     }
 }
