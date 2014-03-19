@@ -18,19 +18,7 @@ public class Locomotive {
     }
 
     public int getTotalWeight() {
-        int totalWeight = 0;
-        for (TrainCar car : cars) {
-            if (car instanceof CargoCar) {
-                totalWeight += ((CargoCar) car).getCargoWeight();
-            }
-            else if (car instanceof PassengerCar) {
-                totalWeight += ((PassengerCar) car).getPassengerCount();
-            }
-            else {
-                throw new IllegalArgumentException("pls");
-            }
-        }
-        return totalWeight;
+        return getCargoWeight() + (getPassengerCount()*80);
     }
 
     public int getPassengerCount() {
