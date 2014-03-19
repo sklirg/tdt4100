@@ -24,8 +24,7 @@ public class SavingsAccount implements IAccount{
     }
 
     public double getBalance() {
-        // @ Todo return balance
-        return -1;
+        return this.balance;
     }
 
     public void endYearUpdate() {
