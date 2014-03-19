@@ -18,7 +18,11 @@ public class Locomotive {
     }
 
     public int getTotalWeight() {
-        return getCargoWeight() + (getPassengerCount()*80);
+        int totalWeight = 0;
+        for (TrainCar car : cars) {
+            totalWeight += car.getTotalWeight();
+        }
+        return totalWeight;
     }
 
     public int getPassengerCount() {
