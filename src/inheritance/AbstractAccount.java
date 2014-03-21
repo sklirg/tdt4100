@@ -11,7 +11,7 @@ public abstract class AbstractAccount {
 
     }
 
-    public void withdraw(double amount) {
+    protected void withdraw(double amount) {
 
     }
 
