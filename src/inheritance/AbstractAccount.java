@@ -12,7 +12,10 @@ public abstract class AbstractAccount {
     }
 
     protected void withdraw(double amount) {
-
+        if (amount > 0)
+            internalWithdraw(amount);
+        else
+            throw new IllegalArgumentException("Illegal amount");
     }
 
     abstract void internalWithdraw(double amount);
