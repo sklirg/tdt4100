@@ -6,7 +6,7 @@ public class DebitAccount extends AbstractAccount {
         super();
     }
 
-    public void internalWithdraw(double amount) {
+    protected void internalWithdraw(double amount) {
         if (super.getBalance()<amount)
             throw new IllegalStateException("Not enough funds");
     }
