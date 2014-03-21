@@ -64,19 +64,19 @@ public class SavingsAccount2Test extends TestCase {
     
   }
   
-  private void _test__deposit_transitions0_source_state(final SavingsAccount it) {
+  private void _test__deposit_transitions0_source_state(final SavingsAccount2 it) {
     _test__deposit_transitions0_source_state_objectTests0_test(sub);
     
   }
   
-  private void _test__deposit_transitions0_source_state_objectTests0_test(final SavingsAccount it) {
+  private void _test__deposit_transitions0_source_state_objectTests0_test(final SavingsAccount2 it) {
     
     double _balance = it.getBalance();
     assertEquals("getBalance() == 0.0 failed after deposit(10000.0)", 0.0, _balance);
     
   }
   
-  private void _transition_exprAction__deposit_transitions0_actions0(final SavingsAccount it) {
+  private void _transition_exprAction__deposit_transitions0_actions0(final SavingsAccount2 it) {
     try {
       
       it.deposit(10000.0);
@@ -86,19 +86,19 @@ public class SavingsAccount2Test extends TestCase {
     
   }
   
-  private void _test__deposit_transitions0_effect_state(final SavingsAccount it) {
+  private void _test__deposit_transitions0_effect_state(final SavingsAccount2 it) {
     _test__deposit_transitions0_effect_state_objectTests0_test(sub);
     
   }
   
-  private void _test__deposit_transitions0_effect_state_objectTests0_test(final SavingsAccount it) {
+  private void _test__deposit_transitions0_effect_state_objectTests0_test(final SavingsAccount2 it) {
     
     double _balance = it.getBalance();
     assertEquals("getBalance() == 10000.0 failed after deposit(10000.0)", 10000.0, _balance);
     
   }
   
-  private void _transition_exprAction__deposit_transitions1_actions0(final SavingsAccount it) {
+  private void _transition_exprAction__deposit_transitions1_actions0(final SavingsAccount2 it) {
     try {
       
       double _minus = (-10000.0);
@@ -109,19 +109,19 @@ public class SavingsAccount2Test extends TestCase {
     
   }
   
-  private void _test__deposit_transitions2_effect_state(final SavingsAccount it) {
+  private void _test__deposit_transitions2_effect_state(final SavingsAccount2 it) {
     _test__deposit_transitions2_effect_state_objectTests0_test(sub);
     
   }
   
-  private void _test__deposit_transitions2_effect_state_objectTests0_test(final SavingsAccount it) {
+  private void _test__deposit_transitions2_effect_state_objectTests0_test(final SavingsAccount2 it) {
     
     double _balance = it.getBalance();
     assertEquals("getBalance() == 10000.0 failed", 10000.0, _balance);
     
   }
   
-  private void _transition_exprAction__withdraw_transitions0_actions0(final SavingsAccount it) {
+  private void _transition_exprAction__withdraw_transitions0_actions0(final SavingsAccount2 it) {
     try {
       
       it.deposit(20000.0);
@@ -131,7 +131,7 @@ public class SavingsAccount2Test extends TestCase {
     
   }
   
-  private void _transition_exprAction__withdraw_transitions0_actions1(final SavingsAccount it) {
+  private void _transition_exprAction__withdraw_transitions0_actions1(final SavingsAccount2 it) {
     try {
       
       it.withdraw(5000.0);
@@ -141,19 +141,19 @@ public class SavingsAccount2Test extends TestCase {
     
   }
   
-  private void _test__withdraw_transitions0_effect_state(final SavingsAccount it) {
+  private void _test__withdraw_transitions0_effect_state(final SavingsAccount2 it) {
     _test__withdraw_transitions0_effect_state_objectTests0_test(sub);
     
   }
   
-  private void _test__withdraw_transitions0_effect_state_objectTests0_test(final SavingsAccount it) {
+  private void _test__withdraw_transitions0_effect_state_objectTests0_test(final SavingsAccount2 it) {
     
     double _balance = it.getBalance();
     assertEquals("getBalance() == 15000.0 failed after deposit(20000.0) ,withdraw(5000.0)", 15000.0, _balance);
     
   }
   
-  private void _transition_exprAction__withdraw_transitions1_actions0(final SavingsAccount it) {
+  private void _transition_exprAction__withdraw_transitions1_actions0(final SavingsAccount2 it) {
     try {
       
       double _minus = (-10000.0);
@@ -164,19 +164,19 @@ public class SavingsAccount2Test extends TestCase {
     
   }
   
-  private void _test__withdraw_transitions2_effect_state(final SavingsAccount it) {
+  private void _test__withdraw_transitions2_effect_state(final SavingsAccount2 it) {
     _test__withdraw_transitions2_effect_state_objectTests0_test(sub);
     
   }
   
-  private void _test__withdraw_transitions2_effect_state_objectTests0_test(final SavingsAccount it) {
+  private void _test__withdraw_transitions2_effect_state_objectTests0_test(final SavingsAccount2 it) {
     
     double _balance = it.getBalance();
     assertEquals("getBalance() == 15000.0 failed", 15000.0, _balance);
     
   }
   
-  private void _transition_exprAction__withdraw_transitions3_actions0(final SavingsAccount it) {
+  private void _transition_exprAction__withdraw_transitions3_actions0(final SavingsAccount2 it) {
     try {
       
       it.withdraw(20000.0);
@@ -186,19 +186,19 @@ public class SavingsAccount2Test extends TestCase {
     
   }
   
-  private void _test__withdraw_transitions4_effect_state(final SavingsAccount it) {
+  private void _test__withdraw_transitions4_effect_state(final SavingsAccount2 it) {
     _test__withdraw_transitions4_effect_state_objectTests0_test(sub);
     
   }
   
-  private void _test__withdraw_transitions4_effect_state_objectTests0_test(final SavingsAccount it) {
+  private void _test__withdraw_transitions4_effect_state_objectTests0_test(final SavingsAccount2 it) {
     
     double _balance = it.getBalance();
     assertEquals("getBalance() == 15000.0 failed", 15000.0, _balance);
     
   }
   
-  private void _transition_exprAction__withdraw_transitions5_actions0(final SavingsAccount it) {
+  private void _transition_exprAction__withdraw_transitions5_actions0(final SavingsAccount2 it) {
     try {
       
       it.withdraw(10000.0);
@@ -208,19 +208,19 @@ public class SavingsAccount2Test extends TestCase {
     
   }
   
-  private void _test__withdraw_transitions5_effect_state(final SavingsAccount it) {
+  private void _test__withdraw_transitions5_effect_state(final SavingsAccount2 it) {
     _test__withdraw_transitions5_effect_state_objectTests0_test(sub);
     
   }
   
-  private void _test__withdraw_transitions5_effect_state_objectTests0_test(final SavingsAccount it) {
+  private void _test__withdraw_transitions5_effect_state_objectTests0_test(final SavingsAccount2 it) {
     
     double _balance = it.getBalance();
     assertEquals("getBalance() == 4950.0 failed after withdraw(10000.0)", 4950.0, _balance);
     
   }
   
-  private void _transition_exprAction__withdraw_transitions6_actions0(final SavingsAccount it) {
+  private void _transition_exprAction__withdraw_transitions6_actions0(final SavingsAccount2 it) {
     try {
       
       it.withdraw(4930.0);
@@ -230,12 +230,12 @@ public class SavingsAccount2Test extends TestCase {
     
   }
   
-  private void _test__withdraw_transitions7_effect_state(final SavingsAccount it) {
+  private void _test__withdraw_transitions7_effect_state(final SavingsAccount2 it) {
     _test__withdraw_transitions7_effect_state_objectTests0_test(sub);
     
   }
   
-  private void _test__withdraw_transitions7_effect_state_objectTests0_test(final SavingsAccount it) {
+  private void _test__withdraw_transitions7_effect_state_objectTests0_test(final SavingsAccount2 it) {
     
     double _balance = it.getBalance();
     assertEquals("getBalance() == 4950.0 failed", 4950.0, _balance);
@@ -243,7 +243,6 @@ public class SavingsAccount2Test extends TestCase {
   }
   
   public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(SavingsAccountTest.class);
+    no.hal.jex.standalone.JexStandalone.main(SavingsAccount2Test.class);
   }
 }
-</pre></body></html>
