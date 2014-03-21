@@ -2,7 +2,8 @@
 
 ##### Meny
 - [Wiki][wiki]
-- [Øving 8][o8]
+- [Øving 8][o9]
+- ~~[Øving 8][o8]~~
 - ~~[Øving 7][o7]~~  
 - ~~[Øving 6][o6]~~  
 - ~~[Øving 5][o5]~~  
@@ -10,6 +11,32 @@
 - ~~[Øving 3][o3]~~  
 - ~~[Øving 2][o2]~~  
 - ~~[Øving 1][o1]~~  
+
+# Øving 9
+###Observatør-observert-teknikken og abstrakte klasser
+**Innleveringsfrist Fredag 28. mars kl 0800.**
+
+===
+ 
+#### Dette må du gjøre:
+Velg og gjennomfør minst én av oppgavene under (du trenger m.a.o. heller ikke for denne øvingen å henge deg opp i hvor mange dekningsgrads- og omfangspoeng hver av oppgavene har):
+- AbstractAccount-oppgaven (https://www.ntnu.no/wiki/display/tdt4100/Arv+-+AbstractAccount-oppgave)
+- HighscoreProgram-oppgaven (https://www.ntnu.no/wiki/pages/viewpage.action?pageId=70915559)
+- StockListener-oppgaven (https://www.ntnu.no/wiki/pages/viewpage.action?pageId=70913886)  
+  
+Være oppmerksom på at disse oppgavene har noe ulik vanskelighetsgrad og omfang. Alle er (høyst) eksamensrelevante og det anbefales følgelig å ta en titt på, om ikke alle sammen, helst minst én fra hvert av de to temaene (AbstractAccount-oppgaven omhandler abstrakte klasser og HighscoreProgram- og StockListener-oppgaven observatør-observert-teknikken, hvilket også vil være tema for øving 10). 
+
+#### Øvingsmål:
+- å lære hva observatør-observert-teknikken er, dens bruksområder og fordeler
+- å lære om abstrakte klasser, deres bruksområder og fordeler
+ 
+#### Øvingskrav:
+- å kunne gjøre definere og implementere et observatørgrensesnitt
+- å kunne la en observert klassen forteller dens observatører om endringer
+- å kunne samle felles oppførsel til to eller flere subklasser i en felles abstrakt klasse
+
+
+===
 
 # Øving 8
 ### Arv
