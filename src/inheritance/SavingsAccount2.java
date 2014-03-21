@@ -12,9 +12,9 @@ public class SavingsAccount2 extends AbstractAccount {
     }
 
     public void internalWithdraw(double amount) {
-        if (currentWithdrawals >= withdrawalLimit)
-            throw new IllegalStateException("Not enough withdrawals");
-        else if (amount > super.getBalance())
+        if (amount > super.getBalance())
             throw new IllegalStateException("Not enough funds");
+        else if (currentWithdrawals >= withdrawalLimit)
+            System.out.println("Remove fee from balance"); //@todo
     }
 }
