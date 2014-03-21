@@ -4,6 +4,7 @@ public class CreditAccount extends AbstractAccount {
     private double creditLine;
 
     public CreditAccount(double limit) {
+        super();
         if (limit < 0)
             throw new IllegalArgumentException("Creditline cannot be less than 0");
         else
