@@ -1,6 +1,6 @@
 package inheritance;
 
-public class DebitAccount extends AbstractAccount{
+public class DebitAccount extends AbstractAccount {
 
     public DebitAccount() {
         super();
