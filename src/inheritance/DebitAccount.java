@@ -7,6 +7,5 @@ public class DebitAccount extends AbstractAccount{
     }
 
     public void internalWithdraw(double amount) {
-        super.withdraw(amount);
     }
 }
