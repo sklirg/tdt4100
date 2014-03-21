@@ -18,16 +18,8 @@ public abstract class AbstractAccount {
         if (amount < 0)
             throw new IllegalArgumentException("Illegal amount");
         else {
-            boolean allowed = true;
-            try {
-                internalWithdraw(amount);
-            }
-            catch (Exception e) {
-                allowed = false;
-                throw e;
-            }
-            if (allowed)
-                this.balance -= amount;
+            internalWithdraw(amount);
+            this.balance -= amount;
         }
     }
 
