@@ -17,8 +17,18 @@ public abstract class AbstractAccount {
     public void withdraw(double amount) {
         if (amount < 0)
             throw new IllegalArgumentException("Illegal amount");
-        else
-            internalWithdraw(amount);
+        else {
+            boolean allowed = true;
+            try {
+                internalWithdraw(amount);
+            }
+            catch (Exception e) {
+                allowed = false;
+                throw e;
+            }
+            if (allowed)
+                this.balance -= amount;
+        }
     }
 
     abstract void internalWithdraw(double amount);
