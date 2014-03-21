@@ -16,10 +16,16 @@ public class CreditAccount extends AbstractAccount {
     }
 
     public void setCreditLine(double creditLine) {
-        this.creditLine = creditLine;
+        if (creditLine < 0)
+            throw new IllegalArgumentException("Creditline cannot be less than 0");
+        else if (creditLine < super.getBalance())
+            throw new IllegalStateException("Cannot set limit lower than current credit");
+        else
+            this.creditLine = creditLine;
     }
 
     protected void internalWithdraw(double amount) {
-
+        if (amount > (this.creditLine + super.getBalance()))
+            throw new IllegalStateException("Not enough funds");
     }
 }
