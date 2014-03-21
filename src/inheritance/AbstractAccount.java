@@ -8,7 +8,10 @@ public abstract class AbstractAccount {
     }
 
     public void deposit(double amount) {
-
+        if (amount > 0)
+            this.balance += amount;
+        else
+            throw new IllegalArgumentException("Illegal amount");
     }
 
     protected void withdraw(double amount) {
