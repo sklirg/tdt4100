@@ -1,5 +1,7 @@
 package inheritance;
 
+import org.eclipse.emf.ecore.xmi.IllegalValueException;
+
 public abstract class AbstractAccount {
     private double balance;
 
@@ -18,7 +20,12 @@ public abstract class AbstractAccount {
         if (amount < 0)
             throw new IllegalArgumentException("Illegal amount");
         else {
-            internalWithdraw(amount);
+            try {
+                internalWithdraw(amount);
+            } catch (IllegalArgumentException e) {
+                amount += 50;
+            }
+
             this.balance -= amount;
         }
     }

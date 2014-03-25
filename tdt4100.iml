@@ -8,8 +8,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="jexercise-standalone" level="project" />
-    <orderEntry type="library" name="jexercise-standalone" level="project" />
+    <orderEntry type="library" name="tdt4100" level="project" />
   </component>
 </module>
 
