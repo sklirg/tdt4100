@@ -1,7 +1,5 @@
 package inheritance;
 
-import org.eclipse.emf.ecore.xmi.IllegalValueException;
-
 public class SavingsAccount2 extends AbstractAccount {
     private int withdrawalLimit, currentWithdrawals;
     private double fee;
@@ -17,13 +15,14 @@ public class SavingsAccount2 extends AbstractAccount {
         if (amount > super.getBalance())
             throw new IllegalStateException("Not enough funds");
         else if (currentWithdrawals >= withdrawalLimit) {
-            if (amount > super.getBalance() + this.fee) {
+            if (super.getBalance() - amount - this.fee < 0) {
                 throw new IllegalStateException("Not enough funds to cover fee");
             }
             else
                 throw new IllegalArgumentException("Not enough withdrawals");
-            //System.out.println("Remove fee from balance"); //@todo
         }
-        currentWithdrawals++;
+        else {
+            currentWithdrawals++;
+        }
     }
 }
