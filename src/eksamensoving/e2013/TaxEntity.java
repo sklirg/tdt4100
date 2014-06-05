@@ -65,4 +65,26 @@ public abstract class TaxEntity {
         else
             throw new IllegalArgumentException();
     }
+
+    // Oppgave 1e
+    /*
+        Skatt = Inntektsskatt + Formueskatt
+        Inntektsskatt = (inntekt – fradrag) * skatteprosent %
+        Formueskatt = (formue – gjeld) * 1 %
+        Hvis gjelden er større enn formuen blir det ingen formueskatt det året.
+        (NB: Tilsvarende for inntekt/fradag for å unngå negativ skatt!!)
+     */
+
+    public double getTax() {
+        return getCapitalTax() + getIncomeTax();
+    }
+
+    // Hjelpemetode for formueskatt
+    private double getCapitalTax() {
+        return (formue > gjeld) ? ((formue - gjeld) * 0.01) : 0;
+    }
+
+    private double getIncomeTax() {
+        return (inntekt > fradrag) ? (inntekt - fradrag) * skatteprosent : 0;
+    }
 }
