@@ -49,4 +49,18 @@ public abstract class TaxEntity {
     }
 
     protected abstract boolean checkId(String id);
+
+    public void setName(String name) {
+        if (checkName(name))
+            this.navn = name;
+        else
+            throw new IllegalArgumentException();
+    }
+
+    public void setPercent(double percent) {
+        if (checkPercent(percent))
+            this.skatteprosent = percent;
+        else
+            throw new IllegalArgumentException();
+    }
 }
