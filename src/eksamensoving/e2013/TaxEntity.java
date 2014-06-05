@@ -87,4 +87,44 @@ public abstract class TaxEntity {
     private double getIncomeTax() {
         return (inntekt > fradrag) ? (inntekt - fradrag) * skatteprosent : 0;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return navn;
+    }
+
+    public long getInntekt() {
+        return inntekt;
+    }
+
+    public void setInntekt(long inntekt) {
+        if (checkPositive(inntekt)) this.inntekt = inntekt;
+    }
+
+    public long getFormue() {
+        return formue;
+    }
+
+    public void setFormue(long formue) {
+        if (checkPositive(formue)) this.formue = formue;
+    }
+
+    public long getFradrag() {
+        return fradrag;
+    }
+
+    public void setFradrag(long fradrag) {
+        if (checkPositive(fradrag)) this.fradrag = fradrag;
+    }
+
+    public long getGjeld() {
+        return gjeld;
+    }
+
+    public void setGjeld(long gjeld) {
+        if (checkPositive(gjeld)) this.gjeld = gjeld;
+    }
 }
