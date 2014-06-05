@@ -50,6 +50,8 @@ public abstract class TaxEntity {
 
     protected abstract boolean checkId(String id);
 
+
+    // Oppgave 1c
     public void setName(String name) {
         if (checkName(name))
             this.navn = name;
