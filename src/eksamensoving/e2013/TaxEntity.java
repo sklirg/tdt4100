@@ -10,8 +10,8 @@ public abstract class TaxEntity {
 
     // Oppgave 1d
     protected TaxEntity(String id, String navn, double skatteprosent) {
-        if (checkId(id))
-            this.id = id;
+        if (! checkId(id)) throw new FuckYouException("FUCK YOU");
+        this.id = id;
         this.setName(navn);
         this.setPercent(skatteprosent);
     }

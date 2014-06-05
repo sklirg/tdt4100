@@ -7,6 +7,8 @@ public class YearRegister {
 
     public final int year;
 
+    private int maxTax, minTax, avgTax;
+
     public YearRegister(int year) {
         this.year = year;
         this.entities= new HashSet<TaxEntity>();
@@ -45,4 +47,28 @@ public class YearRegister {
         }
         return communeentities;
     }
+
+    public void makeStatistics() {
+        int max = 0, min = 0, avg = 0, sum = 0, num = this.entities.size();
+
+        for (TaxEntity te : this.entities) {
+            // Max
+            if (te.getTax() > max) max = te.getTax();
+
+            // Min
+            if (te.getTax() < min) min = te.getTax();
+
+            // Avg
+            sum += te.getTax();
+        }
+
+        avg = sum/num;
+
+        // setting stuffs
+        this.maxTax = max;
+        this.minTax = min;
+        this.avgTax = avg;
+    }
+
+
 }
