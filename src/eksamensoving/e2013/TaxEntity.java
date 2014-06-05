@@ -2,14 +2,13 @@ package eksamensoving.e2013;
 
 public abstract class TaxEntity {
 
-    /*
-     * Oppgave 1
-     */
+    // Oppgave 1
     private final String id;
     private String navn;
     private double skatteprosent;
     private long inntekt, formue, fradrag, gjeld;
 
+    // Oppgave 1d
     protected TaxEntity(String id, String navn, double skatteprosent) {
         if (checkId(id))
             this.id = id;
@@ -17,9 +16,7 @@ public abstract class TaxEntity {
         this.setPercent(skatteprosent);
     }
 
-    /*
-     * Oppgave 2
-     */
+    // Oppgave 2
     private boolean checkPositive(long num) {
         return num >= 0;
     }
