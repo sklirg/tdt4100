@@ -22,4 +22,27 @@ public class YearRegister {
         }
         return false;
     }
+
+    public boolean addTaxEntity (TaxEntity p) {
+        if (this.entities.contains(p)) return false;
+
+        this.entities.add(p);
+        return true;
+    }
+
+    public boolean removeTaxEntity (TaxEntity p) {
+        if (! this.entities.contains(p)) return false;
+
+        this.entities.remove(p);
+        return true;
+    }
+
+    public Collection<TaxEntity> getTaxEntitiesInCommune(String name) {
+        HashSet<TaxEntity> communeentities = new HashSet<TaxEntity>();
+
+        for (TaxEntity te : this.entities) {
+            if (te.getCommune().equals(name)) communeentities.add(te);
+        }
+        return communeentities;
+    }
 }
