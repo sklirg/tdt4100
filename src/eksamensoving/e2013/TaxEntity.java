@@ -9,9 +9,12 @@ public abstract class TaxEntity {
     private String navn;
     private double skatteprosent;
     private long inntekt, formue, fradrag, gjeld;
-    public TaxEntity(String id, String navn) {
-        this.id = id;
-        this.navn = navn;
+
+    protected TaxEntity(String id, String navn, double skatteprosent) {
+        if (checkId(id))
+            this.id = id;
+        this.setName(navn);
+        this.setPercent(skatteprosent);
     }
 
     /*
