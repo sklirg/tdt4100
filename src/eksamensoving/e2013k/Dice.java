@@ -77,4 +77,10 @@ public class Dice {
         }
         return sum;
     }
+
+    public static void main(String[] args) {
+        SomeEnum c = SomeEnum.PAIR;
+        Dice dice = new Dice(5);
+        System.out.println(c);
+    }
 }
